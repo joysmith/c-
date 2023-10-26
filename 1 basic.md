@@ -138,7 +138,7 @@ int main() {
   int audio_file_size;
   audio_file_size = 100;
 
-  // approach 2: combine two statements in single line- declaration & initialization
+  // approach 2: combine two statements in single line -declaration & initialization
   int image_file_size = 5;
 
   std::cout << image_file_size;
