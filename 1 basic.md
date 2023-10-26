@@ -146,6 +146,8 @@
 
 ### 10. Comments<a id="016"></a>
 
+<br>
+
 # Fundamental Data Types
 
 ### 11. Introduction<a id="017"></a>
@@ -172,6 +174,8 @@
 
 ### 22. Type Conversion<a id="028"></a>
 
+<br>
+
 # Decision Making
 
 ### 23. Introduction<a id="029"></a>
@@ -190,6 +194,8 @@
 
 ### 30. The Switch Statement<a id="036"></a>
 
+<br>
+
 # Loops
 
 ### 31. Introduction<a id="037"></a>
@@ -205,6 +211,8 @@
 ### 36. Break and Continue Statements<a id="042"></a>
 
 ### 37. Nested Loops<a id="043"></a>
+
+<br>
 
 # Functions
 
