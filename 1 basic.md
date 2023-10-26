@@ -134,10 +134,11 @@
 #include <iostream>
 
 int main() {
-	  int audio_file_size;
+	  // approach 1: declaring variable then initializing
+    int audio_file_size;
 	  audio_file_size = 100;
 
-    // combine two statements in single line
+    // approach 2: combine two statements in single line
     int image_file_size = 100;
 
     std::cout << image_file_size;
