@@ -134,15 +134,15 @@
 #include <iostream>
 
 int main() {
-// approach 1: declaring variable then initializing
-int audio_file_size;
-audio_file_size = 100;
+  // approach 1: declaring variable then initializing
+  int audio_file_size;
+  audio_file_size = 100;
 
-// approach 2: combine two statements in single line
-int image_file_size = 5;
+  // approach 2: combine two statements in single line
+  int image_file_size = 5;
 
-std::cout << image_file_size;
-return 0;
+  std::cout << image_file_size;
+  return 0;
 }
 ```
 
