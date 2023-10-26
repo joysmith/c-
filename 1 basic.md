@@ -1,19 +1,8 @@
-| Left-aligned | Center-aligned | Right-aligned |
-| :----------- | :------------: | ------------: |
-| git status   |   git status   |    git status |
-| git diff     |    git diff    |      git diff |
-
-##### 1. [Getting Started with C++](#1)
-
-##### 2. [Basics feature](#2)
-
-##### 3. [Fundamental Data Types](#3)
-
-##### 4. [Decision Making](#4)
-
-##### 5. [Loops](#5)
-
-##### 6. [Functions](#6)
+| feature                           | feature                  |
+| --------------------------------- | ------------------------ |
+| 1. [Getting Started with C++](#1) | 4. [Decision Making](#4) |
+| 2. [Basics feature](#2)           | 5. [Loops](#5)           |
+| 3. [Fundamental Data Types](#3)   | 6. [Functions](#6)       |
 
 ---
 
