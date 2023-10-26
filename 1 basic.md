@@ -130,6 +130,21 @@
 
 ### 2. Variables<a id="08"></a>
 
+```cpp
+#include <iostream>
+
+int main() {
+	int audio_file_size;
+	audio_file_size = 100;
+
+    // combine two statements in single line
+    int image_file_size = 100;
+
+    std::cout << image_file_size;
+  	return 0;
+}
+```
+
 ### 3. Constants<a id="09"></a>
 
 ### 4. Naming Conventions<a id="010"></a>
