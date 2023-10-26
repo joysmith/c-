@@ -134,8 +134,8 @@
 #include <iostream>
 
 int main() {
-	int audio_file_size;
-	audio_file_size = 100;
+	  int audio_file_size;
+	  audio_file_size = 100;
 
     // combine two statements in single line
     int image_file_size = 100;
