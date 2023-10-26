@@ -6,8 +6,6 @@
 
 ---
 
-<br>
-
 #### 1. [Getting Started with C++](#01)<a id="1"></a>
 
 #### 2. [Introduction to C++](#02)
@@ -126,7 +124,7 @@
 
 ---
 
-## The Basics
+## The Basics feature
 
 ### 1. Introduction<a id="07"></a>
 
@@ -147,6 +145,8 @@
 ### 9. Working with the Standard Library<a id="015"></a>
 
 ### 10. Comments<a id="016"></a>
+
+## Fundamental Data Types
 
 ### 11. Introduction<a id="017"></a>
 
@@ -172,6 +172,8 @@
 
 ### 22. Type Conversion<a id="028"></a>
 
+## Decision Making
+
 ### 23. Introduction<a id="029"></a>
 
 ### 24. Comparison Operators<a id="030"></a>
@@ -188,6 +190,8 @@
 
 ### 30. The Switch Statement<a id="036"></a>
 
+## Loops
+
 ### 31. Introduction<a id="037"></a>
 
 ### 32. The for Loop<a id="038"></a>
@@ -201,6 +205,8 @@
 ### 36. Break and Continue Statements<a id="042"></a>
 
 ### 37. Nested Loops<a id="043"></a>
+
+## Functions
 
 ### 38. Introduction<a id="044"></a>
 
