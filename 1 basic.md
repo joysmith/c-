@@ -166,6 +166,25 @@ int main() {
 
 ### 4. Naming Conventions<a id="010"></a>
 
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  // Camel Case
+  int myFileSize = 12;
+
+  // Pascal Case
+  int MyFileSize = 13;
+
+  // Snake Case
+  int my_file_size = 14;
+
+  return 0;
+}
+```
+
 ### 5. Mathematical Expressions<a id="011"></a>
 
 ### 6. Order of Operators<a id="012"></a>
