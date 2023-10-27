@@ -132,6 +132,7 @@
 
 ```cpp
 #include <iostream>
+using namespace std;
 
 int main() {
   // approach 1: declaring variable then initializing
@@ -141,12 +142,26 @@ int main() {
   // approach 2: combine two statements in single line -declaration & initialization
   int image_file_size = 5;
 
-  std::cout << image_file_size;
+  cout << image_file_size;
   return 0;
 }
 ```
 
 ### 3. Constants<a id="09"></a>
+
+When we don't want value of variable to change we use constant
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+  // How to use constant
+  const double pi = 3.14;
+  cout << pi;
+  return 0;
+}
+```
 
 ### 4. Naming Conventions<a id="010"></a>
 
