@@ -1238,8 +1238,24 @@ Hello joy
 
 ### 45. Organizing Functions in Files<a id="051"></a>
 
+Benefits:
+
+- Making big files small and easier to maintain.
+- Once we have functionality in diff file we can reuse that functionality in diff project.
+
+<br>
+
+Process:
+
+- we need to create two files
+- one is header file, where we add our function declaration
+- another one is source/implementation file, where we add our function definition.
+
+---
+
 1. create a folder name it "utils"
 1. In utils-folder create file greet.cpp and write simple function
+1. this file will act as source/implementation file
 
 ```cpp
 #include <iostream>
@@ -1256,8 +1272,8 @@ void greet(string name){
 1. preferable style is greet.hpp -use convention
 
 ```cpp
-#ifndef UTILS_GREET
-#define UTILS_GREET
+// #ifndef UTILS_GREET
+// #define UTILS_GREET
 
 #include <string>
 
@@ -1265,7 +1281,7 @@ void greet(string name){
 void greet(std::string name);
 
 
-#endif
+// #endif
 ```
 
 ---
@@ -1279,6 +1295,7 @@ void greet(std::string name);
 using namespace std;
 
 int main() {
+// this greet function is called from another file
 greet("joy");
 
 return 0;
@@ -1287,10 +1304,14 @@ return 0;
 
 ---
 
-1. run cmd in vscode terminal
+1. because the vs-code run extension does not support linker feature, we have to perform build process manually.
+1. Open project location
+1. run cmd in vscode terminal to generate exe file
+1. run cmd to execute exe file
 
 ```sh
-g++ -o main.exe  main.cpp utils/greet.cpp
+
+g++ -o main.exe main.cpp utils/greet.cpp
 
 To run code
 ./main.exe
