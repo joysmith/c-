@@ -8,135 +8,79 @@
 
 ## Arrays<a id="01"></a>
 
-#### 1. [Introduction](#1)
-
-#### 2. [Creating and Initializing Arrays](#2)
-
-#### 3. [Determining the Size of Arrays](#3)
-
-#### 4. [Copying Arrays](#4)
-
-#### 5. [Comparing Arrays](#5)
-
-#### 6. [Passing Arrays to Functions](#6)
-
-#### 7. [Understanding size_t](#7)
-
-#### 8. [Unpacking Arrays](#8)
-
-#### 9. [Searching Arrays](#9)
-
-#### 10. [Sorting Arrays](#10)
-
-#### 11. [Multi-dimensional Arrays](#11)
+1.  [Introduction](#1)
+2.  [Creating and Initializing Arrays](#2)
+3.  [Determining the Size of Arrays](#3)
+4.  [Copying Arrays](#4)
+5.  [Comparing Arrays](#5)
+6.  [Passing Arrays to Functions](#6)
+7.  [Understanding size_t](#7)
+8.  [Unpacking Arrays](#8)
+9.  [Searching Arrays](#9)
+10. [Sorting Arrays](#10)
+11. [Multi-dimensional Arrays](#11)
 
 ## Pointers<a id="02"></a>
 
-#### 12. [Introduction](#12)
-
-#### 13. [What is a Pointer](#13)
-
-#### 14. [Declaring and Using Pointers](#14)
-
-#### 15. [Constant Pointers](#15)
-
-#### 16. [Passing Pointers to Functions](#16)
-
-#### 17. [The Relationship Between Arrays and Pointers](#17)
-
-#### 18. [Pointer Arithmetic](#18)
-
-#### 19. [Comparing Pointers](#19)
-
-#### 20. [Dynamic Memory Allocation](#20)
-
-#### 21. [Dynamically Resizing an Array](#21)
-
-#### 22. [Smart Pointers](#22)
-
-#### 23. [Working with Unique Pointers](#23)
-
-#### 24. [Working with Shared Pointers](#24)
+12. [Introduction](#12)
+13. [What is a Pointer](#13)
+14. [Declaring and Using Pointers](#14)
+15. [Constant Pointers](#15)
+16. [Passing Pointers to Functions](#16)
+17. [The Relationship Between Arrays and Pointers](#17)
+18. [Pointer Arithmetic](#18)
+19. [Comparing Pointers](#19)
+20. [Dynamic Memory Allocation](#20)
+21. [Dynamically Resizing an Array](#21)
+22. [Smart Pointers](#22)
+23. [Working with Unique Pointers](#23)
+24. [Working with Shared Pointers](#24)
 
 ## Strings<a id="03"></a>
 
-#### 25. [Introduction](#25)
-
-#### 26. [C Strings](#26)
-
-#### 27. [C++ Strings](#27)
-
-#### 28. [Modifying Strings](#28)
-
-#### 29. [Searching Strings](#29)
-
-#### 30. [Extracting Substrings](#30)
-
-#### 31. [Working with Characters](#31)
-
-#### 32. [String_Numeric Conversion Functions](#32)
-
-#### 33. [Escape Sequences](#33)
-
-#### 34. [Raw Strings](#34)
+25. [Introduction](#25)
+26. [C Strings](#26)
+27. [C++ Strings](#27)
+28. [Modifying Strings](#28)
+29. [Searching Strings](#29)
+30. [Extracting Substrings](#30)
+31. [Working with Characters](#31)
+32. [String_Numeric Conversion Functions](#32)
+33. [Escape Sequences](#33)
+34. [Raw Strings](#34)
 
 ## Structures and Enumerations<a id="04"></a>
 
-#### 35. [Introduction](#35)
-
-#### 36. [Defining Structures](#36)
-
-#### 37. [Initializing Structures](#37)
-
-#### 38. [Unpacking Structures](#38)
-
-#### 39. [Array of Structures](#39)
-
-#### 40. [Nesting Structures](#40)
-
-#### 41. [Comparing Structures](#41)
-
-#### 42. [Working with Methods](#42)
-
-#### 43. [Operator Overloading](#43)
-
-#### 44. [Structures and Functions](#44)
-
-#### 45. [Pointers to Structures](#45)
-
-#### 46. [Defining Enumerations](#46)
-
-#### 47. [Strongly Typed Enumerations](#47)
+35. [Introduction](#35)
+36. [Defining Structures](#36)
+37. [Initializing Structures](#37)
+38. [Unpacking Structures](#38)
+39. [Array of Structures](#39)
+40. [Nesting Structures](#40)
+41. [Comparing Structures](#41)
+42. [Working with Methods](#42)
+43. [Operator Overloading](#43)
+44. [Structures and Functions](#44)
+45. [Pointers to Structures](#45)
+46. [Defining Enumerations](#46)
+47. [Strongly Typed Enumerations](#47)
 
 ## Streams and Files<a id="05"></a>
 
-#### 48. [Introduction](#48)
-
-#### 49. [Understanding Streams](#49)
-
-#### 50. [Writing to Streams](#50)
-
-#### 51. [Reading from Streams](#51)
-
-#### 52. [Handling Input Errors](#52)
-
-#### 53. [File Streams](#53)
-
-#### 54. [Writing to Text Files](#54)
-
-#### 55. [Reading from Text Files](#55)
-
-#### 56. [Writing to Binary Files](#56)
-
-#### 57. [Reading from Binary Files](#57)
-
-#### 58. [Working with File Streams](#58)
-
-#### 59. [String Streams](#59)
-
-#### 60. [Converting Values to Strings](#60)
-
-#### 61. [Parsing Strings](#61)
+48. [Introduction](#48)
+49. [Understanding Streams](#49)
+50. [Writing to Streams](#50)
+51. [Reading from Streams](#51)
+52. [Handling Input Errors](#52)
+53. [File Streams](#53)
+54. [Writing to Text Files](#54)
+55. [Reading from Text Files](#55)
+56. [Writing to Binary Files](#56)
+57. [Reading from Binary Files](#57)
+58. [Working with File Streams](#58)
+59. [String Streams](#59)
+60. [Converting Values to Strings](#60)
+61. [Parsing Strings](#61)
 
 ---
 
