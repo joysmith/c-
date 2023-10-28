@@ -6,121 +6,86 @@
 
 ---
 
-#### 1. [Getting Started with C++](#01)<a id="1"></a>
+## C++ <a id="1"></a>
 
-#### 2. [Introduction to C++](#02)
-
-#### 3. [Popular IDEs](#03)
-
-#### 4. [Your First C++ Program](#04)
-
-#### 5. [Compiling and Running a C++ Program](#05)
-
-#### 6. [Changing the Theme](#06)
+1.  [Getting Started with C++](#01)
+2.  [Introduction to C++](#02)
+3.  [Popular IDEs](#03)
+4.  [Your First C++ Program](#04)
+5.  [Compiling and Running a C++ Program](#05)
+6.  [Changing the Theme](#06)
 
 ---
 
-#### 7. [Basics Introduction](#07)<a id="2"></a>
+## Basic <a id="2"></a>
 
-#### 8. [Variables](#08)
-
-#### 9. [Constants](#09)
-
-#### 10. [Naming Conventions](#010)
-
-#### 11. [Mathematical Expressions](#011)
-
-#### 12. [Order of Operators](#012)
-
-#### 13. [Writing Output to the Console](#013)
-
-#### 14. [Reading from the Console](#014)
-
-#### 15. [Working with the Standard Library](#015)
-
-#### 16. [Comments](#016)
+7.  [Basics Introduction](#07)<a id="2"></a>
+8.  [Variables](#08)
+9.  [Constants](#09)
+10. [Naming Conventions](#010)
+11. [Mathematical Expressions](#011)
+12. [Order of Operators](#012)
+13. [Writing Output to the Console](#013)
+14. [Reading from the Console](#014)
+15. [Working with the Standard Library](#015)
+16. [Comments](#016)
 
 ---
 
-#### 17. [Fundamental Data Types Introduction](#017)<a id="3"></a>
+## Data Types <a id="3"></a>
 
-#### 18. [Fundamental Data Types](#018)
-
-#### 19. [Initializing Variables](#019)
-
-#### 20. [Working with Numbers](#020)
-
-#### 21. [Narrowing](#021)
-
-#### 22. [Generating Random Numbers](#022)
-
-#### 23. [Formatting Output](#023)
-
-#### 24. [Data Types Size and Limits](#024)
-
-#### 25. [Working with Booleans](#025)
-
-#### 26. [Working with Characters and Strings](#026)
-
-#### 27. [Working with Arrays](#027)
-
-#### 28. [Type Conversion](#028)
+17. [Fundamental Data Types Introduction](#017)<a id="3"></a>
+18. [Fundamental Data Types](#018)
+19. [Initializing Variables](#019)
+20. [Working with Numbers](#020)
+21. [Narrowing](#021)
+22. [Generating Random Numbers](#022)
+23. [Formatting Output](#023)
+24. [Data Types Size and Limits](#024)
+25. [Working with Booleans](#025)
+26. [Working with Characters and Strings](#026)
+27. [Working with Arrays](#027)
+28. [Type Conversion](#028)
 
 ---
 
-#### 29. [Decision Making Introduction](#029)<a id="4"></a>
+## Decision Making <a id="4"></a>
 
-#### 30. [Comparison Operators](#030)
-
-#### 31. [Logical Operators](#031)
-
-#### 32. [Order of Logical Operators](#032)
-
-#### 33. [If Statements](#033)
-
-#### 34. [Nested If Statements](#034)
-
-#### 35. [The Conditional Operator](#035)
-
-#### 36. [The Switch Statement](#036)
+29. [Decision Making Introduction](#029)<a id="4"></a>
+30. [Comparison Operators](#030)
+31. [Logical Operators](#031)
+32. [Order of Logical Operators](#032)
+33. [If Statements](#033)
+34. [Nested If Statements](#034)
+35. [The Conditional Operator](#035)
+36. [The Switch Statement](#036)
 
 ---
 
-#### 37. [Loops Introduction](#037)<a id="5"></a>
+## Loops <a id="5"></a>
 
-#### 38. [The for Loop](#038)
-
-#### 39. [Range-based for Loops](#039)
-
-#### 40. [While Loops](#040)
-
-#### 41. [Do-while Loops](#041)
-
-#### 42. [Break and Continue Statements](#042)
-
-#### 43. [Nested Loops](#043)
+37. [Loops Introduction](#037)<a id="5"></a>
+38. [The for Loop](#038)
+39. [Range-based for Loops](#039)
+40. [While Loops](#040)
+41. [Do-while Loops](#041)
+42. [Break and Continue Statements](#042)
+43. [Nested Loops](#043)
 
 ---
 
-#### 44. [Functions Introduction](#044)<a id="6"></a>
+## Functions <a id="6"></a>
 
-#### 45. [Defining and Calling Functions](#045)
-
-#### 46. [Parameters with a Default Value](#046)
-
-#### 47. [Overloading Functions](#047)
-
-#### 48. [Passing Arguments by Value or Reference](#048)
-
-#### 49. [Local vs Global Variables](#049)
-
-#### 50. [Declaring Functions](#050)
-
-#### 51. [Organizing Functions in Files](#051)
-
-#### 52. [Using Namespaces](#052)
-
-#### 53. [Debugging C++ Programs](#053)
+44. [Functions Introduction](#044)<a id="6"></a>
+45. [Defining and Calling Functions](#045)
+46. [Parameters with a Default Value](#046)
+47. [Overloading Functions](#047)
+48. [Passing Arguments by Value or Reference](#048)
+49. [Local vs Global Variables](#049)
+50. [Declaring Functions](#050)
+51. [Organizing Functions in Files](#051)
+52. [Using Namespaces](#052)
+53. [Debugging C++ Programs](#053)
 
 ---
 
