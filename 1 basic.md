@@ -1238,6 +1238,64 @@ Hello joy
 
 ### 45. Organizing Functions in Files<a id="051"></a>
 
+1. create a folder name it "utils"
+1. In utils-folder create file greet.cpp and write simple function
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void greet(string name){
+  cout << "Hello " << name;
+}
+```
+
+---
+
+1. In utils-folder create file greet.hpp or greet.h
+1. preferable style is greet.hpp -use convention
+
+```cpp
+#ifndef UTILS_GREET
+#define UTILS_GREET
+
+#include <string>
+
+// function declaration
+void greet(std::string name);
+
+
+#endif
+```
+
+---
+
+1. In main.cpp bring header file and use them
+
+```cpp
+#include <iostream>
+#include "utils/greet.h"
+
+using namespace std;
+
+int main() {
+greet("joy");
+
+return 0;
+}
+```
+
+---
+
+1. run cmd in vscode terminal
+
+```sh
+g++ -o main.exe  main.cpp utils/greet.cpp
+
+To run code
+./main.exe
+```
+
 ### 46. Using Namespaces<a id="052"></a>
 
 ### 47. Debugging C++ Programs<a id="053"></a>
