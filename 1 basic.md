@@ -1270,6 +1270,7 @@ void greet(string name){
 
 1. In utils-folder create file greet.hpp or greet.h
 1. preferable style is greet.hpp -use convention
+1. i'm gonna try .h extension
 
 ```cpp
 #include <string>
