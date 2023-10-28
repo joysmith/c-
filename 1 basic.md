@@ -175,11 +175,11 @@ int main() {
   // Camel Case
   int myFileSize = 12;
 
-  // Pascal Case
-  int MyFileSize = 13;
-
   // Snake Case
   int my_file_size = 14;
+
+  // Pascal Case
+  int MyFileSize = 13;
 
   return 0;
 }
@@ -187,9 +187,190 @@ int main() {
 
 ### 5. Mathematical Expressions<a id="011"></a>
 
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  int x = 5;
+  int y = 10;
+
+  // operator +, -, /, *
+  // operands x y on which we are performing operations using operator
+  int z = x + y;
+
+  cout << z;
+
+  return 0;
+}
+
+```
+
+---
+
+````cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  double x = 10;
+  double y = 3;
+
+  // operator +, -, /, *
+  // operands x y
+  double z = x / y;
+
+  cout << z;
+
+  return 0;
+}
+
+---
+
+Postfix
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int x = 10;
+// first store x value in y then increment by 1
+int y = x ++;
+cout << "x: " << x << endl;
+cout << "y: " << y ;
+  return 0;
+}
+
+/* output
+x: 11
+y: 10
+*/
+
+````
+
+---
+
+Prefix
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int x = 10;
+// first increment x by 1 then store value in y
+int y = ++x;
+cout << "x: " << x << endl;
+cout << "y: " << y ;
+  return 0;
+}
+
+/* output
+x: 11
+y: 11
+*/
+
+```
+
 ### 6. Order of Operators<a id="012"></a>
 
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+// PEMDAS math rule
+// priority: (), * and /, + and  -
+double x = 1 + 2 * 5;
+cout << "X: " << x;
+
+return 0;
+}
+
+/* output
+X: 7
+*/
+```
+
+---
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+// priority: (), * and /, + and  -
+double x = 10;
+double y = 5;
+double z = (x + 10) / (3 * y);
+
+cout << "z: " << z;
+
+return 0;
+}
+
+/* output
+z: 1.33333
+*/
+```
+
 ### 7. Writing Output to the Console<a id="013"></a>
+
+"<<" stream insertion operator: It is an operator for inserting something to our output stream  
+"cout" is an object that represent standard output stream
+
+The standard output is our console or terminal window, so using cout we can write a sequence of character on standard output which is our standard window or terminal
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+int x = 10;
+
+// single statement
+cout << x;
+
+// combining statement into single statement by chaining multiple string insertion operators
+cout << "x: " << x;
+
+return 0;
+}
+
+/* output
+10x: 10
+*/
+```
+
+---
+
+endl: end of line
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+int x = 10;
+int y = 20;
+
+// How to move in next line using "endl" manipulator
+cout << "x: " << x << endl;
+cout << "y: " << y << endl;
+
+return 0;
+}
+
+/* output
+x: 10
+y: 20
+*/
+```
 
 ### 8. Reading from the Console<a id="014"></a>
 
