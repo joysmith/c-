@@ -6,39 +6,23 @@
 
 ## Classes<a id="01"></a>
 
-#### 1. [Introduction](#1)
-
-#### 2. [An Introduction to Object-oriented Programming](#2)
-
-#### 3. [Defining a Class](#3)
-
-#### 4. [Creating Objects](#4)
-
-#### 5. [Access Modifiers](#5)
-
-#### 6. [Getters and Setters](#6)
-
-#### 7. [Constructors](#7)
-
-#### 8. [Member Initializer List](#8)
-
-#### 9. [The Default Constructor](#9)
-
-#### 10. [Using the Explicit Keyword](#10)
-
-#### 11. [Constructor Delegation](#11)
-
-#### 12. [The Copy Constructor](#12)
-
-#### 13. [The Destructor](#13)
-
-#### 14. [Static Members](#14)
-
-#### 15. [Constant Objects and Functions](#15)
-
-#### 16. [Pointer to Objects](#16)
-
-#### 17. [Array of Objects](#17)
+1.  [Introduction](#1)
+2.  [An Introduction to Object-oriented Programming](#2)
+3.  [Defining a Class](#3)
+4.  [Creating Objects](#4)
+5.  [Access Modifiers](#5)
+6.  [Getters and Setters](#6)
+7.  [Constructors](#7)
+8.  [Member Initializer List](#8)
+9.  [The Default Constructor](#9)
+10. [Using the Explicit Keyword](#10)
+11. [Constructor Delegation](#11)
+12. [The Copy Constructor](#12)
+13. [The Destructor](#13)
+14. [Static Members](#14)
+15. [Constant Objects and Functions](#15)
+16. [Pointer to Objects](#16)
+17. [Array of Objects](#17)
 
 ## Operator Overloading<a id="02"></a>
 
