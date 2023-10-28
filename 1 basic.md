@@ -209,7 +209,7 @@ int main() {
 
 ---
 
-````cpp
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -226,6 +226,7 @@ int main() {
 
   return 0;
 }
+```
 
 ---
 
@@ -250,7 +251,7 @@ x: 11
 y: 10
 */
 
-````
+```
 
 ---
 
