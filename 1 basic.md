@@ -1272,8 +1272,23 @@ void greet(string name){
 1. preferable style is greet.hpp -use convention
 
 ```cpp
-// #ifndef UTILS_GREET
-// #define UTILS_GREET
+#include <string>
+
+// function declaration
+void greet(std::string name);
+
+```
+
+or
+
+for adv learner
+
+```cpp
+// if UTILS_GREET constant which is written in uppercase, followed by foldername then function name is not defined
+#ifndef UTILS_GREET
+
+// then define UTILS_GREET constant which is written in uppercase, followed by foldername then function name
+#define UTILS_GREET
 
 #include <string>
 
@@ -1281,7 +1296,8 @@ void greet(string name){
 void greet(std::string name);
 
 
-// #endif
+// end
+#endif
 ```
 
 ---
