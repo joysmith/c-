@@ -113,7 +113,7 @@ Object:
 
 <br>
 
-> Dialog box
+> **Dialog box**
 
 <img src="notes/dialog.png" width="400">
 
@@ -131,7 +131,9 @@ Functions
 - maximize()
 - minimize()
 
-> Video player
+---
+
+> **Video player**
 
 <img src="notes/vlc.png" width="400">
 
