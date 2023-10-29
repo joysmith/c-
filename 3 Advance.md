@@ -87,6 +87,46 @@
 
 ### 2. An Introduction to Object-oriented Programming<a id="2"></a>
 
+Programming paradigm or style of programming
+
+Programming paradigm
+
+1. Procedural
+1. Functional (popular)
+1. Object oriented (popular)
+1. event driven
+
+| Functional            | Object oriented    |
+| --------------------- | ------------------ |
+| Centered on functions | Centered on object |
+| C                     | C++                |
+
+Which one to use?
+A wise software engineer uses the right tools for the right job.
+depend on your requirement
+
+Object:
+
+- A software entity that has attributes(properties) and functions(methods)
+
+Class:
+<img src="notes/uml.png" width="400">
+
+- A blueprint or recipe for creating objects
+- With class we are defining new data type, we can also do that with structure
+
+| Structure                                     | Classes                                              |
+| --------------------------------------------- | ---------------------------------------------------- |
+| Data                                          | Data + Behavior                                      |
+| The structure are simple data container       | Classes for creating object that can do things       |
+| structure are more about data                 | Classes are more about data & functionality together |
+| Structure member are always public by default | Classes member are always private by default         |
+
+Encapsulation:
+Combining the data and functions that operate on the data into one unit.
+<img src="notes/membervariable.png" width="400">
+<img src="notes/membermethod.png" width="400">
+
 ### 3. Defining a Class<a id="3"></a>
 
 ### 4. Creating Objects<a id="4"></a>
