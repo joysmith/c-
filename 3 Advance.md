@@ -105,7 +105,7 @@ Which one to use?
 A wise software engineer uses the right tools for the right job.
 depend on your requirement
 
----
+<br>
 
 Object:
 
@@ -113,7 +113,7 @@ Object:
 
 <br>
 
-> **Dialog box**
+##### **Dialog box**
 
 <img src="notes/dialog.png" width="400">
 
@@ -131,9 +131,9 @@ Functions
 - maximize()
 - minimize()
 
----
+<br>
 
-> **Video player**
+##### **Video player**
 
 <img src="notes/vlc.png" width="400">
 
@@ -148,6 +148,14 @@ Functions
 - play()
 - pause()
 - stop()
+
+<br>
+
+##### Other examples
+
+- storing and retrieving data
+- sending email and notifications
+- Performing computations
 
 ---
 
