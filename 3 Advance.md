@@ -110,6 +110,7 @@ Object:
 - A software entity that has attributes(properties) and functions(methods)
 
 Class:
+
 <img src="notes/uml.png" width="400">
 
 - A blueprint or recipe for creating objects
@@ -124,7 +125,9 @@ Class:
 
 Encapsulation:
 Combining the data and functions that operate on the data into one unit.
-<img src="notes/membervariable.png" width="400">
+
+<img src="notes/membervariable.png" width="400">  
+  
 <img src="notes/membermethod.png" width="400">
 
 ### 3. Defining a Class<a id="3"></a>
