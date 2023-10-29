@@ -105,9 +105,13 @@ Which one to use?
 A wise software engineer uses the right tools for the right job.
 depend on your requirement
 
+---
+
 Object:
 
 - A software entity that has attributes(properties) and functions(methods)
+
+---
 
 Class:
 <br>
@@ -124,8 +128,11 @@ Class:
 | structure are more about data                 | Classes are more about data & functionality together |
 | Structure member are always public by default | Classes member are always private by default         |
 
+---
+
 Encapsulation:
 Combining the data and functions that operate on the data into one unit.
+
 <br>
 
 <img src="notes/membervariable.png" width="400">
