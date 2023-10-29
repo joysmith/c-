@@ -113,6 +113,8 @@ Object:
 
 <br>
 
+Dialog box
+
 <img src="notes/dialog.png" width="400">
 
 Attributes
@@ -128,6 +130,22 @@ Functions
 - move()
 - maximize()
 - minimize()
+
+Video player
+
+<img src="notes/vlc.png" width="400">
+
+Attributes
+
+- size
+- currentPosition
+- playbackSpeed
+
+Functions
+
+- play()
+- pause()
+- stop()
 
 ---
 
