@@ -111,6 +111,24 @@ Object:
 
 - A software entity that has attributes(properties) and functions(methods)
 
+<br>
+
+<img src="notes/dialog.png" width="400">
+
+Attributes
+
+- size
+- position on screen
+
+Functions
+
+- show()
+- hide()
+- resize()
+- move()
+- maximize()
+- minimize()
+
 ---
 
 Class:
