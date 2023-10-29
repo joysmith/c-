@@ -1301,4 +1301,105 @@ To run code
 
 ### 46. Using Namespaces<a id="052"></a>
 
+A namespace is like a bucket where we put our function inside and with this we prevent name conflict
+
+We have std namespace for all the function and classes define in the standard template library
+
+In standard library we've got string class etc
+
+1. From previous project
+1. In greet.h file wrap function declaration inside messaging namespace
+
+```cpp
+#ifndef UTILS_GREET
+#define UTILS_GREET
+
+#include <string>
+
+// wrapping function declaration in messaging namespace
+namespace messaging{
+  // function declaration
+  void greet(std::string name);
+}
+
+#endif
+```
+
+---
+
+1. In greet.cpp file wrap function definition inside messaging namespace
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// wrapping function definition in messaging namespace
+namespace messaging{
+  void greet(string name){
+    cout << "Hello " << name;
+  }
+}
+```
+
+---
+
+1. In main.cpp
+
+```cpp
+#include <iostream>
+#include "utils/greet.h"
+
+using namespace std;
+
+int main() {
+// how to access greet function using messaging namespace
+messaging::greet("joy");
+
+return 0;
+}
+
+```
+
+---
+
+> Other ways to use namespace
+
+- bringing entire namespace, same way like std namespace
+- but there is a problem in this approach, if have greet() function in both namespace then there will be name conflict
+
+```cpp
+#include <iostream>
+#include "utils/greet.h"
+
+using namespace std;
+using namespace messaging;
+
+int main() {
+greet("joy");
+
+return 0;
+}
+
+```
+
+---
+
+Bringing specific function from namespace
+
+```cpp
+#include <iostream>
+#include "utils/greet.h"
+
+// bringing specific cin, cout object from std-namespace
+using std::cout, std::cin;
+// bringing specific greet function from messaging-namespace
+using  messaging::greet ;
+
+int main() {
+greet("joy");
+
+return 0;
+}
+```
+
 ### 47. Debugging C++ Programs<a id="053"></a>
