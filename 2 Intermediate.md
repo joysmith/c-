@@ -90,17 +90,242 @@
 
 ### 2. Creating and Initializing Arrays<a id="2"></a>
 
+Array- We use array to store sequence of object in the memory like sequence of number and so on.
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  // size of array
+  int numbers[5];
+
+  // how to store value in array using index
+  numbers[0] = 10;
+  numbers[4] = 20;
+
+  // how to access array value using index
+  cout << numbers[4];
+
+  return 0;
+}
+
+
+/* output
+20
+*/
+```
+
+---
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  // approach 1. How to initialize array using brace initializer
+  // note- The first second and third will be initialize and other will be initialize to 0
+  int numbers[5] = {10, 20, 30};
+
+  // approach 2. In case we know all the value ahead of time then we dont need to specific the size of array
+  // The compiler will figure out the size of array by looking brace initialize value
+  int numbersBox[] = {10, 20, 30, 40, 50, 60};
+
+  // how to access array value using index
+  cout << numbersBox[5] << endl;
+  // print memory address location of array
+  cout << numbersBox;
+
+  return 0;
+}
+
+
+/* output
+60
+0x61fee4
+*/
+
+```
+
 ### 3. Determining the Size of Arrays<a id="3"></a>
+
+How to use ranged based array
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  int numbers[] = {10, 20, 30, 40, 50, 60};
+
+  // ranged based for loop
+  for(int number : numbers){
+    cout << number << endl;
+  }
+
+  return 0;
+}
+
+/* output
+10
+20
+30
+40
+50
+60
+*/
+
+```
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  int numbers[] = {10, 20, 30, 40, 50, 60};
+
+  // for loop
+  for(int i=0; i < size(numbers); i++){
+    cout << numbers[i] << endl;
+  }
+
+  return 0;
+}
+```
 
 ### 4. Copying Arrays<a id="4"></a>
 
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  int first[] = {10, 20, 30};
+  int second[size(first)];
+
+  // using for loop to copy from first array to second array
+  for(int i=0; i < size(first); i++){
+    second[i] = first[i];
+  }
+
+  // print second array value
+  for(int number : second){
+    cout << number << endl;
+  }
+
+  return 0;
+
+}
+
+```
+
 ### 5. Comparing Arrays<a id="5"></a>
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  int first[] = {10, 20, 30};
+  int second[] = {10, 20, 30};
+  // int second[] = {10, 20, 0};
+
+  bool areEqual = true;
+
+  for(int i = 0; i < size(first); i++){
+    if(first[i] != second[i]){
+      areEqual = false;
+      break;
+    }
+  }
+
+
+  cout << boolalpha << areEqual;
+
+  return 0;
+
+}
+
+```
 
 ### 6. Passing Arrays to Functions<a id="6"></a>
 
+```cpp
+#include<iostream>
+using namespace std;
+
+void printNumber(int number[], int size){
+  for(int i =0; i < size; i++){
+    cout << number[i];
+  }
+}
+
+int main(){
+
+  int numbers[] = {10, 20, 30};
+
+  // passing array
+  printNumber(numbers, size(numbers));
+
+  return 0;
+
+}
+
+```
+
 ### 7. Understanding size_t<a id="7"></a>
 
+size_t -
+t for type, is a data type define in standard library that is use to represent the size of object
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  int numbers[] = {10, 20, 30};
+
+  cout << sizeof(int) << endl;
+  cout << sizeof(size_t) << endl;
+
+  return 0;
+}
+
+```
+
 ### 8. Unpacking Arrays<a id="8"></a>
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  int values[3] = {10, 20, 30};
+
+  // C++ : structured binding
+  // JS : destructuring
+  // python : unpacking
+  auto [x, y, z] = values;
+
+  cout << x << ", " << y << ", " << z ;
+
+  // OLD WAY or another approach
+  // int x = values[0];
+  // int y = values[1];
+  // int z = values[2];
+
+  return 0;
+}
+
+```
 
 ### 9. Searching Arrays<a id="9"></a>
 
@@ -112,9 +337,29 @@
 
 ### 12. Introduction<a id="12"></a>
 
+- what are pointer and why we use them
+- Declare and use pointer
+- efficiently pass data
+- allocate memory dynamically
+- problems with pointer
+- use smart pointer in modern C++ to avoid pointer problem
+
 ### 13. What is a Pointer<a id="13"></a>
 
+Pointer-
+A pointer is a special variable that holds the address of another variable in memory
+
+Why use pointer?
+
+- To efficiently pass large object, pass them by reference.
+- Dynamic memory allocation, resize array
+- Enabling polymorphism
+
 ### 14. Declaring and Using Pointers<a id="14"></a>
+
+" & " : address of operator
+
+" \* " : dereferencing operator or indirection operator
 
 ### 15. Constant Pointers<a id="15"></a>
 

@@ -189,9 +189,108 @@ Combining the data and functions that operate on the data into one unit.
 
 ### 3. Defining a Class<a id="3"></a>
 
+- create a new file name it "Rectangle.h" for class declaration
+
+```cpp
+class Rectangle{
+  public:
+  // member variable
+  int width;
+  int height;
+
+  // member function
+  void draw();
+  int getArea();
+};
+```
+
+---
+
+- create a new file name it "Rectangle.cpp" for class definition/implementation
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw(){
+  cout << "Drawing rectangle" << endl;
+  cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea(){
+  return width * height;
+}
+```
+
 ### 4. Creating Objects<a id="4"></a>
 
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+using namespace std;
+
+int main(){
+  // How to create instance of Rectangle class aka object
+  Rectangle rectangle;
+
+  // How to access the member of this object using "." dot operator
+  rectangle.width = 10;
+  rectangle.height = 20;
+
+  cout << rectangle.getArea();
+
+  return 0;
+}
+
+
+/* output
+200
+*/
+```
+
+- Open terminal and type cmd manually
+
+```sh
+// to compile
+g++ main.cpp Rectangle.cpp -o run.exe
+
+// to run
+./run
+```
+
+---
+
+- The reason we have separation, or the reason we have two files per class, is to reduce compilation time
+- If we create a second rectangle object, that object is going to be an independent instance in the memory
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+using namespace std;
+
+int main(){
+ Rectangle first;
+ Rectangle second;
+
+  // print memory address of first object
+  cout << &first << endl;
+  cout << &second << endl;
+  return 0;
+
+/* output
+0x61ff08
+0x61ff00
+*/
+
+}
+```
+
 ### 5. Access Modifiers<a id="5"></a>
+
+Principle: Data Hiding
+A class should hide its internal data from the outside code and provide **functions** for accessing the data.
 
 ### 6. Getters and Setters<a id="6"></a>
 
