@@ -97,6 +97,8 @@
 
 - [Clion](https://www.jetbrains.com/clion/)
 - [Vs code](https://code.visualstudio.com/download)
+- [Gnu compiler](https://sourceforge.net/projects/mingw/)
+- [Clang compiler](https://releases.llvm.org/download.html)
 
 ### 4. Your First C++ Program<a id="04"></a>
 
