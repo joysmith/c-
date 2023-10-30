@@ -361,7 +361,147 @@ Why use pointer?
 
 " \* " : dereferencing operator or indirection operator
 
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  int number = 10;
+
+  // print memory address of number variable
+  cout << &number;
+
+  // how to initialize null pointer
+  // int* ptr = nullptr;
+
+  // how to declare integer pointer
+  int* ptr = &number;
+
+  // how to access data at target memory location
+  cout << *ptr << endl;
+
+  // how to change data at target memory location
+  *ptr = 20;
+
+  cout << number;
+
+  return 0;
+}
+
+
+
+/* output
+0x61ff0810
+20
+*/
+```
+
+---
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  int x = 10;
+  int y = 20;
+
+  int* ptr = &x;  // pointing to x
+
+  *ptr *= 2;  // x = 20
+
+  ptr = &y; // set address to y
+
+  *ptr *= 3;  // y = 60
+
+  return 0;
+}
+
+```
+
+---
+
+Way to declare pointer, notice place of \*
+
+```cpp
+
+int number = 10;
+
+✅ preferable
+int* ptr = &number;
+
+// confusing with dereference operator
+int *ptr = &number;
+```
+
 ### 15. Constant Pointers<a id="15"></a>
+
+Pointe & constant: 3 scenario
+
+- data is constant but pointer is not
+- pointer is constant
+- both data and pointer are constant
+
+- 1
+
+```cpp
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  const int x = 10;
+
+  // constant integer pointer, but pointer not constant
+  const int* ptr = &x;
+
+  int y = 20;
+
+  ptr = &y;
+
+  return 0;
+}
+
+```
+
+- 2
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  int x = 10;
+
+  // pointer is constant
+  int* const ptr = &x;
+
+  return 0;
+}
+
+```
+
+- 3
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  const int x = 10;
+
+  // read: we have constant pointer, pointing to constant integer
+  const int* const ptr = &x;
+
+  return 0;
+}
+
+```
 
 ### 16. Passing Pointers to Functions<a id="16"></a>
 

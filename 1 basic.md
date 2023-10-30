@@ -89,6 +89,23 @@
 
 ---
 
+### 1. Getting Started with C++<a id="01"></a>
+
+### 2. Introduction to C++<a id="02"></a>
+
+### 3. Popular IDEs<a id="03"></a>
+
+- [Clion](https://www.jetbrains.com/clion/)
+- [Vs code](https://code.visualstudio.com/download)
+
+### 4. Your First C++ Program<a id="04"></a>
+
+### 5. Compiling and Running a C++ Program<a id="05"></a>
+
+### 6. Changing the Theme<a id="06"></a>
+
+---
+
 # The Basics feature
 
 ### 1. Introduction<a id="07"></a>
