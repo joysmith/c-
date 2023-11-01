@@ -1360,7 +1360,17 @@ cout << Rectangle::objectsCount << endl;
 
 ### 33. Introduction<a id="33"></a>
 
+- protected member
+- virtual method
+- method overriding
+- abstract classes
+- final classes
+
 ### 34. Inheritance<a id="34"></a>
+
+Inheritance is a mechanism for re-using code, so we can implement common feature from one class to other classes
+
+![Alt text](notes/inheritance.png)
 
 ### 35. Protected Members<a id="35"></a>
 
