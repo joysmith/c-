@@ -1370,7 +1370,7 @@ cout << Rectangle::objectsCount << endl;
 
 Inheritance is a mechanism for re-using code, so we can implement common feature from one class to other classes
 
-![Alt text](notes/inheritance.png)
+<img src="notes/inheritance.png" width="400">
 
 ### 35. Protected Members<a id="35"></a>
 
