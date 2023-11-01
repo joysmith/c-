@@ -294,21 +294,1029 @@ A class should hide its internal data from the outside code and provide **functi
 
 ### 6. Getters and Setters<a id="6"></a>
 
+- Create Rectangle.h file, and write declaration
+
+```cpp
+class Rectangle{
+private:
+    int width;
+    int height;
+
+public:
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+---
+
+- create Rectangle.cpp file and write implementation
+
+```cpp
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+```
+
+---
+
+- In main.cpp
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle rectangle;
+rectangle.setWidth(-1);
+  return 0;
+}
+
+
+/* output
+terminate called after throwing an instance of 'std::invalid_argument'
+  what():  width
+
+*/
+
+```
+
 ### 7. Constructors<a id="7"></a>
+
+- In Rectangle.h, declare constructor function
+
+```cpp
+class Rectangle{
+private:
+    int width;
+    int height;
+
+public:
+// How to declare constructor function
+    Rectangle(int width, int height);
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+---
+
+- In Rectangle.cpp, write implementation of constructor function
+
+```cpp
+//
+// Created by Second_Brain on 11/1/2023.
+//
+
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+Rectangle::Rectangle(int width, int height) {
+    cout << "Constructing  a Rectangle" << endl;
+    setWidth(width);
+    setHeight(height);
+}
+```
+
+---
+
+- In main.cpp,
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle rectangle(10, 20);
+
+cout << rectangle.getWidth();
+  return 0;
+}
+
+
+
+/* output
+Constructing  a Rectangle
+10
+*/
+```
 
 ### 8. Member Initializer List<a id="8"></a>
 
+- Rectangle.h same
+
+```cpp
+//
+// Created by Second_Brain on 11/1/2023.
+//
+
+#ifndef UNTITLED_RECTANGLE_H
+#define UNTITLED_RECTANGLE_H
+
+class Rectangle{
+private:
+    int width;
+    int height;
+
+public:
+    Rectangle(int width, int height);
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+#endif //UNTITLED_RECTANGLE_H
+
+```
+
+---
+
+- In Rectangle.cpp, initialize constructor using member initializer list
+
+```cpp
+//
+// Created by Second_Brain on 11/1/2023.
+//
+
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+//approach1: using () syntax
+Rectangle::Rectangle(int width, int height) : width(width), height(height) {
+}
+
+//approach2: using {} syntax: moder c++
+//Rectangle::Rectangle(int width, int height) : width{width}, height{height} {
+//}
+
+```
+
+---
+
+- In main.cpp
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle rectangle(10, 20);
+
+cout << rectangle.getWidth();
+  return 0;
+}
+```
+
 ### 9. The Default Constructor<a id="9"></a>
+
+- In Rectangle.h
+
+```cpp
+class Rectangle{
+private:
+    int width;
+    int height;
+
+public:
+// default constructor
+    Rectangle();
+    Rectangle(int width, int height);
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+---
+
+- In Rectangle.cpp
+
+```cpp
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+//approach1: using () syntax
+Rectangle::Rectangle(int width, int height) : width(width), height(height) {
+}
+
+// approach 1: how to create default constructor
+Rectangle::Rectangle() {
+    //empty
+}
+
+
+```
+
+---
+
+- In main.cpp
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle rectangle;
+
+cout << rectangle.getWidth();
+  return 0;
+}
+```
+
+### Another way to create default constructor
+
+- In Rectangle.h
+
+```cpp
+class Rectangle{
+private:
+    int width;
+    int height;
+
+public:
+// How to create default constructor using default keyword
+    Rectangle() = default
+    Rectangle(int width, int height);
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+---
+
+- In Rectangle.cpp
+
+```cpp
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+//approach1: using () syntax
+Rectangle::Rectangle(int width, int height) : width(width), height(height) {
+}
+
+// approach 1: how to create default constructor
+Rectangle::Rectangle() {
+    //empty
+}
+
+
+```
+
+---
+
+- In main.cpp
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle rectangle;
+
+cout << rectangle.getWidth();
+  return 0;
+}
+```
 
 ### 10. Using the Explicit Keyword<a id="10"></a>
 
+- Person.h
+
+```cpp
+class Person{
+
+private:
+    int age;
+
+public:
+    //constructor
+    explicit Person(int age);
+
+
+};
+
+```
+
+---
+
+- Person.cpp
+
+```cpp
+#include "Person.h"
+
+Person::Person(int age):age{age}{
+
+}
+```
+
+---
+
+- main.cpp
+
+```cpp
+#include <iostream>
+#include "Person.h"
+
+void showPerson(Person person){
+}
+
+int main() {
+    Person person(10);
+//    Person person{10};
+
+    showPerson(person);
+    return 0;
+}
+
+```
+
 ### 11. Constructor Delegation<a id="11"></a>
+
+- Rectangle.h
+
+```cpp
+#include <string>
+
+using namespace std;
+
+class Rectangle{
+private:
+    int width;
+    int height;
+    string color;
+
+public:
+// default constructor
+    Rectangle();
+    Rectangle(int width, int height);
+
+    Rectangle(int width, int height, const string& color);
+
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+---
+
+- Rectangle.cpp
+
+```cpp
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+//approach1: using () syntax
+Rectangle::Rectangle(int width, int height) : width(width), height(height) {
+}
+
+// approach 1: how to create default constructor
+Rectangle::Rectangle() {
+    //empty
+}
+
+Rectangle::Rectangle(int width, int height, const string& color):Rectangle() {
+    cout << "constructing a Rectangle with color";
+    this->color = color;
+}
+```
+
+---
+
+- main.cpp
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle rectangle(10, 20, "blue");
+
+//Rectangle rectangle{10, 20, "blue"};
+
+cout << rectangle.getWidth();
+  return 0;
+}
+```
 
 ### 12. The Copy Constructor<a id="12"></a>
 
+- Rectangle.h
+
+```cpp
+#include <string>
+
+using namespace std;
+
+class Rectangle{
+private:
+    int width;
+    int height;
+    string color;
+
+public:
+// default constructor
+    Rectangle();
+    Rectangle(int width, int height);
+
+    Rectangle(int width, int height, const string& color);
+
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+---
+
+- Rectangle.cpp
+
+```cpp
+
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+//approach1: using () syntax
+Rectangle::Rectangle(int width, int height) : width(width), height(height) {
+}
+
+// approach 1: how to create default constructor
+Rectangle::Rectangle() {
+    //empty
+}
+
+Rectangle::Rectangle(int width, int height, const string& color):Rectangle() {
+    cout << "constructing a Rectangle with color";
+    this->color = color;
+}
+```
+
+---
+
+- main.cpp
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle first(10, 20);
+
+Rectangle second = first;
+
+  return 0;
+}
+```
+
 ### 13. The Destructor<a id="13"></a>
 
+- Rectangle.h
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle first(10, 20);
+
+  return 0;
+}
+```
+
+---
+
+- Rectangle.cpp
+
+```cpp
+#include <string>
+
+using namespace std;
+
+class Rectangle{
+private:
+    int width;
+    int height;
+    string color;
+
+public:
+    Rectangle();
+    Rectangle(int width, int height);
+    // how to define destructor
+    ~Rectangle();
+
+    Rectangle(int width, int height, const string& color);
+
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+---
+
+- main.cpp
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle first(10, 20);
+
+  return 0;
+}
+
+/* output
+Destructor called
+*/
+```
+
 ### 14. Static Members<a id="14"></a>
+
+- Rectangle.h
+
+```cpp
+#include <string>
+
+using namespace std;
+
+class Rectangle{
+private:
+    int width;
+    int height;
+    string color;
+
+public:
+    // how to declare static member
+    static int objectsCount;
+
+    Rectangle();
+    Rectangle(int width, int height);
+    Rectangle(int width, int height, const string& color);
+
+    ~Rectangle();
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+- Rectangle.cpp
+
+```cpp
+//
+// Created by Second_Brain on 11/1/2023.
+//
+
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+// static member
+Rectangle::Rectangle(int width, int height) {
+objectsCount++;
+cout << "Constructing a rectangle" << endl;
+    setHeight(height);
+    setWidth(width);
+}
+
+// approach 1: how to create default constructor
+Rectangle::Rectangle() {
+    //empty
+}
+
+Rectangle::Rectangle(int width, int height, const string& color):Rectangle() {
+    cout << "constructing a Rectangle with color";
+    this->color = color;
+}
+
+Rectangle::~Rectangle() {
+    cout << "Destructor called" << endl ;
+}
+
+int Rectangle::objectsCount = 0;
+```
+
+---
+
+- main.cpp
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle first(10, 20);
+Rectangle second(10, 20);
+
+cout << Rectangle::objectsCount << endl;
+
+  return 0;
+}
+```
 
 ### 15. Constant Objects and Functions<a id="15"></a>
 
