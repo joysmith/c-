@@ -390,6 +390,9 @@ terminate called after throwing an instance of 'std::invalid_argument'
 
 ### 7. Constructors<a id="7"></a>
 
+A constructor is a special function inside a class, that is used to initialize object.  
+A constructor function has no return type i.e void, int, bool, etc, and has same name as class
+
 - In Rectangle.h, declare constructor function
 
 ```cpp
@@ -399,7 +402,7 @@ private:
     int height;
 
 public:
-// How to declare constructor function
+  // How to declare constructor function
     Rectangle(int width, int height);
 
     void draw();
@@ -426,10 +429,228 @@ public:
 - In Rectangle.cpp, write implementation of constructor function
 
 ```cpp
-//
-// Created by Second_Brain on 11/1/2023.
-//
+#include <iostream>
+#include "Rectangle.h"
 
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+// constructor function implementation/definition
+Rectangle::Rectangle(int width, int height) {
+    cout << "Constructing  a Rectangle" << endl;
+
+    // initialize constructor using getter and setter so we can validate value.
+    setWidth(width);
+    setHeight(height);
+}
+```
+
+---
+
+- In main.cpp,
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+// approach1:  calling constructor function
+Rectangle rectangle(10, 20);
+
+// approach2:  calling constructor function modern way in C++
+// Rectangle rectangle{10, 20};
+
+
+cout << rectangle.getWidth();
+  return 0;
+}
+
+
+
+/* output
+Constructing  a Rectangle
+10
+*/
+```
+
+note:
+if we pass -1 value in width & height setter will validate and throw error. This is the benefit of initializing object with setters.
+
+### 8. Member Initializer List<a id="8"></a>
+
+Another way to initialize member variable in constructor function
+
+- Rectangle.h same
+
+```cpp
+class Rectangle{
+private:
+    int width;
+    int height;
+
+public:
+    Rectangle(int width, int height);
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+---
+
+- In Rectangle.cpp, initialize constructor using member initializer list
+
+```cpp
+
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+//approach1: using () syntax
+Rectangle::Rectangle(int width, int height) : width(width), height(height) {
+  // no data validation good for simple initialization
+}
+
+//approach2: using {} syntax in modern c++
+//Rectangle::Rectangle(int width, int height) : width{width}, height{height} {
+// }
+
+```
+
+---
+
+- In main.cpp, same
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle rectangle(10, 20);
+
+cout << rectangle.getWidth();
+  return 0;
+}
+```
+
+### 9. The Default Constructor<a id="9"></a>
+
+- A default constructor is a constructor function, with no parameter
+- Just like function we can overload constructor with different signature
+- The C++ compiler automatically generate default constructor for every class, unless we provide constructor
+- In Rectangle.h, declaring default constructor
+
+```cpp
+class Rectangle{
+private:
+    int width;
+    int height;
+
+public:
+    // declaring default constructor
+    Rectangle();
+
+    Rectangle(int width, int height);
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+---
+
+- In Rectangle.cpp, implementing/defining default constructor
+
+```cpp
 #include <iostream>
 #include "Rectangle.h"
 
@@ -466,228 +687,12 @@ void Rectangle::setHeight(int height){
 
 Rectangle::Rectangle(int width, int height) {
     cout << "Constructing  a Rectangle" << endl;
+    // initialize constructor using getter and setter so we can validate value.
     setWidth(width);
     setHeight(height);
 }
-```
 
----
-
-- In main.cpp,
-
-```cpp
-#include<iostream>
-#include "Rectangle.h"
-
-using namespace std;
-
-int main(){
-
-Rectangle rectangle(10, 20);
-
-cout << rectangle.getWidth();
-  return 0;
-}
-
-
-
-/* output
-Constructing  a Rectangle
-10
-*/
-```
-
-### 8. Member Initializer List<a id="8"></a>
-
-- Rectangle.h same
-
-```cpp
-//
-// Created by Second_Brain on 11/1/2023.
-//
-
-#ifndef UNTITLED_RECTANGLE_H
-#define UNTITLED_RECTANGLE_H
-
-class Rectangle{
-private:
-    int width;
-    int height;
-
-public:
-    Rectangle(int width, int height);
-
-    void draw();
-    int getArea();
-
-    // Getter (accessor)
-    int getWidth();
-
-    //Setter (mutator)
-    void setWidth(int width);
-
-
-    // Getter (accessor)
-    int getHeight() const;
-
-    // Setter (mutator)
-    void setHeight(int height);
-};
-
-#endif //UNTITLED_RECTANGLE_H
-
-```
-
----
-
-- In Rectangle.cpp, initialize constructor using member initializer list
-
-```cpp
-//
-// Created by Second_Brain on 11/1/2023.
-//
-
-#include <iostream>
-#include "Rectangle.h"
-
-using namespace std;
-
-void Rectangle::draw() {
-    cout << "Drawing a rectangle" << endl;
-    cout << "Dimensions: " << width << " " << height << endl;
-}
-
-int Rectangle::getArea() {
-    return width * height;
-}
-
-int Rectangle::getWidth() {
-    return width;
-}
-
-void Rectangle::setWidth(int width) {
-    // validate width
-    if(width <0)
-        throw invalid_argument("width");
-
-    (*this).width = width;
-}
-
-int Rectangle::getHeight() const {
-    return height;
-}
-
-void Rectangle::setHeight(int height){
-    this->height = height;
-}
-
-//approach1: using () syntax
-Rectangle::Rectangle(int width, int height) : width(width), height(height) {
-}
-
-//approach2: using {} syntax: moder c++
-//Rectangle::Rectangle(int width, int height) : width{width}, height{height} {
-//}
-
-```
-
----
-
-- In main.cpp
-
-```cpp
-#include<iostream>
-#include "Rectangle.h"
-
-using namespace std;
-
-int main(){
-
-Rectangle rectangle(10, 20);
-
-cout << rectangle.getWidth();
-  return 0;
-}
-```
-
-### 9. The Default Constructor<a id="9"></a>
-
-- In Rectangle.h
-
-```cpp
-class Rectangle{
-private:
-    int width;
-    int height;
-
-public:
-// default constructor
-    Rectangle();
-    Rectangle(int width, int height);
-
-    void draw();
-    int getArea();
-
-    // Getter (accessor)
-    int getWidth();
-
-    //Setter (mutator)
-    void setWidth(int width);
-
-
-    // Getter (accessor)
-    int getHeight() const;
-
-    // Setter (mutator)
-    void setHeight(int height);
-};
-
-```
-
----
-
-- In Rectangle.cpp
-
-```cpp
-#include <iostream>
-#include "Rectangle.h"
-
-using namespace std;
-
-void Rectangle::draw() {
-    cout << "Drawing a rectangle" << endl;
-    cout << "Dimensions: " << width << " " << height << endl;
-}
-
-int Rectangle::getArea() {
-    return width * height;
-}
-
-int Rectangle::getWidth() {
-    return width;
-}
-
-void Rectangle::setWidth(int width) {
-    // validate width
-    if(width <0)
-        throw invalid_argument("width");
-
-    (*this).width = width;
-}
-
-int Rectangle::getHeight() const {
-    return height;
-}
-
-void Rectangle::setHeight(int height){
-    this->height = height;
-}
-
-//approach1: using () syntax
-Rectangle::Rectangle(int width, int height) : width(width), height(height) {
-}
-
-// approach 1: how to create default constructor
+// approach 1: how to define/implement default constructor
 Rectangle::Rectangle() {
     //empty
 }
@@ -707,6 +712,7 @@ using namespace std;
 
 int main(){
 
+// how to call default constructor
 Rectangle rectangle;
 
 cout << rectangle.getWidth();
@@ -716,7 +722,7 @@ cout << rectangle.getWidth();
 
 ### Another way to create default constructor
 
-- In Rectangle.h
+- In Rectangle.h, define default constructor using **default** keyword
 
 ```cpp
 class Rectangle{
@@ -725,8 +731,9 @@ private:
     int height;
 
 public:
-// How to create default constructor using default keyword
+    // How to define default constructor using default keyword, modern way
     Rectangle() = default
+
     Rectangle(int width, int height);
 
     void draw();
@@ -750,7 +757,7 @@ public:
 
 ---
 
-- In Rectangle.cpp
+- In Rectangle.cpp, comment/disable approach 1 to create default constructor
 
 ```cpp
 #include <iostream>
@@ -787,15 +794,17 @@ void Rectangle::setHeight(int height){
     this->height = height;
 }
 
-//approach1: using () syntax
-Rectangle::Rectangle(int width, int height) : width(width), height(height) {
+Rectangle::Rectangle(int width, int height) {
+    cout << "Constructing  a Rectangle" << endl;
+    // initialize constructor using getter and setter so we can validate value.
+    setWidth(width);
+    setHeight(height);
 }
 
-// approach 1: how to create default constructor
-Rectangle::Rectangle() {
-    //empty
-}
-
+// approach 1: how to define/implement default constructor
+// Rectangle::Rectangle() {
+//     //empty
+// }
 
 ```
 
@@ -811,6 +820,7 @@ using namespace std;
 
 int main(){
 
+// calling default constructor
 Rectangle rectangle;
 
 cout << rectangle.getWidth();
@@ -820,7 +830,7 @@ cout << rectangle.getWidth();
 
 ### 10. Using the Explicit Keyword<a id="10"></a>
 
-- Person.h
+- Create class Person.h, for declaring
 
 ```cpp
 class Person{
@@ -832,18 +842,18 @@ public:
     //constructor
     explicit Person(int age);
 
-
 };
 
 ```
 
 ---
 
-- Person.cpp
+- Create Person.cpp, for defining/implementing
 
 ```cpp
 #include "Person.h"
 
+// Defining person constructor: using member initializer list to initialize value in constructor
 Person::Person(int age):age{age}{
 
 }
@@ -856,14 +866,19 @@ Person::Person(int age):age{age}{
 ```cpp
 #include <iostream>
 #include "Person.h"
+using namespace std;
 
 void showPerson(Person person){
 }
 
 int main() {
+    // create person instance and initialize with 10
     Person person(10);
-//    Person person{10};
 
+    // approach 2: to initialize object with {} syntax
+    // Person person{10};
+
+    // passing person object
     showPerson(person);
     return 0;
 }
@@ -872,7 +887,11 @@ int main() {
 
 ### 11. Constructor Delegation<a id="11"></a>
 
-- Rectangle.h
+A constructor can delegate the initialization of an object to another constructor and with this we remove code duplication
+
+Usage of constructor delegation to avoid code duplication, by using previous constructor for initialization of value
+
+- In Rectangle.h, declare new constructor with 3 input/parameter
 
 ```cpp
 #include <string>
@@ -883,13 +902,17 @@ class Rectangle{
 private:
     int width;
     int height;
+    // adding new member variable
     string color;
 
 public:
-// default constructor
+    // default constructor
     Rectangle();
+    // constructor with two inputs
     Rectangle(int width, int height);
 
+
+    // when using string as parameter of our function or constructor function, the best practice is to pass them by reference so they don't get copied, and also here we should apply constant keyword so we don't accidentally modify the original variable value
     Rectangle(int width, int height, const string& color);
 
 
@@ -914,7 +937,7 @@ public:
 
 ---
 
-- Rectangle.cpp
+- In Rectangle.cpp, define 3 input/parameter constructor and initialize object using delegate constructor
 
 ```cpp
 #include <iostream>
@@ -951,16 +974,31 @@ void Rectangle::setHeight(int height){
     this->height = height;
 }
 
-//approach1: using () syntax
-Rectangle::Rectangle(int width, int height) : width(width), height(height) {
+Rectangle::Rectangle(int width, int height) {
+    cout << "Constructing  a Rectangle" << endl;
+    // initialize constructor using getter and setter so we can validate value.
+    setWidth(width);
+    setHeight(height);
 }
 
-// approach 1: how to create default constructor
-Rectangle::Rectangle() {
-    //empty
-}
+// default constructor
+// Rectangle::Rectangle() {
+//     //empty
+// }
 
-Rectangle::Rectangle(int width, int height, const string& color):Rectangle() {
+
+// TO AVOID DUPLICATION OF CODE, we use constructor delegation
+// Rectangle::Rectangle(int width, int height, const string& color) {
+//     // REPETITION: of code from previous constructor
+//     // initialize constructor using getter and setter so we can validate value.
+//     setWidth(width);
+//     setHeight(height);
+
+//     this->color = color;
+// }
+
+// How to do constructor delegation
+Rectangle::Rectangle(int width, int height, const string& color):Rectangle(width, height) {
     cout << "constructing a Rectangle with color";
     this->color = color;
 }
@@ -980,12 +1018,24 @@ int main(){
 
 Rectangle rectangle(10, 20, "blue");
 
-//Rectangle rectangle{10, 20, "blue"};
+// initialize object using {} syntax
+// Rectangle rectangle{10, 20, "blue"};
 
 cout << rectangle.getWidth();
   return 0;
 }
+
+
+/* output
+Constructing a Rectangle
+Constructing a Rectangle with color
+*/
+
+
 ```
+
+explain:
+First we are constructing a rectangle and then we are constructing a Rectangle with color, so at first width & height initialize, which mens control move to constructor with two parameter, then the control move to second constructor
 
 ### 12. The Copy Constructor<a id="12"></a>
 
