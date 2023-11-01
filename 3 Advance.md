@@ -1119,16 +1119,22 @@ void Rectangle::setHeight(int height){
     this->height = height;
 }
 
-//approach1: using () syntax
-Rectangle::Rectangle(int width, int height) : width(width), height(height) {
+
+Rectangle::Rectangle(int width, int height) {
+    cout << "Constructing  a Rectangle" << endl;
+    // initialize constructor using getter and setter so we can validate value.
+    setWidth(width);
+    setHeight(height);
 }
 
-// approach 1: how to create default constructor
-Rectangle::Rectangle() {
-    //empty
-}
+// default constructor
+// Rectangle::Rectangle() {
+//     //empty
+// }
 
-Rectangle::Rectangle(int width, int height, const string& color):Rectangle() {
+
+// How to do constructor delegation
+Rectangle::Rectangle(int width, int height, const string& color):Rectangle(width, height) {
     cout << "constructing a Rectangle with color";
     this->color = color;
 }
@@ -1156,25 +1162,9 @@ Rectangle second = first;
 
 ### 13. The Destructor<a id="13"></a>
 
-- Rectangle.h
+Destructor are automatically called when our object being destroy, and this is an opportunity for us to free system resources that object is using
 
-```cpp
-#include<iostream>
-#include "Rectangle.h"
-
-using namespace std;
-
-int main(){
-
-Rectangle first(10, 20);
-
-  return 0;
-}
-```
-
----
-
-- Rectangle.cpp
+- In Rectangle.h,
 
 ```cpp
 #include <string>
@@ -1188,78 +1178,16 @@ private:
     string color;
 
 public:
-    Rectangle();
-    Rectangle(int width, int height);
-    // how to define destructor
-    ~Rectangle();
-
-    Rectangle(int width, int height, const string& color);
-
-
-    void draw();
-    int getArea();
-
-    // Getter (accessor)
-    int getWidth();
-
-    //Setter (mutator)
-    void setWidth(int width);
-
-
-    // Getter (accessor)
-    int getHeight() const;
-
-    // Setter (mutator)
-    void setHeight(int height);
-};
-
-```
-
----
-
-- main.cpp
-
-```cpp
-#include<iostream>
-#include "Rectangle.h"
-
-using namespace std;
-
-int main(){
-
-Rectangle first(10, 20);
-
-  return 0;
-}
-
-/* output
-Destructor called
-*/
-```
-
-### 14. Static Members<a id="14"></a>
-
-- Rectangle.h
-
-```cpp
-#include <string>
-
-using namespace std;
-
-class Rectangle{
-private:
-    int width;
-    int height;
-    string color;
-
-public:
-    // how to declare static member
-    static int objectsCount;
 
     Rectangle();
     Rectangle(int width, int height);
     Rectangle(int width, int height, const string& color);
 
+    // How to declare a destructor, just place "~"
+    // Name of class()
+    // Don't have any return type with no function parameter
+    // We cant overload destructor
+    // Each class can have maximum one destructor
     ~Rectangle();
 
     void draw();
@@ -1277,17 +1205,15 @@ public:
 
     // Setter (mutator)
     void setHeight(int height);
-};
 
+};
 ```
 
-- Rectangle.cpp
+---
+
+- In Rectangle.cpp, define/implement destructor
 
 ```cpp
-//
-// Created by Second_Brain on 11/1/2023.
-//
-
 #include <iostream>
 #include "Rectangle.h"
 
@@ -1322,29 +1248,175 @@ void Rectangle::setHeight(int height){
     this->height = height;
 }
 
-// static member
+
 Rectangle::Rectangle(int width, int height) {
+    cout << "Constructing  a Rectangle" << endl;
+    // initialize constructor using getter and setter so we can validate value.
+    setWidth(width);
+    setHeight(height);
+}
+
+// default constructor
+// Rectangle::Rectangle() {
+//     //empty
+// }
+
+
+Rectangle::Rectangle(int width, int height, const string& color):Rectangle(width, height) {
+    cout << "constructing a Rectangle with color";
+    this->color = color;
+}
+
+// How to define/implement destructor
+Rectangle::~Rectangle() {
+    cout << "Destructor called" << endl ;
+}
+
+```
+
+---
+
+- main.cpp
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle first(10, 20);
+
+  return 0;
+}
+
+/* output
+constructing a Rectangle
+Destructor called
+*/
+```
+
+The object is declared on stack, so when the main function finish execution the object go out of scope, so it would be destroyed at that point destructor is called
+
+### 14. Static Members<a id="14"></a>
+
+The instance member (variable + function), belong to object(instance) of Rectangle class, so each instance has copy of their own member.
+
+The members that belong to class are called static member
+
+- In Rectangle.h, declare static member for class
+
+```cpp
+#include <string>
+
+using namespace std;
+
+class Rectangle{
+private:
+    int width;
+    int height;
+    string color;
+
+public:
+    // how to declare static member aka class member; using static keyword
+    static int objectsCount;
+
+    Rectangle();
+    Rectangle(int width, int height);
+    Rectangle(int width, int height, const string& color);
+
+    ~Rectangle();
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+};
+
+```
+
+- Rectangle.cpp
+
+```cpp
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+
+// 👉 how to do/use static member implementation
+int Rectangle::objectsCount = 0;
+
+// modify two input constructor
+Rectangle::Rectangle(int width, int height) {
+// 👉 counting object each time we create object
 objectsCount++;
+
 cout << "Constructing a rectangle" << endl;
     setHeight(height);
     setWidth(width);
-}
-
-// approach 1: how to create default constructor
-Rectangle::Rectangle() {
-    //empty
-}
-
-Rectangle::Rectangle(int width, int height, const string& color):Rectangle() {
-    cout << "constructing a Rectangle with color";
-    this->color = color;
 }
 
 Rectangle::~Rectangle() {
     cout << "Destructor called" << endl ;
 }
 
-int Rectangle::objectsCount = 0;
+// default constructor
+// Rectangle::Rectangle() {
+//     //empty
+// }
+
+Rectangle::Rectangle(int width, int height, const string& color):Rectangle(width, height) {
+    cout << "constructing a Rectangle with color";
+    this->color = color;
+}
+
+// How to define/implement destructor
+Rectangle::~Rectangle() {
+    cout << "Destructor called" << endl ;
+}
+
 ```
 
 ---
@@ -1362,7 +1434,153 @@ int main(){
 Rectangle first(10, 20);
 Rectangle second(10, 20);
 
+
+// how to access static member
+// static member are accessed by class name
 cout << Rectangle::objectsCount << endl;
+
+  return 0;
+}
+```
+
+We've got single copy of objectscount i.e variable in the memory and this copy is shared by all instance
+
+#### REFACTOR : apply data hiding principle
+
+- In Rectangle.h, move static member objectsCount to private
+
+```cpp
+#include <string>
+
+using namespace std;
+
+class Rectangle{
+private:
+    int width;
+    int height;
+    string color;
+    // how to declare static member aka class member; using static keyword
+    static int objectsCount;
+
+public:
+    Rectangle();
+    Rectangle(int width, int height);
+    Rectangle(int width, int height, const string& color);
+
+    ~Rectangle();
+
+    void draw();
+    int getArea();
+
+    // Getter (accessor)
+    int getWidth();
+
+    //Setter (mutator)
+    void setWidth(int width);
+
+
+    // Getter (accessor)
+    int getHeight() const;
+
+    // Setter (mutator)
+    void setHeight(int height);
+
+    // 👉 declare getter for static member
+    static int getObjectsCount();
+};
+
+```
+
+- In Rectangle.cpp,
+
+```cpp
+#include <iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+void Rectangle::draw() {
+    cout << "Drawing a rectangle" << endl;
+    cout << "Dimensions: " << width << " " << height << endl;
+}
+
+int Rectangle::getArea() {
+    return width * height;
+}
+
+int Rectangle::getWidth() {
+    return width;
+}
+
+void Rectangle::setWidth(int width) {
+    // validate width
+    if(width <0)
+        throw invalid_argument("width");
+
+    (*this).width = width;
+}
+
+int Rectangle::getHeight() const {
+    return height;
+}
+
+void Rectangle::setHeight(int height){
+    this->height = height;
+}
+
+
+int Rectangle::objectsCount = 0;
+
+// 👉 static member getter implementation
+int Rectangle::getObjectsCount() {
+  return objectsCount;
+}
+
+// modify two input constructor
+Rectangle::Rectangle(int width, int height) {
+// counting object each time we create object
+objectsCount++;
+
+cout << "Constructing a rectangle" << endl;
+    setHeight(height);
+    setWidth(width);
+}
+
+
+// default constructor
+// Rectangle::Rectangle() {
+//     //empty
+// }
+
+Rectangle::Rectangle(int width, int height, const string& color):Rectangle(width, height) {
+    cout << "constructing a Rectangle with color";
+    this->color = color;
+}
+
+Rectangle::~Rectangle() {
+    cout << "Destructor called" << endl ;
+}
+```
+
+---
+
+- main.cpp
+
+```cpp
+#include<iostream>
+#include "Rectangle.h"
+
+using namespace std;
+
+int main(){
+
+Rectangle first(10, 20);
+Rectangle second(10, 20);
+
+
+// how to access static member
+// static member are accessed by class name
+cout << Rectangle::getObjectsCount() << endl;
 
   return 0;
 }
