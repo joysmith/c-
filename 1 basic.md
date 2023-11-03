@@ -124,6 +124,32 @@ Compiler for Vs-code
 
 ### 4. Your First C++ Program<a id="04"></a>
 
+Open Clion-> New Project-> C++ executable
+
+- specify project location name it "HelloWorld"
+- language standard: C++20
+- click green play button to run code.
+
+```cpp
+#include <iostream>
+
+int main() {
+    // statement terminated with semicolon
+    std::cout << "Hello, World!" << std::endl;
+
+    // tells OS that or program executed successfully
+    return 0;
+}
+
+
+/* output
+Hello, World!
+*/
+```
+
+cout: character out
+cin: character in
+
 ### 5. Compiling and Running a C++ Program<a id="05"></a>
 
 ### 6. Changing the Theme<a id="06"></a>
