@@ -152,15 +152,31 @@ cin: character in
 
 ### 5. Compiling and Running a C++ Program<a id="05"></a>
 
+To run code first we compile source code into machine code, that can be run by the computer OS
+
+The machine code is basically the native language that a computer Operating system understand and its different from Operating system to another  
+which means window, Mac, linux has different executable
+
 ### 6. Changing the Theme<a id="06"></a>
 
 ---
 
 # The Basics feature
 
-### 1. Introduction<a id="07"></a>
+### 1. Introduction<a id="07">
+
+- variable and constant
+- naming conventions
+- mathematical expressions
+- writing to and reading from the console
+- working with the standard library
+- comments
 
 ### 2. Variables<a id="08"></a>
+
+We use variable to temporarily store data in computer memory, technically a variable is name of location in the memory where we store some value because some value can change we refer to this location as variable.
+
+information: store, access, modify
 
 ```cpp
 #include <iostream>
