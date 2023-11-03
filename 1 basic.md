@@ -147,7 +147,7 @@ Hello, World!
 */
 ```
 
-cout: character out
+cout: character out  
 cin: character in
 
 ### 5. Compiling and Running a C++ Program<a id="05"></a>
