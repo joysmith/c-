@@ -93,10 +93,32 @@
 
 ### 2. Introduction to C++<a id="02"></a>
 
+Application of C++
+
+1. High performance applications
+1. Video games
+1. Device drivers
+1. Web Browsers
+1. Servers
+1. Operating Systems
+
+- Every 3 year new version comes up the latest version this time is 2023
+
+- Other language influenced by C++ : C#, Java, JS, TS, Dart
+
+To master C++ you need to master two things
+
+- C++ language: means syntax the grammar of this language.
+- C++ standard library: collection of pre-written code.
+
 ### 3. Popular IDEs<a id="03"></a>
 
 - [Clion](https://www.jetbrains.com/clion/)
+- [Visual Studio Community edition](https://visualstudio.microsoft.com/vs/community/)
 - [Vs code](https://code.visualstudio.com/download)
+
+Compiler for Vs-code
+
 - [Gnu compiler](https://sourceforge.net/projects/mingw/)
 - [Clang compiler](https://releases.llvm.org/download.html)
 

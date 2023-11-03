@@ -1640,17 +1640,422 @@ Inheritance is a mechanism for re-using code, so we can implement common feature
 
 <img src="notes/inheritance.png" width="400">
 
+- Widget.h
+
+```cpp
+
+class Widget {
+  public:
+    void enable();
+    void disable();
+    bool isEnabled() const;
+
+  private:
+    bool enabled;
+
+};
+```
+
+---
+
+- Widget.cpp
+
+```cpp
+#include "Widget.h"
+#include <iostream>
+
+void Widget::enable() { enabled = true; }
+
+void Widget::disable() { enabled = false; }
+
+bool Widget::isEnabled() const { return enabled; }
+
+```
+
+---
+
+- TextBox.h
+
+```cpp
+#include "Widget.h"
+#include <string>
+using namespace std;
+
+class TextBox : public Widget {
+  private:
+    string value;
+
+  public:
+    TextBox() = default;
+    explict TextBox(const string& value);
+    string getValue();
+    void setValue(const string& value);
+
+};
+
+```
+
+---
+
+- TextBox.cpp
+
+```cpp
+#include "Textbox.h"
+#include <iostream>
+
+void TextBox::setValue(std::string _str) { this->value = _str; }
+
+std::string TextBox::getValue() { return this->value; }
+
+void TextBox::draw() const { std::cout << "Drawing a TextBox" << std::endl; }
+
+TextBox::~TextBox() { std::cout << "Destructing a TextBox" << std::endl; }
+
+```
+
+- main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Textbox.h"
+
+using namespace std;
+
+
+
+int main() {
+    TextBox box;
+    box.disable();
+    cout << box.isEnabled();
+
+    return 0;
+}
+
+```
+
 ### 35. Protected Members<a id="35"></a>
+
+- Widget.h
+
+```cpp
+
+class Widget {
+  public:
+    void enable();
+    void disable();
+    bool isEnabled() const;
+
+  private:
+    bool enabled;
+
+  protected:
+    int width;
+
+};
+```
+
+---
+
+- main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Textbox.h"
+#include "Widget.h"
+
+using namespace std;
+
+
+int main() {
+    Widget widget;
+
+    // can access
+    widget.
+
+    TextBox box;
+    box.disable();
+    cout << box.isEnabled();
+
+    return 0;
+}
+
+```
 
 ### 36. Constructors and Inheritance<a id="36"></a>
 
+In inheritance, the base class constructor is called before the derived class constructor.
+
+- Widget.h
+
+```cpp
+
+class Widget {
+  public:
+    Widget() = default
+    Widget(bool enabled);
+    void enable();
+    void disable();
+    bool isEnabled() const;
+
+  private:
+    bool enabled;
+
+  protected:
+    int width;
+
+};
+```
+
+---
+
+- Widget.cpp
+
+```cpp
+#include <iostream>
+#include "Widget.h"
+
+using namespace std;
+
+void Widget::enable() { enabled = true; }
+
+void Widget::disable() { enabled = false; }
+
+bool Widget::isEnabled() const { return enabled; }
+
+Widget::Widget(bool enabled) : enabled{enabled}{
+    cout << "Widget constructed" << endl;
+}
+
+```
+
+---
+
+- TextBox.h
+
+```cpp
+#include "Widget.h"
+#include <string>
+using namespace std;
+
+class TextBox : public Widget {
+  private:
+    string value;
+
+  public:
+    TextBox();
+    explict TextBox(const string& value);
+    string getValue();
+    void setValue(const string& value);
+
+};
+
+```
+
+---
+
+- TextBox.cpp
+
+```cpp
+#include <iostream>
+#include "Textbox.h"
+
+using namespace std;
+
+
+void TextBox::setValue(string _str) { this->value = _str; }
+
+string TextBox::getValue() { return this->value; }
+
+void TextBox::draw() const { cout << "Drawing a TextBox" << endl; }
+
+TextBox::~TextBox() { std::cout << "Destructing a TextBox" << endl; }
+
+TextBox::TextBox() {cout << "TextBox Constructed" << endl;
+}
+
+```
+
+---
+
+- main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Textbox.h"
+#include "Widget.h"
+
+using namespace std;
+
+
+int main() {
+   TextBox box;
+
+    return 0;
+}
+
+```
+
+---
+
 ### 37. Destructors and Inheritance<a id="37"></a>
 
+In Inheritance, destructor are called in reverse order.
+
+- Widget.h
+
+```cpp
+
+class Widget {
+  public:
+    // Widget(bool enabled);
+
+    ~Widget();
+    void enable();
+    void disable();
+    bool isEnabled() const;
+
+  private:
+    bool enabled;
+
+  protected:
+    int width;
+
+};
+```
+
+---
+
+- Widget.cpp
+
+```cpp
+#include <iostream>
+#include "Widget.h"
+
+using namespace std;
+
+void Widget::enable() { enabled = true; }
+
+void Widget::disable() { enabled = false; }
+
+bool Widget::isEnabled() const { return enabled; }
+
+// Widget::Widget(bool enabled) : enabled{enabled}{
+//     cout << "Widget constructed" << endl;
+// }
+
+Widget::~Widget(){
+    cout << "Widget destructed" << endl;
+}
+```
+
+---
+
+---
+
+- TextBox.h
+
+```cpp
+#include "Widget.h"
+#include <string>
+using namespace std;
+
+class TextBox : public Widget {
+  private:
+    string value;
+
+  public:
+    // using Widget::Widget;
+    // explict TextBox(bool enabled, const string& value);
+    ~TextBox();
+    string getValue();
+    void setValue(const string& value);
+
+};
+
+```
+
+---
+
+- TextBox.cpp
+
+```cpp
+#include <iostream>
+#include "Textbox.h"
+
+using namespace std;
+
+
+void TextBox::setValue(string _str) { this->value = _str; }
+
+string TextBox::getValue() { return this->value; }
+
+void TextBox::draw() const { cout << "Drawing a TextBox" << endl; }
+
+TextBox::~TextBox() { cout << "TextBox destructed" << endl; }
+
+TextBox::TextBox() {cout << "TextBox Constructed" << endl;
+}
+
+```
+
+---
+
+- main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Textbox.h"
+#include "Widget.h"
+
+using namespace std;
+
+
+int main() {
+   TextBox box();
+
+    return 0;
+}
+
+```
+
+---
+
 ### 38. Conversion between Base and Derived Classes<a id="38"></a>
+
+- main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Textbox.h"
+#include "Widget.h"
+
+using namespace std;
+
+void showWidget(Widget widget){
+
+}
+
+int main() {
+   TextBox box;
+    Widget widget = box;
+    showWidget(box);
+
+    return 0;
+}
+
+```
 
 ### 39. Overriding Methods<a id="39"></a>
 
 ### 40. Polymorphism<a id="40"></a>
+
+polymorphism: many forms
+An object taking many forms
 
 ### 41. Polymorphic Collections<a id="41"></a>
 
