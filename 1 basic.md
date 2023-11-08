@@ -908,19 +908,372 @@ Hi Tony stark
 
 ### 23. Introduction<a id="029"></a>
 
+- comparison operator
+- logical operator
+- if statement
+- switch statement
+- conditional operator
+
 ### 24. Comparison Operators<a id="030"></a>
+
+- chart
+
+We use comparison operator for comparing values
+
+boolean expression: a piece of code that produce boolean value
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+int x = 10;
+
+// boolean expression:  a piece of code that produce boolean value
+
+bool result = x != 5;
+cout << boolalpha << result;
+return 0;
+}
+
+
+
+/* output
+Enter your full name with space: Tony stark
+Hi Tony stark
+*/
+
+```
+
+---
+
+Comparison of two value of different type int vs double.  
+The compiler automatically cast or convert int into double so it can perform the comparison.  
+The compiler will automatically convert value from small precise type to big precise type.
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+int x = 10;
+double y = 5
+
+// boolean expression:  a piece of code that produce boolean value
+bool result = x == y;
+
+cout << boolalpha << result;
+return 0;
+}
+
+```
+
+Character comparison
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+chat first = 'j';
+chat second = 'J';
+
+bool result = first = second;
+
+cout << boolalpha << result;
+return 0;
+}
+
+```
 
 ### 25. Logical Operators<a id="031"></a>
 
+We use logical operator for combining two or more boolean expression for condition
+
+- chart
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+int age = 20;
+bool isEligible = age > 18 && age << 65;
+// bool isEligible = age > 18 || age << 65;
+
+cout << boolalpha << isEligible;
+// cout << boolalpha << !isEligible;
+
+return 0;
+}
+
+```
+
+---
+
+Using () for readability
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+int age = 20;
+int salary = 50'000;
+
+
+bool isEligible = (age > 18 && age << 65) && (salary > 3000);
+// bool isEligible = (age > 18 && age << 65) || (salary > 3000);
+
+cout << boolalpha << isEligible;
+
+return 0;
+}
+
+```
+
 ### 26. Order of Logical Operators<a id="032"></a>
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+// priority: (),  !,  &&,  ||
+bool a = true;
+bool b = false;
+bool c = false;
+
+// first ! will evaluate
+// then && will evaluate
+bool result = b && !a;
+
+cout << boolalpha << result;
+
+return 0;
+}
+
+```
+
+---
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+// priority: (),  !,  &&,  ||
+bool a = true;
+bool b = false;
+bool c = false;
+
+// first && will evaluate
+// then || will evaluate
+bool result = a || b && c;
+
+cout << boolalpha << result;
+
+return 0;
+}
+
+```
+
+---
+
+using parenthesis for better readability and changing priority
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+// priority: (),  !,  &&,  ||
+bool a = true;
+bool b = false;
+bool c = false;
+
+// first () will evaluate
+// then && will evaluate
+bool result = (a || b) && c;
+
+cout << boolalpha << result;
+
+return 0;
+}
+
+```
 
 ### 27. If Statements<a id="033"></a>
 
+we use if statement to control logic of our program
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+int temperature = 70;
+
+if(temperature < 60){
+  cout << "cold";
+  cout << "wear warm cloth";
+}else if(temperature < 90){
+  cout << "Nice";
+}else{
+  cout << "Hot";
+}
+
+cout << boolalpha << result;
+
+return 0;
+}
+
+```
+
 ### 28. Nested If Statements<a id="034"></a>
+
+when we code one if statement in another if statement this is called nested if statements
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+short tuition = 0;
+bool isCitizen = true;
+bool InResident = true;
+
+if(isCitizen){
+
+  // inner/nested if statement
+  if(InResident)
+    tuition = 0;
+  else
+    tuition = 1000;
+}
+else
+  tuition = 3000;
+
+return 0;
+}
+
+```
 
 ### 29. The Conditional Operator<a id="035"></a>
 
+We have conditional operator
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+// using conditional operator
+int sales = 11'000;
+double commission = (sales > 10'000)? 0.11 : 0.05 ;
+
+
+// using if statement
+if(sales > 10'000)
+  commission = 0.11;
+else
+  commission = 0.05;
+
+cout << commission;
+
+return 0;
+}
+
+```
+
 ### 30. The Switch Statement<a id="036"></a>
+
+Implementation using if statement
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+cout  << "1 - Create account" << endl
+      << "2 - Change password" << endl
+      << "3 - Quit" << endl
+      << "select an option: " << endl
+
+
+short input;
+cin >> input;
+
+if(input == 1)
+  cout << "You selected 1";
+else if (input == 2)
+  cout << "You selected 2";
+else
+  cout << "Goodbye!!!";
+
+return 0;
+}
+
+```
+
+---
+
+Implementation using switch statement
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+cout  << "1 - Create account" << endl
+      << "2 - Change password" << endl
+      << "3 - Quit" << endl
+      << "select an option: " << endl
+
+
+short input;
+cin >> input;
+
+switch(input){
+  case 1:
+    cout << "You selected 1";
+  break;
+  case 2:
+    cout << "You selected 2";
+  default:
+    cout << "Goodbye";
+}
+
+return 0;
+}
+
+```
 
 <br>
 
@@ -928,15 +1281,236 @@ Hi Tony stark
 
 ### 31. Introduction<a id="037"></a>
 
+- for loops
+- ranged based for loop
+- while loop
+- do-while loop
+- break & continue statements
+
 ### 32. The for Loop<a id="038"></a>
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+for(int i = 0; i <= 5; i++){
+  cout << i << endl;
+}
+
+return 0;
+}
+
+```
+
+---
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+for(int i = 5; i > 0; i--){
+  if(i%2 !=0)
+    cout << i << endl;
+}
+
+return 0;
+}
+
+```
 
 ### 33. Range-based for Loops<a id="039"></a>
 
+simple for loop
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+int number[] = {1, 2, 3};
+
+// size of numbers: 16 bytes
+// size of int: 4 bytes
+
+for(int i = 0; i < sizeof(numbers)/sizeof(int); i++){
+  cout << numbers[i] << endl;
+}
+
+return 0;
+}
+
+```
+
+---
+
+Ranged based for loop
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+int numbers[] = {1, 2, 3};
+
+// size of numbers: 16 bytes
+// size of int: 4 bytes
+
+for(int number : numbers){
+  cout << number << endl;
+}
+
+return 0;
+}
+
+```
+
+---
+
+Ranged based for loop
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+string name = "joy peter";
+
+for(char ch:name)
+  cout << ch << endl;
+
+return 0;
+}
+
+```
+
 ### 34. While Loops<a id="040"></a>
+
+simple for loop
+
+- when we know how many times we want to repeat
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+
+for(int i = 1; i <= 5; i++>)
+  cout << i << endl;
+
+return 0;
+}
+
+```
+
+---
+
+while loop
+
+- when we don't know how many times we want to repeat ahead of times
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+int i = 1;
+while(i < 5){
+  cout << i << endl;
+}
+
+return 0;
+}
+
+```
+
+---
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+int number  = 0;
+
+while(number < 1 || number > 5){
+  cout << "Number: ";
+  cin >> number;
+
+  if(number < 1 || number > 5){
+    cout << "Enter a number between 1-5" << endl;
+  }
+}
+
+return 0;
+}
+
+```
 
 ### 35. Do-while Loops<a id="041"></a>
 
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+int number;
+
+do{
+  cout << "Number: ";
+  cin >> number;
+}
+while(number < 1 || number > 5)
+
+return 0;
+}
+
+```
+
 ### 36. Break and Continue Statements<a id="042"></a>
+
+loops tool-  
+break: to break out of a loop
+continue: to skip an iteration
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+  for(int i=1; i<=5; i++){
+    if(i%3==0)
+      continue;
+      // break:
+      cout << i << endl;
+  }
+
+return 0;
+}
+
+```
 
 ### 37. Nested Loops<a id="043"></a>
 
