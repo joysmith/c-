@@ -235,6 +235,8 @@ int main() {
 
 ### 5. Mathematical Expressions<a id="011"></a>
 
+Example 1:
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -256,6 +258,8 @@ int main() {
 ```
 
 ---
+
+Example 2:
 
 ```cpp
 #include <iostream>
@@ -348,6 +352,8 @@ X: 7
 
 ---
 
+using () parenthesis to change priority
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -370,8 +376,11 @@ z: 1.33333
 
 ### 7. Writing Output to the Console<a id="013"></a>
 
-"<<" stream insertion operator: It is an operator for inserting something to our output stream  
+"<<" stream insertion operator: It is an operator for inserting something to our output stream
+
 "cout" is an object that represent standard output stream
+
+In programming a stream represent sequence of character.
 
 The standard output is our console or terminal window, so using cout we can write a sequence of character on standard output which is our standard window or terminal
 
@@ -425,6 +434,8 @@ y: 20
 
 ">>" string extraction operator
 
+cin: reading data from console.
+
 ```cpp
 
 #include <iostream>
@@ -452,6 +463,8 @@ value: 7
 
 ---
 
+Example to read float/decimal value from console
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -477,6 +490,8 @@ sum is: 77
 */
 
 ```
+
+---
 
 Chaining string extraction operator
 
@@ -507,6 +522,8 @@ sum is: 7
 ```
 
 ### 9. Working with the Standard Library<a id="015"></a>
+
+math library i.e cmath
 
 [floor function usage ref](https://cplusplus.com/reference/cmath/floor/)
 
