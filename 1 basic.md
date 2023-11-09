@@ -534,6 +534,7 @@ using namespace std;
 
 int main() {
 // the floor() function takes 1 args/input
+// the floor() function return double
 double result = floor(1.3);
 
 cout << "result: " <<result;
@@ -573,7 +574,7 @@ result: 8
 
 ### 10. Comments<a id="016"></a>
 
-Comment: To clarify our code to make code more understandable, they are ignored by compiler which means they are not compiled by compiler
+Comment: To clarify our code, To make code more understandable, they are ignored by compiler which means they are not compiled by compiler
 
 comment always Why & How, not what
 
@@ -605,6 +606,8 @@ n
 t
 */
 
+// ❌ (What)  declaring and initialing x with value 7
+int x = 7;
 return 0;
 }
 ```
@@ -615,14 +618,20 @@ return 0;
 
 ### 11. Introduction<a id="017"></a>
 
+- Built-in type
+- numbers
+- boolean values
+- character and strings
+- arrays
+
+### 12. Fundamental Data Types<a id="018"></a>
+
 c++ is statically typed language:  
-When we declare a variable we need to specify its type and this type could not change through the lifetime of our program  
+When we declare a variable we need to specify its type and this type could not change, through the lifetime of our program  
 other language resemble same feature: c++, java, C#, Type script
 
 Dynamically typed language:  
 Python, Javascript, Ruby: These language we don't have to give our variable a particular type like int, boolean, string, bool etc, The type will be determined based on the value that we will assign to this variable and that type can change throughout the life time of out program
-
-### 12. Fundamental Data Types<a id="018"></a>
 
 > Whole number
 
@@ -655,7 +664,7 @@ Python, Javascript, Ruby: These language we don't have to give our variable a pa
 ### 13. Initializing Variables<a id="019"></a>
 
 Why we write f/F or l/L after value as suffix ?  
-To force compiler to take as long or float we write f/F or l/L at the end of value in uppercase or lowercase
+To force compiler to take as long or float, we write f/F or l/L at the end of value in uppercase or lowercase
 
 ```cpp
 
@@ -667,7 +676,7 @@ int main() {
 float interestRate = 3.67f;
 float newInterestRate = 3.67F;
 double price = 99.9;
-long movieSize = 1000000l;
+long movieSize = 1'000'000l;
 long audioSize = 1000000L;
 bool isGameOVer = false;
 
@@ -678,7 +687,7 @@ return 0;
 
 ---
 
-auto keyword: using auto keyword compiler know type because of f/F, l/L, false, "c" etc otherwise it will set type in default like int, double
+auto keyword: using auto keyword compiler know data type because of f/F, l/L, false, "c" etc otherwise it will set type in default like int, double
 
 ```cpp
 #include <iostream>
@@ -717,7 +726,7 @@ return 0;
 using namespace std;
 
 int main() {
-// brace initialized when empty
+// brace initialized when empty, default value will be 0
 int number {};
 
  // brace initialized with value
@@ -750,8 +759,13 @@ initialize value: 7
 using namespace std;
 
 int main() {
+// decimal number system
 int number = 255;
+
+// binary number system
 int numberBinary = 0b11111111;
+
+// hexadecimal number system
 int numberHexa = 0xff;
 
 cout << "number: "<< number << endl;
@@ -771,6 +785,9 @@ numberHexa: 255
 ```
 
 ### 15. Narrowing<a id="021"></a>
+
+Narrowing : when we initialize variable of smaller type using a larger type  
+int is larger type --> short is smaller type
 
 ```cpp
 
