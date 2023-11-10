@@ -183,15 +183,15 @@ information: store, access, modify
 using namespace std;
 
 int main() {
-  // approach 1: declaring variable then initializing
-  int audio_file_size;
-  audio_file_size = 100;
+    // approach 1: declaring variable then initializing
+    int audio_file_size;
+    audio_file_size = 100;
 
-  // approach 2: combine two statements in single line -declaration & initialization
-  int image_file_size = 5;
+    // approach 2: combine two statements in single line -declaration & initialization
+    int image_file_size = 5;
 
-  cout << image_file_size;
-  return 0;
+    cout << image_file_size;
+    return 0;
 }
 ```
 
@@ -204,11 +204,11 @@ When we don't want value of variable to change we use constant
 using namespace std;
 
 int main() {
-  // How to use constant
-  const double pi = 3.14;
+    // How to use constant
+    const double pi = 3.14;
 
-  cout << pi;
-  return 0;
+    cout << pi;
+    return 0;
 }
 ```
 
@@ -220,16 +220,16 @@ using namespace std;
 
 int main() {
 
-  // Camel Case
-  int myFileSize = 12;
+    // Camel Case
+    int myFileSize = 12;
 
-  // Snake Case
-  int my_file_size = 14;
+    // Snake Case
+    int my_file_size = 14;
 
-  // Pascal Case
-  int MyFileSize = 13;
+    // Pascal Case
+    int MyFileSize = 13;
 
-  return 0;
+    return 0;
 }
 ```
 
@@ -243,16 +243,16 @@ using namespace std;
 
 int main() {
 
-  int x = 5;
-  int y = 10;
+    int x = 5;
+    int y = 10;
 
-  // operator +, -, /, *
-  // operands x y on which we are performing operations using operator
-  int z = x + y;
+    // operator +, -, /, *
+    // operands x y on which we are performing operations using operator
+    int z = x + y;
 
-  cout << z;
+    cout << z;
 
-  return 0;
+    return 0;
 }
 
 ```
@@ -267,16 +267,16 @@ using namespace std;
 
 int main() {
 
-  double x = 10;
-  double y = 3;
+    double x = 10;
+    double y = 3;
 
-  // operator +, -, /, *
-  // operands x y
-  double z = x / y;
+    // operator +, -, /, *
+    // operands x y
+    double z = x / y;
 
-  cout << z;
+    cout << z;
 
-  return 0;
+    return 0;
 }
 ```
 
@@ -290,12 +290,12 @@ using namespace std;
 
 int main() {
 
-int x = 10;
+    int x = 10;
 // first store x value in y then increment by 1
-int y = x ++;
-cout << "x: " << x << endl;
-cout << "y: " << y ;
-  return 0;
+    int y = x ++;
+    cout << "x: " << x << endl;
+    cout << "y: " << y ;
+    return 0;
 }
 
 /* output
@@ -315,12 +315,12 @@ using namespace std;
 
 int main() {
 
-int x = 10;
+    int x = 10;
 // first increment x by 1 then store value in y
-int y = ++x;
-cout << "x: " << x << endl;
-cout << "y: " << y ;
-  return 0;
+    int y = ++x;
+    cout << "x: " << x << endl;
+    cout << "y: " << y ;
+    return 0;
 }
 
 /* output
@@ -339,14 +339,14 @@ using namespace std;
 int main() {
 // PEMDAS math rule
 // priority: (), * and /, + and  -
-double x = 1 + 2 * 5;
-cout << "X: " << x;
+    double x = 1 + 2 * 5;
+    cout << "X: " << x;
 
-return 0;
+    return 0;
 }
 
 /* output
-X: 7
+X: 11
 */
 ```
 
@@ -360,13 +360,13 @@ using namespace std;
 
 int main() {
 // priority: (), * and /, + and  -
-double x = 10;
-double y = 5;
-double z = (x + 10) / (3 * y);
+    double x = 10;
+    double y = 5;
+    double z = (x + 10) / (3 * y);
 
-cout << "z: " << z;
+    cout << "z: " << z;
 
-return 0;
+    return 0;
 }
 
 /* output
@@ -389,15 +389,15 @@ The standard output is our console or terminal window, so using cout we can writ
 using namespace std;
 
 int main() {
-int x = 10;
+    int x = 10;
 
 // single statement
-cout << x;
+    cout << x;
 
 // combining statement into single statement by chaining multiple string insertion operators
-cout << "x: " << x;
+    cout << "x: " << x;
 
-return 0;
+    return 0;
 }
 
 /* output
@@ -414,14 +414,14 @@ endl: end of line
 using namespace std;
 
 int main() {
-int x = 10;
-int y = 20;
+    int x = 10;
+    int y = 20;
 
 // How to move in next line using "endl" manipulator
-cout << "x: " << x << endl;
-cout << "y: " << y << endl;
+    cout << "x: " << x << endl;
+    cout << "y: " << y << endl;
 
-return 0;
+    return 0;
 }
 
 /* output
@@ -442,17 +442,17 @@ cin: reading data from console.
 using namespace std;
 
 int main() {
-cout << "Enter a value: ";
-int value;
+    cout << "Enter a value: ";
+    int value;
 
 // ">>" string extractor operator
 // reading data from console and putting it in value variable
-cin >> value;
+    cin >> value;
 
 // How to move in next line using "endl" manipulator
-cout << "value: " << value << endl;
+    cout << "value: " << value << endl;
 
-return 0;
+    return 0;
 }
 
 /* output
@@ -470,16 +470,16 @@ Example to read float/decimal value from console
 using namespace std;
 
 int main() {
-cout << "Enter a value for x and y: " << endl;
-double x;
-double y;
+    cout << "Enter a value for x and y: " << endl;
+    double x;
+    double y;
 
-cin >> x;
-cin >> y;
+    cin >> x;
+    cin >> y;
 
-cout << "sum is: " << x + y;
+    cout << "sum is: " << x + y;
 
-return 0;
+    return 0;
 }
 
 /* output
@@ -500,16 +500,16 @@ Chaining string extraction operator
 using namespace std;
 
 int main() {
-cout << "Enter a value for x and y: " << endl;
-double x;
-double y;
+    cout << "Enter a value for x and y: " << endl;
+    double x;
+    double y;
 
 // chaining string extraction operator
-cin >> x >> y;
+    cin >> x >> y;
 
-cout << "sum is: " << x + y;
+    cout << "sum is: " << x + y;
 
-return 0;
+    return 0;
 }
 
 /* output
@@ -518,7 +518,6 @@ Enter a value for x and y:
 5
 sum is: 7
 */
-
 ```
 
 ### 9. Working with the Standard Library<a id="015"></a>
@@ -535,11 +534,11 @@ using namespace std;
 int main() {
 // the floor() function takes 1 args/input
 // the floor() function return double
-double result = floor(1.3);
+    double result = floor(1.3);
 
-cout << "result: " <<result;
+    cout << "result: " <<result;
 
-return 0;
+    return 0;
 }
 
 /* output
@@ -560,11 +559,11 @@ int main() {
 // 2^3: 2 to the power of 3
 // 2 x 2 x 2 = 8
 // the pow() function takes 2 args/inputs: one is the base and another one as exponent/power
-double result = pow(2, 3);
+    double result = pow(2, 3);
 
-cout << "result: " <<result;
+    cout << "result: " <<result;
 
-return 0;
+    return 0;
 }
 
 /* output
@@ -607,8 +606,8 @@ t
 */
 
 // ❌ (What)  declaring and initialing x with value 7
-int x = 7;
-return 0;
+    int x = 7;
+    return 0;
 }
 ```
 
@@ -673,14 +672,14 @@ To force compiler to take as long or float, we write f/F or l/L at the end of va
 using namespace std;
 
 int main() {
-float interestRate = 3.67f;
-float newInterestRate = 3.67F;
-double price = 99.9;
-long movieSize = 1'000'000l;
-long audioSize = 1000000L;
-bool isGameOVer = false;
+    float interestRate = 3.67f;
+    float newInterestRate = 3.67F;
+    double price = 99.9;
+    long movieSize = 1'000'000l;
+    long audioSize = 1000000L;
+    bool isGameOVer = false;
 
-return 0;
+    return 0;
 }
 
 ```
@@ -696,23 +695,23 @@ using namespace std;
 
 int main() {
 // compile will take type as float
-auto interestRate = 3.67f;
-auto newInterestRate = 3.67F;
+    auto interestRate = 3.67f;
+    auto newInterestRate = 3.67F;
 
 // compile will take type as double
-auto price = 99.9;
+    auto price = 99.9;
 
 // compile will take type as long
-auto movieSize = 1000000l;
-auto audioSize = 1000000L;
+    auto movieSize = 1000000l;
+    auto audioSize = 1000000L;
 
 // compile will take type as bool
-auto isGameOVer = false;
+    auto isGameOVer = false;
 
 // compile will take type as char
-auto letter = "j";
+    auto letter = "j";
 
-return 0;
+    return 0;
 }
 ```
 
@@ -727,15 +726,15 @@ using namespace std;
 
 int main() {
 // brace initialized when empty, default value will be 0
-int number {};
+    int number {};
 
- // brace initialized with value
-int number2 {7};
+    // brace initialized with value
+    int number2 {7};
 
-cout << "default value: "<<number;
-cout << "initialize value: "<<number2;
+    cout << "default value: "<< number << endl;
+    cout << "initialize value: "<< number2;
 
-return 0;
+    return 0;
 }
 
 
@@ -760,19 +759,19 @@ using namespace std;
 
 int main() {
 // decimal number system
-int number = 255;
+    int number = 255;
 
 // binary number system
-int numberBinary = 0b11111111;
+    int numberBinary = 0b11111111;
 
 // hexadecimal number system
-int numberHexa = 0xff;
+    int numberHexa = 0xff;
 
-cout << "number: "<< number << endl;
-cout << "numberBinary: "<< numberBinary << endl;
-cout << "numberHexa: "<< numberHexa << endl;
+    cout << "number: "<< number << endl;
+    cout << "numberBinary: "<< numberBinary << endl;
+    cout << "numberHexa: "<< numberHexa << endl;
 
-return 0;
+    return 0;
 }
 
 
@@ -796,13 +795,13 @@ int is larger type --> short is smaller type
 using namespace std;
 
 int main() {
-int number = 1'000'000;
+    int number = 1'000'000;
 // narrowing conversion cause data loss
-short another = number;
+    short another = number;
 
-cout << "another: "<< another << endl;
+    cout << "another: "<< another << endl;
 
-return 0;
+    return 0;
 }
 
 
@@ -828,14 +827,14 @@ sticky manipulator: once you applied you will receive all value of the same type
 using namespace std;
 
 int main() {
-bool isNewUser = false;
-cout << "isNewUser: " << isNewUser << endl;
+    bool isNewUser = false;
+    cout << "isNewUser: " << isNewUser << endl;
 
 // using sticky string boolalpha manipulator
 // after this all boolean value display as false instead of 0
-cout << boolalpha << "isNewUser: " << isNewUser;
+    cout << boolalpha << "isNewUser: " << isNewUser;
 
-return 0;
+    return 0;
 }
 
 
@@ -854,19 +853,19 @@ isNewUser: false
 using namespace std;
 
 int main() {
-char ch = 'a';
+    char ch = 'a';
 
 // dispaly character
-cout << ch << endl;
+    cout << ch << endl;
 
 // display ascii character code
-cout << +ch << endl;
+    cout << +ch << endl;
 
 // BAD practise using ascii code for initialization
-char newch = 98;
-cout << ch;
+    char newch = 98;
+    cout << ch;
 
-return 0;
+    return 0;
 }
 
 
@@ -886,16 +885,16 @@ a
 using namespace std;
 
 int main() {
-string movie = "Spider Man";
-cout << movie << endl;
+    string movie = "Spider Man";
+    cout << movie << endl;
 
 // reading string from terminal without space
-string name;
-cout << "Enter your full name with space: ";
-cin >> name;
-cout << "Hi " << name;
+    string name;
+    cout << "Enter your full name with space: ";
+    cin >> name;
+    cout << "Hi " << name;
 
-return 0;
+    return 0;
 }
 
 
@@ -916,12 +915,12 @@ using namespace std;
 int main() {
 
 // reading string from terminal with space
-string name;
-cout << "Enter your full name with space: ";
-getline(cin, name);
-cout << "Hi " << name;
+    string name;
+    cout << "Enter your full name with space: ";
+    getline(cin, name);
+    cout << "Hi " << name;
 
-return 0;
+    return 0;
 }
 
 
@@ -963,13 +962,13 @@ using namespace std;
 
 int main() {
 
-int x = 10;
+    int x = 10;
 
 // boolean expression:  a piece of code that produce boolean value
 
-bool result = x != 5;
-cout << boolalpha << result;
-return 0;
+    bool result = x != 5;
+    cout << boolalpha << result;
+    return 0;
 }
 
 
@@ -994,14 +993,14 @@ using namespace std;
 
 int main() {
 
-int x = 10;
-double y = 5
+    int x = 10;
+    double y = 5;
 
 // boolean expression:  a piece of code that produce boolean value
-bool result = x == y;
+    bool result = x == y;
 
-cout << boolalpha << result;
-return 0;
+    cout << boolalpha << result;
+    return 0;
 }
 
 ```
@@ -1015,13 +1014,13 @@ using namespace std;
 
 int main() {
 
-chat first = 'j';
-chat second = 'J';
+    char first = 'j';
+    char second = 'J';
 
-bool result = first = second;
+    bool result = first = second;
 
-cout << boolalpha << result;
-return 0;
+    cout << boolalpha << result;
+    return 0;
 }
 
 ```
@@ -1039,14 +1038,14 @@ using namespace std;
 
 int main() {
 
-int age = 20;
-bool isEligible = age > 18 && age << 65;
+    int age = 20;
+    bool isEligible = age > 18 && age << 65;
 // bool isEligible = age > 18 || age << 65;
 
-cout << boolalpha << isEligible;
+    cout << boolalpha << isEligible;
 // cout << boolalpha << !isEligible;
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1062,16 +1061,16 @@ using namespace std;
 
 int main() {
 
-int age = 20;
-int salary = 50'000;
+    int age = 20;
+    int salary = 50'000;
 
 
-bool isEligible = (age > 18 && age << 65) && (salary > 3000);
+    bool isEligible = (age > 18 && age << 65) && (salary > 3000);
 // bool isEligible = (age > 18 && age << 65) || (salary > 3000);
 
-cout << boolalpha << isEligible;
+    cout << boolalpha << isEligible;
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1086,17 +1085,17 @@ using namespace std;
 int main() {
 
 // priority: (),  !,  &&,  ||
-bool a = true;
-bool b = false;
-bool c = false;
+    bool a = true;
+    bool b = false;
+    bool c = false;
 
 // first ! will evaluate
 // then && will evaluate
-bool result = b && !a;
+    bool result = b && !a;
 
-cout << boolalpha << result;
+    cout << boolalpha << result;
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1111,17 +1110,17 @@ using namespace std;
 int main() {
 
 // priority: (),  !,  &&,  ||
-bool a = true;
-bool b = false;
-bool c = false;
+    bool a = true;
+    bool b = false;
+    bool c = false;
 
 // first && will evaluate
 // then || will evaluate
-bool result = a || b && c;
+    bool result = a || b && c;
 
-cout << boolalpha << result;
+    cout << boolalpha << result;
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1138,17 +1137,17 @@ using namespace std;
 int main() {
 
 // priority: (),  !,  &&,  ||
-bool a = true;
-bool b = false;
-bool c = false;
+    bool a = true;
+    bool b = false;
+    bool c = false;
 
 // first () will evaluate
 // then && will evaluate
-bool result = (a || b) && c;
+    bool result = (a || b) && c;
 
-cout << boolalpha << result;
+    cout << boolalpha << result;
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1164,20 +1163,18 @@ using namespace std;
 
 int main() {
 
-int temperature = 70;
+    int temperature = 70;
 
-if(temperature < 60){
-  cout << "cold";
-  cout << "wear warm cloth";
-}else if(temperature < 90){
-  cout << "Nice";
-}else{
-  cout << "Hot";
-}
+    if(temperature < 60){
+        cout << "cold";
+        cout << "wear warm cloth";
+    }else if(temperature < 90){
+        cout << "Nice";
+    }else{
+        cout << "Hot";
+    }
 
-cout << boolalpha << result;
-
-return 0;
+    return 0;
 }
 
 ```
@@ -1193,22 +1190,22 @@ using namespace std;
 
 int main() {
 
-short tuition = 0;
-bool isCitizen = true;
-bool InResident = true;
+    short tuition = 0;
+    bool isCitizen = true;
+    bool InResident = true;
 
-if(isCitizen){
+    if(isCitizen){
 
-  // inner/nested if statement
-  if(InResident)
-    tuition = 0;
-  else
-    tuition = 1000;
-}
-else
-  tuition = 3000;
+        // inner/nested if statement
+        if(InResident)
+            tuition = 0;
+        else
+            tuition = 1000;
+    }
+    else
+        tuition = 3000;
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1225,19 +1222,19 @@ using namespace std;
 int main() {
 
 // using conditional operator
-int sales = 11'000;
-double commission = (sales > 10'000)? 0.11 : 0.05 ;
+    int sales = 11'000;
+    double commission = (sales > 10'000)? 0.11 : 0.05 ;
 
 
 // using if statement
-if(sales > 10'000)
-  commission = 0.11;
-else
-  commission = 0.05;
+    if(sales > 10'000)
+        commission = 0.11;
+    else
+        commission = 0.05;
 
-cout << commission;
+    cout << commission;
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1253,23 +1250,23 @@ using namespace std;
 
 int main() {
 
-cout  << "1 - Create account" << endl
-      << "2 - Change password" << endl
-      << "3 - Quit" << endl
-      << "select an option: " << endl
+    cout  << "1 - Create account" << endl
+          << "2 - Change password" << endl
+          << "3 - Quit" << endl
+          << "select an option: " << endl;
 
 
-short input;
-cin >> input;
+    short input;
+    cin >> input;
 
-if(input == 1)
-  cout << "You selected 1";
-else if (input == 2)
-  cout << "You selected 2";
-else
-  cout << "Goodbye!!!";
+    if(input == 1)
+        cout << "You selected 1";
+    else if (input == 2)
+        cout << "You selected 2";
+    else
+        cout << "Goodbye!!!";
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1285,26 +1282,26 @@ using namespace std;
 
 int main() {
 
-cout  << "1 - Create account" << endl
-      << "2 - Change password" << endl
-      << "3 - Quit" << endl
-      << "select an option: " << endl
+    cout  << "1 - Create account" << endl
+          << "2 - Change password" << endl
+          << "3 - Quit" << endl
+          << "select an option: " << endl;
 
 
-short input;
-cin >> input;
+    short input;
+    cin >> input;
 
-switch(input){
-  case 1:
-    cout << "You selected 1";
-  break;
-  case 2:
-    cout << "You selected 2";
-  default:
-    cout << "Goodbye";
-}
+    switch(input){
+        case 1:
+            cout << "You selected 1";
+            break;
+        case 2:
+            cout << "You selected 2";
+        default:
+            cout << "Goodbye";
+    }
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1330,11 +1327,11 @@ using namespace std;
 
 int main() {
 
-for(int i = 0; i <= 5; i++){
-  cout << i << endl;
-}
+    for(int i = 0; i <= 5; i++){
+        cout << i << endl;
+    }
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1348,12 +1345,12 @@ using namespace std;
 
 int main() {
 
-for(int i = 5; i > 0; i--){
-  if(i%2 !=0)
-    cout << i << endl;
-}
+    for(int i = 5; i > 0; i--){
+        if(i%2 !=0)
+            cout << i << endl;
+    }
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1369,16 +1366,16 @@ using namespace std;
 
 int main() {
 
-int number[] = {1, 2, 3};
+    int numbers[] = {1, 2, 3};
 
 // size of numbers: 16 bytes
 // size of int: 4 bytes
 
-for(int i = 0; i < sizeof(numbers)/sizeof(int); i++){
-  cout << numbers[i] << endl;
-}
+    for(int i = 0; i < sizeof(numbers)/sizeof(int); i++){
+        cout << numbers[i] << endl;
+    }
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1394,16 +1391,16 @@ using namespace std;
 
 int main() {
 
-int numbers[] = {1, 2, 3};
+    int numbers[] = {1, 2, 3};
 
 // size of numbers: 16 bytes
 // size of int: 4 bytes
 
-for(int number : numbers){
-  cout << number << endl;
-}
+    for(int number : numbers){
+        cout << number << endl;
+    }
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1419,12 +1416,12 @@ using namespace std;
 
 int main() {
 
-string name = "joy peter";
+    string name = "joy peter";
 
-for(char ch:name)
-  cout << ch << endl;
+    for(char ch:name)
+        cout << ch << endl;
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1443,10 +1440,10 @@ using namespace std;
 int main() {
 
 
-for(int i = 1; i <= 5; i++>)
-  cout << i << endl;
+    for(int i = 1; i <= 5; i++)
+        cout << i << endl;
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1456,6 +1453,7 @@ return 0;
 while loop
 
 - when we don't know how many times we want to repeat ahead of times
+  CHECKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK--------------------------------------
 
 ```cpp
 #include <iostream>
@@ -1464,12 +1462,12 @@ using namespace std;
 
 int main() {
 
-int i = 1;
-while(i < 5){
-  cout << i << endl;
-}
+    int i = 1;
+    while(i < 5){
+        cout << i << endl;
+    }
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1483,18 +1481,18 @@ using namespace std;
 
 int main() {
 
-int number  = 0;
+    int number  = 0;
 
-while(number < 1 || number > 5){
-  cout << "Number: ";
-  cin >> number;
+    while(number < 1 || number > 5){
+        cout << "Number: ";
+        cin >> number;
 
-  if(number < 1 || number > 5){
-    cout << "Enter a number between 1-5" << endl;
-  }
-}
+        if(number < 1 || number > 5){
+            cout << "Enter a number between 1-5" << endl;
+        }
+    }
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1508,15 +1506,15 @@ using namespace std;
 
 int main() {
 
-int number;
+    int number;
 
-do{
-  cout << "Number: ";
-  cin >> number;
-}
-while(number < 1 || number > 5)
+    do{
+        cout << "Number: ";
+        cin >> number;
+    }
+    while(number < 1 || number > 5);
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1534,14 +1532,14 @@ using namespace std;
 
 int main() {
 
-  for(int i=1; i<=5; i++){
-    if(i%3==0)
-      continue;
-      // break:
-      cout << i << endl;
-  }
+    for(int i=1; i<=5; i++){
+        if(i%3==0)
+            continue;
+        // break:
+        cout << i << endl;
+    }
 
-return 0;
+    return 0;
 }
 
 ```
@@ -1564,15 +1562,15 @@ using namespace std;
 
 // Defining function
 void greet(){
-cout << "Hello World" << endl;
+    cout << "Hello World" << endl;
 }
 
 int main() {
 // Calling -invoking -executing function
-greet();
+    greet();
 
-cout << "Done!!!";
-return 0;
+    cout << "Done!!!";
+    return 0;
 }
 
 
@@ -1595,16 +1593,16 @@ using namespace std;
 
 // when defining a function we  declare parameter
 void greet(string firstName, string lastName){
-cout << "Hello " << firstName << " " << lastName << endl;
+    cout << "Hello " << firstName << " " << lastName << endl;
 }
 
 int main() {
 // Calling -invoking -executing function
 // when calling a function we pass arguments
-greet("Sam", "Altman");
+    greet("Sam", "Altman");
 
-cout << "Done!!!";
-return 0;
+    cout << "Done!!!";
+    return 0;
 }
 
 
@@ -1625,16 +1623,16 @@ using namespace std;
 // defining return type function aka function with output
 string fullName(string firstName, string lastName){
 // concatenating or combining string using '+' operator
-return firstName + " " + lastName;
+    return firstName + " " + lastName;
 }
 
 int main() {
 // calling function then, storing info in name variable
-string name = fullName("Joy", "Peter");
-cout << name << endl;
+    string name = fullName("Joy", "Peter");
+    cout << name << endl;
 
-cout << "Done!!!";
-return 0;
+    cout << "Done!!!";
+    return 0;
 }
 
 
@@ -1655,23 +1653,23 @@ using namespace std;
 
 // default tax rate is set to 20%
 double claculateTax(double income, double taxRate = .2){
-  return income * taxRate;
+    return income * taxRate;
 }
 
 int main() {
 // tax rate 20%
-double tax = claculateTax(10000);
+    double tax = claculateTax(10000);
 
 // tax rate 30%
 // note the 2nd args will override the default parameter value
-double tax2 = claculateTax(10000, .3);
+    double tax2 = claculateTax(10000, .3);
 
-cout << tax << endl;
-cout << tax2 << endl;
+    cout << tax << endl;
+    cout << tax2 << endl;
 
 
-cout << "Done!!!";
-return 0;
+    cout << "Done!!!";
+    return 0;
 }
 
 
@@ -1713,20 +1711,20 @@ using namespace std;
 
 // 1st version
 void greet(string name){
-cout << "Hello " << name << endl;
+    cout << "Hello " << name << endl;
 }
 
 // 2nd version
 void greet(string title, string name){
-cout << "Hello " << title << " " << name;
+    cout << "Hello " << title << " " << name;
 }
 
 
 int main() {
-greet("Joy");
-greet("Mr", "Joy");
+    greet("Joy");
+    greet("Mr", "Joy");
 
-return 0;
+    return 0;
 }
 
 
@@ -1745,19 +1743,19 @@ Passing Arguments by Value
 using namespace std;
 
 double increasePrice(double price){
-price = price * 1.2;
+    price = price * 1.2;
 // price *= 1.2;
-return price;
+    return price;
 }
 
 
 int main() {
-double price = 100;
+    double price = 100;
 
 // copy of price-value is passed to function which would use memory
-price = increasePrice(price);
-cout << price;
-return 0;
+    price = increasePrice(price);
+    cout << price;
+    return 0;
 }
 
 
@@ -1780,18 +1778,18 @@ using namespace std;
 
 // &: a reference or address operator
 void increasePrice(double& price){
-price = price * 1.2;
+    price = price * 1.2;
 // price *= 1.2;
 }
 
 
 int main() {
-double price = 100;
+    double price = 100;
 
 // ref of price-value is passed to function which won't use memory
-increasePrice(price);
-cout << price;
-return 0;
+    increasePrice(price);
+    cout << price;
+    return 0;
 }
 
 
@@ -1810,16 +1808,16 @@ using namespace std;
 
 // &: a reference or address operator
 void greet(string& name){
-cout << "Hello " << name;
+    cout << "Hello " << name;
 }
 
 
 int main() {
-string name = "Joy";
+    string name = "Joy";
 // passing address or references
-greet(name);
+    greet(name);
 
-return 0;
+    return 0;
 }
 
 
@@ -1841,18 +1839,18 @@ double taxRate = .2;
 
 double calculateTax(int sales){
 // accessing global variable
-return sales * taxRate;
+    return sales * taxRate;
 }
 
 
 int main() {
 // local variable (local scope)
-int sales = 10000;
+    int sales = 10000;
 
-double tax = calculateTax(sales);
-cout << tax;
+    double tax = calculateTax(sales);
+    cout << tax;
 
-return 0;
+    return 0;
 }
 
 
@@ -1876,14 +1874,14 @@ using namespace std;
 void greet(string name);
 
 int main() {
-greet("joy");
+    greet("joy");
 
-return 0;
+    return 0;
 }
 
 // function definition or implementation
 void greet(string name){
-cout << "Hello " << name;
+    cout << "Hello " << name;
 }
 
 
