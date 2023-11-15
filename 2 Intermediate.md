@@ -357,6 +357,8 @@ Why use pointer?
 
 ### 14. Declaring and Using Pointers<a id="14"></a>
 
+<img src="notes//address.png" width="400">
+
 " & " : address of operator
 
 " \* " : dereferencing operator or indirection operator
@@ -367,9 +369,10 @@ using namespace std;
 
 int main(){
 
+  // every variable has an address
   int number = 10;
 
-  // print memory address of number variable
+  // how to print memory address of number variable using '&'
   cout << &number;
 
   // how to initialize null pointer
@@ -440,11 +443,13 @@ int *ptr = &number;
 
 Pointe & constant: 3 scenario
 
-- data is constant but pointer is not
-- pointer is constant
+- data is constant but pointer is not, so later we can use pointer to point something else
+- pointer is constant, so once we declare and initialize the pointer we cannot have it point to something else
 - both data and pointer are constant
 
-- 1
+---
+
+Scene 1: data is constant but pointer is not
 
 ```cpp
 
@@ -455,7 +460,7 @@ int main(){
 
   const int x = 10;
 
-  // constant integer pointer, but pointer not constant
+  // constant integer pointer, but pointer is not constant
   const int* ptr = &x;
 
   int y = 20;
@@ -467,7 +472,9 @@ int main(){
 
 ```
 
-- 2
+---
+
+Scene 2: pointer is constant
 
 ```cpp
 #include<iostream>
@@ -485,7 +492,9 @@ int main(){
 
 ```
 
-- 3
+---
+
+Scene 3: both data and pointer are constant
 
 ```cpp
 #include<iostream>
@@ -495,7 +504,7 @@ int main(){
 
   const int x = 10;
 
-  // read: we have constant pointer, pointing to constant integer
+  // How to read the line: we have constant pointer, pointing to constant integer
   const int* const ptr = &x;
 
   return 0;
@@ -505,13 +514,282 @@ int main(){
 
 ### 16. Passing Pointers to Functions<a id="16"></a>
 
+Pass by value
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void increasePrice(double price){
+    price *= 1.2;
+}
+
+int main(){
+    double price = 100;
+
+    // pass by value: we pass the copy of variable price
+    increasePrice(price);
+    cout << price;
+    return 0;
+}
+
+/* output
+100
+*/
+```
+
+---
+
+1. approach/pattern: new way
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void increasePrice(double& price){
+    price *= 1.2;
+}
+
+int main(){
+    double price = 100;
+
+    // pass by reference: we pass the reference of variable price,
+    // now we can directly access price variable through our function
+    increasePrice(price);
+    cout << price;
+    return 0;
+}
+
+
+/* output
+120
+*/
+```
+
+---
+
+2 approach/pattern: old way
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// 1.declare parameter as pointer
+void increasePrice(double* price){
+    //2. indirection operator
+    *price *= 1.2;
+}
+
+int main(){
+    double price = 100;
+
+    //3. address of operator to ask the address of price variable
+    increasePrice(&price);
+    cout << price;
+    return 0;
+}
+
+/* output
+120
+*/
+```
+
 ### 17. The Relationship Between Arrays and Pointers<a id="17"></a>
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void printNumbers(int numbers[]){
+    numbers[0] = 0;
+}
+
+int main(){
+    int numbers[] = {10,20,30};
+    printNumbers(numbers);
+    cout << numbers[0];
+
+    return 0;
+}
+
+/* output
+0
+*/
+```
 
 ### 18. Pointer Arithmetic<a id="18"></a>
 
+We can only perform two operation on pointer i.e addition and subtraction
+NOT multiplication and division
+
+pointer increment
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+    int numbers[] = {10,20,30};
+    int* ptr = numbers;
+
+    ptr++;
+    cout << *ptr;
+    return 0;
+}
+
+
+/* output
+20
+*/
+```
+
+---
+
+pointer decrement
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+    int numbers[] = {10,20,30};
+    int* ptr = numbers;
+
+    ptr--;
+    cout << *ptr;
+    return 0;
+}
+
+
+/* output
+10
+*/
+```
+
+---
+
+Pointer expression
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+    int numbers[] = {10,20,30};
+    int* ptr = numbers;
+    // dereference the pointer, means access value(increment pointer by one)
+    cout << *(ptr + 1);
+
+    // same as above line but using bracket notation
+    // cout << ptr[1];
+    // cout << numbers[1];
+    return 0;
+}
+
+
+/* output
+20
+*/
+```
+
 ### 19. Comparing Pointers<a id="19"></a>
 
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+    int x = 20;
+    int y = 20;
+
+    int* ptrX = &x;
+    int* ptrY = &y;
+
+    // comparing address
+    // if(ptrX == ptrY)
+
+    // comparing value
+    if(*ptrX == *ptrY)
+        cout << "same";
+
+    return 0;
+}
+```
+
 ### 20. Dynamic Memory Allocation<a id="20"></a>
+
+If we declare an array of integer like "int numbers[10];", we are limiting our program to handle maximum of 10 numbers.
+
+Or we can allocate memory to our program at run time on demand this is called dynamic memory allocation
+
+Stack memory:
+
+- variable declared on stack they get automatic clean up.
+- once they got out of scope the memory allocated to them, get released automatically.
+-
+
+Heap or free store memory:
+
+- to allocate memory dynamically we use "new" operator/keyword.
+- variable declared on heap using "new" operator/keyword, we programmers are responsible for the clean up.
+- when we do not release memory from heap, program consume more and more memory eventually our program gonna crash this is called memory leak.
+- memory leak: means our program consume more and more memory.
+- to de-allocate we use "delete" operator/keyword
+
+---
+
+Allocating array on heap
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+    // Stack memory
+    // int numbers[1000];
+
+
+    // Heap memory(free store)
+    // allocating array on heap
+    int* numbers = new int[10];
+
+    //de allocating array memory from heap
+    delete[] numbers;
+
+    // convention: reset pointer
+    numbers = nullptr;
+
+    return 0;
+}
+```
+
+---
+
+Allocating single integer on heap
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+
+
+    // Stack memory
+    // int numbers[1000];
+
+    // Heap memory(free store)
+    // allocating single integer on heap
+    int* number = new int;
+
+    // de allocating single integer from memory
+    delete[] number;
+
+    // convention: reset pointer
+    number = nullptr;
+
+    return 0;
+}
+```
 
 ### 21. Dynamically Resizing an Array<a id="21"></a>
 
