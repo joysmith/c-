@@ -793,15 +793,400 @@ int main(){
 
 ### 21. Dynamically Resizing an Array<a id="21"></a>
 
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+
+// declaring integer array on heap
+int* numbers = new int[5];
+
+// declaring variable on stack
+int entries =0;
+
+while(true){
+    cout << "Number: ";
+    cin >> numbers[entries];
+
+    if(cin.fail()) break;
+    entries++;
+
+}
+
+for(int i=0; i<entries; i++)
+    cout << numbers[i] << endl;
+
+return 0;
+}
+
+
+/* output
+ Number:1
+ Number:2
+ Number:3
+ Number:4
+ Number:5
+ Number:k
+ 1
+ 2
+ 3
+ 4
+ 5
+*/
+```
+
+---
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+
+// declaring integer array on heap
+int* numbers = new int[5];
+
+// declaring variable on stack
+int entries =0;
+
+while(true){
+    cout << "Number: ";
+    cin >> numbers[entries];
+
+    if(cin.fail()) break;
+    entries++;
+
+    if(entries ==5){
+        // Algorithm for dynamic array
+        // 1. create a temp array (twice the size)
+        int* temp = new int[10];
+        // 2. copy all the elements
+        for (int i=0; i<entries; i++)
+            temp[i] = numbers[i];
+
+        // delete initial array from heap to avoid memory leak
+        delete[] numbers;
+        // 3. Have "numbers" pointer point to the new array
+        numbers = temp;
+
+    }
+}
+
+for(int i=0; i<entries; i++)
+    cout << numbers[i] << endl;
+
+return 0;
+}
+
+/* output
+ Number:1
+ Number:2
+ Number:3
+ Number:4
+ Number:5
+ Number:6
+ Number:7
+ Number:8
+ Number:9
+ Number:10
+ Number:j
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+*/
+```
+
+---
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+// declaring variable on stack
+    int capacity = 5;
+    int entries =0;
+
+// declaring integer array on heap
+int* numbers = new int[capacity];
+
+
+
+while(true){
+    cout << "Number: ";
+    cin >> numbers[entries];
+
+    if(cin.fail()) break;
+    entries++;
+
+    if(entries == capacity){
+        // Algorithm for dynamic array
+        capacity *= 2;
+
+        // 1. create a temp array (twice the size)
+        int* temp = new int[capacity];
+        // 2. copy all the elements
+        for (int i=0; i<entries; i++)
+            temp[i] = numbers[i];
+
+        // delete initial array from heap to avoid memory leak
+        delete[] numbers;
+        // 3. Have "numbers" pointer point to the new array
+        numbers = temp;
+
+    }
+}
+
+for(int i=0; i<entries; i++)
+    cout << numbers[i] << endl;
+
+delete[] numbers;
+
+return 0;
+}
+
+
+/* output
+ Number:1
+ Number:2
+ Number:3
+ Number:4
+ Number:5
+ Number:6
+ Number:7
+ Number:8
+ Number:9
+ Number:10
+ Number:11
+ Number:12
+ Number:13
+ Number:14
+ Number:15
+ Number:16
+ Number:17
+ Number:p
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+*/
+```
+
 ### 22. Smart Pointers<a id="22"></a>
+
+There are 2 types of smart pointer
+
+- unique pointer
+- shared pointer
 
 ### 23. Working with Unique Pointers<a id="23"></a>
 
+<img src="notes/unique.png" width="400">
+
+Unique pointer- is a kind of pointer that owns the piece of memory it points to, we cannot have two unique pointer, pointing to the same memory location
+
+```cpp
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+int main(){
+    unique_ptr<int> xyzobj(new int);
+    cout << xyzobj;
+
+return 0;
+}
+
+
+/* output
+0x1fc91371ad0
+*/
+```
+
+---
+
+```cpp
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+int main(){
+    unique_ptr<int> xyzobj(new int);
+
+    // dereference and store some value
+    *xyzobj = 10;
+    cout << *xyzobj;
+
+return 0;
+}
+
+
+/* output
+10
+*/
+```
+
+---
+
+```cpp
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+int main(){
+    // 1 approach to create unique pointer
+    unique_ptr<int> xyzobj(new int);
+
+    // 2 approach to create unique pointer
+    unique_ptr<int> y = make_unique<int>();
+
+    // 3 approach to create unique pointer
+    auto z = make_unique<int>();
+
+
+    // dereference and store some value
+    *xyzobj = 10;
+    cout << *xyzobj;
+
+return 0;
+}
+```
+
+---
+
+```cpp
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+int main(){
+
+    auto numbers = make_unique<int[]>(10);
+    unique_ptr<int> y = make_unique<int>();
+
+    numbers[0] = 10;
+    cout << numbers[0];
+
+return 0;
+}
+
+/* output
+10
+*/
+```
+
 ### 24. Working with Shared Pointers<a id="24"></a>
+
+with shared pointer we can have 2 pointer, pointing to same memory location
+
+<img src="notes/shared.png" width="400">
+
+```cpp
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+int main(){
+
+    // 1 approach: create shared pointer
+    shared_ptr<int> x(new int);
+
+    // 2 approach: create shared pointer
+    shared_ptr<int> y = make_shared<int>();
+
+    // 3 approach: create shared pointer
+    auto z = make_shared<int>();
+
+
+return 0;
+}
+```
+
+---
+
+```cpp
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+int main(){
+
+    auto x = make_shared<int>();
+
+    // dereference and store value
+    *x = 10;
+
+    shared_ptr<int> y(x);
+
+    if(x == y)
+        cout << "equal";
+
+return 0;
+}
+```
+
+---
+
+```cpp
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+int main(){
+
+    auto x = make_shared<int>();
+
+    // dereference and store value
+    *x = 10;
+
+    shared_ptr<int> y(x);
+
+
+    cout << *y;
+
+return 0;
+}
+```
 
 ## Strings
 
 ### 25. Introduction<a id="25"></a>
+
+- C strings
+- C++ strings
+- Modifying strings
+- Searching strings
+- Extracting substring
+- Converting strings to numbers and vice versa
 
 ### 26. C Strings<a id="26"></a>
 
