@@ -1192,11 +1192,180 @@ return 0;
 
 ### 27. C++ Strings<a id="27"></a>
 
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    string name = "Joy";
+
+    // how to modify letter using index
+    name[0] = 'R';
+
+    // how to get length of string
+    cout << name.length() << endl;
+
+    // how to concatenate string
+    name = name + " Smith Peter";
+    cout << name << endl;
+
+    // how to copy string in different variable
+    string xyzVariable = name;
+    cout << xyzVariable << endl;
+
+    // how to compare two string objects
+    if(name == xyzVariable)
+        cout << "same" << endl;
+
+    // how to check if name start with specific letter
+    cout << name.starts_with('R') << endl;
+
+    // how to check if name ends with specific letter
+    cout << name.ends_with('r') << endl;
+
+    // how to check if our string is empty
+    cout << name.empty() << endl;
+
+    // how to get first character of string
+    cout << name.front() << endl;
+
+    // how to get last character of string
+    cout << name.back() << endl;
+
+return 0;
+}
+
+
+/* output
+3
+Roy Smith Peter
+Roy Smith Peter
+same
+1
+1
+0
+R
+r
+*/
+```
+
 ### 28. Modifying Strings<a id="28"></a>
+
+[C++ string reference](https://cplusplus.com/reference/string/string/)
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    string name = "Joy";
+
+    // how to append string
+    name.append("Smith Peter");
+    cout << name << endl;
+
+    // how to insert string at specific position
+    name.insert(0,"I am ");
+    cout << name << endl;
+
+    // how to erase character from the string
+    // erase take 2 args: position where u want to start deleting, character how many u want to delete
+    name.erase(0, 7);
+    cout << name << endl;
+
+    // how to empty string
+    name.clear();
+    cout << name << endl;
+
+
+    // how to replace portion of string
+    // replace takes 3 args: position; no. of character; what u want to replace with
+    name.replace(0,3, "Toy");
+    cout << name << endl;
+
+    return 0;
+}
+
+
+/* output
+JoySmith Peter
+I am JoySmith Peter
+ySmith Peter
+
+Toy
+
+*/
+```
 
 ### 29. Searching Strings<a id="29"></a>
 
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    string name = "You are so great";
+
+   // how to get the position of letter at first occurence
+   cout << name.find('g') << endl;
+
+    // usage case
+    if(name.find('z') == -1)
+        cout << "Doesn't exist" << endl;
+
+    // reverse find
+    cout << name.rfind('u') << endl;
+
+    return 0;
+}
+
+
+/* output
+11
+Doesn't exist
+2
+*/
+```
+
 ### 30. Extracting Substrings<a id="30"></a>
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    string name = "being smart is better than being dumb";
+
+    // copying quote to new copy variable
+    string copy = name.substr();
+
+    // empty name string
+    // name = "";
+    cout << copy << endl;
+
+    // how to extract substring from string
+    copy = name.substr(5);
+    cout << copy << endl;
+
+
+    // how to extract substring from string start-end point
+    copy = name.substr(5,7);
+    cout << copy << endl;
+
+    return 0;
+}
+
+
+/* output
+being smart is better than being dumb
+smart is better than being dumb
+smart
+*/
+```
 
 ### 31. Working with Characters<a id="31"></a>
 
@@ -1238,9 +1407,31 @@ return 0;
 
 ### 48. Introduction<a id="48"></a>
 
+- what streams are
+- standard input/output stream
+- read from and write to files
+- difference between binary and text files
+- convert a value to a string
+- parse a string to extract values
+
 ### 49. Understanding Streams<a id="49"></a>
 
+In read world we read data from Terminal, files, network
+
+Different types of streams
+
+- istream
+- ostream
+- ifstream
+- ofstream
+- istringstream
+- ostringstream
+
+[C++ ios](https://cplusplus.com/reference/ios/)
+
 ### 50. Writing to Streams<a id="50"></a>
+
+[C++ cout](https://cplusplus.com/reference/iostream/cout/)
 
 ### 51. Reading from Streams<a id="51"></a>
 
