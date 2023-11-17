@@ -1379,15 +1379,250 @@ smart
 
 ### 35. Introduction<a id="35"></a>
 
+- Define structure
+- use structures
+- operator overloading
+- pointers to structure
+- enumerations
+
 ### 36. Defining Structures<a id="36"></a>
+
+With structure we can define custom data types, In computer science we call it ADT(Abstract data type)
+
+Abstraction: A general model of something, like an abstraction for customer, movie, rental etc.
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+// PascalCase
+struct Movie{
+    string title;
+    int releaseYear;
+};
+
+int main(){
+    // how to create instance/object
+    Movie movie;
+
+    // how to access member using ". (dot)" notation
+    movie.title = "Iron man";
+    movie.releaseYear= 2008;
+
+    cout << "Title: " << movie.title << endl
+         << "Release Year: " << movie.releaseYear;
+
+    return 0;
+}
+
+/* output
+Title: Iron man
+Release Year: 2008
+*/
+```
 
 ### 37. Initializing Structures<a id="37"></a>
 
+```cpp
+#include <iostream>
+
+using namespace std;
+
+// How to define structure aka adt(abstract data type)
+struct Movie{
+    string title ;
+    int releaseYear;
+};
+
+int main(){
+    // how to initialize object
+    Movie movie = {"Thor", 2015} ;
+
+
+    cout << "Title: " << movie.title << endl
+         << "Release Year: " << movie.releaseYear;
+
+    return 0;
+}
+
+
+/* output
+Title: Thor
+Release Year: 2015
+*/
+```
+
 ### 38. Unpacking Structures<a id="38"></a>
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+// How to define structure aka adt(abstract data type)
+struct Movie{
+    string title ;
+    int releaseYear;
+    bool isPopular;
+};
+
+int main(){
+    // how to initialize object
+    Movie movie = {"Thor", 2015, true} ;
+
+    // 1 Approach: how to extract data from structure
+    // string title = movie.title;
+    // int releaseYear = movie.releaseYear;
+    // bool isPopular = movie.isPopular;
+
+    // 2 Approach: how to extract data from structure
+    // C++: structured binding aka
+    // JS: destructuring
+    // python: unpacking
+    auto [ title, releaseYear, isPopular] {movie};
+
+
+    cout << "Title: " << title << endl
+         << "Release Year: " << releaseYear << endl
+         << "is Popular " << title;
+
+    return 0;
+}
+
+/* output
+Title: Thor
+Release Year: 2015
+is Popular Thor
+*/
+```
 
 ### 39. Array of Structures<a id="39"></a>
 
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// How to define structure aka adt(abstract data type)
+struct Movie{
+    string title ;
+    int releaseYear;
+    bool isPopular;
+};
+
+int main(){
+    // creating dynamic array
+    vector<Movie> movies;
+
+    Movie movie = {"Batman", 2000};
+
+    // 1 approach: how to push in dynamic array by passing movie object
+    movies.push_back(movie);
+
+    // 2 approach: how to push in dynamic array by using brace initializer
+    movies.push_back({"Spiderman", 2005});
+    movies.push_back({"Robocop", 2014});
+
+    // how to access array
+    cout << movies[0].title;
+
+    // how to access array using for-each
+    for(Movie movie:movies)
+        cout << movie.title << endl;
+
+    return 0;
+}
+
+
+/* output
+BatmanBatman
+Spiderman
+Robocop
+*/
+```
+
 ### 40. Nesting Structures<a id="40"></a>
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+struct Date {
+    // putting default value
+    short year = 2000;
+    short month = 1;
+    short day = 1;
+};
+
+// How to make nested structure
+struct Movie{
+    string title ;
+    // Date structure is nested inside Movie structure
+    Date releaseDate;
+    bool isPopular;
+};
+
+int main(){
+    Movie movie = {"Batman", 2000};
+
+    // how to access nested structure
+    cout << movie.releaseDate.year;
+
+    return 0;
+}
+
+
+/* output
+2000
+*/
+```
+
+---
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+struct Date {
+    // putting default value
+    short year = 2000;
+    short month = 1;
+    short day = 1;
+};
+
+// How to make nested structure
+struct Movie{
+    string title ;
+    Date releaseDate;
+    bool isPopular;
+};
+
+int main(){
+    // 1 Approach: how to initialize date in 2 steps
+    Date date = {2000,6,1};
+    Movie movie = {"Batman", date};
+
+
+    // 2 Approach: how to initialize date in 1 steps using initialization list
+    // Movie movie = {"Batman", {2000,6,1}};
+
+    // how to access nested structure
+    cout << movie.releaseDate.year;
+
+    return 0;
+}
+
+
+/* output
+2000
+*/
+```
 
 ### 41. Comparing Structures<a id="41"></a>
 
