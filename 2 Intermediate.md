@@ -1420,30 +1420,389 @@ In read world we read data from Terminal, files, network
 
 Different types of streams
 
-- istream
-- ostream
-- ifstream
-- ofstream
+- istream (input stream)
+- ostream (output stream)
+- ifstream (input file stream)
+- ofstream (output file stream)
 - istringstream
 - ostringstream
 
-[C++ ios](https://cplusplus.com/reference/ios/)
+[C++ ios (input output stream)](https://cplusplus.com/reference/ios/)
+
+all stream classes inherit functionality from ios_base class
 
 ### 50. Writing to Streams<a id="50"></a>
 
 [C++ cout](https://cplusplus.com/reference/iostream/cout/)
 
+- cout is an object and the type of this object is ostream
+- so cout is an instance of ostream class
+
 ### 51. Reading from Streams<a id="51"></a>
+
+with buffer
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    // Buffer: temporary storage
+    // [10, 20]
+    cout << "First: ";
+    int first;
+    cin >> first;
+
+    cout << "Second: ";
+    int second;
+    cin >> second;
+
+    cout << "You entered " << first << "and " << second;
+    return 0;
+}
+
+
+/* output
+First:10 20
+Second: You entered 10and 20
+Process finished with exit code 0
+*/
+```
+
+---
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    // Buffer: temporary storage
+    // [10, 20]
+    cout << "First: ";
+    int first;
+    cin >> first;
+    cin.ignore(10, '\n');
+
+    // cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    cout << "Second: ";
+    int second;
+    cin >> second;
+
+    cout << "You entered " << first << "and " << second;
+    return 0;
+}
+
+
+/* output
+First:10 20
+Second:30
+You entered 10and 30
+*/
+```
 
 ### 52. Handling Input Errors<a id="52"></a>
 
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int first;
+
+    while(true){
+        cout << "First: ";
+
+        cin >> first;
+
+        if(cin.fail()){
+            cout << "Enter a valid number!" << endl;
+            cin.clear();
+            cin.ignore(10, '\n');
+            // cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        else break;
+    }
+
+
+    cout << "Second: ";
+    int second;
+    cin >> second;
+
+    cout << "You entered " << first << "and " << second;
+    return 0;
+}
+
+/* output
+First:k
+ Enter a valid number!
+First:t
+ Enter a valid number!
+First:10
+ Second:30
+ You entered 10and 30
+*/
+
+```
+
 ### 53. File Streams<a id="53"></a>
+
+These are classes
+
+- ifstream (input file stream): To read data from a file
+- ofstream (output file stream): To write data on a file
+- fstream (file stream): read/write data on file, combine functionality of both the above classes
 
 ### 54. Writing to Text Files<a id="54"></a>
 
+```cpp
+#include <iostream>
+#include <fstream>
+
+// input output manipulator
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    ofstream file;
+
+    file.open("data.txt");
+    if(file.is_open()){
+        file << setw(20) << "Hello" << setw(20) << "World" << endl;
+        file.close();
+    }
+
+    return 0;
+}
+```
+
+---
+
+Creating a csv file
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+// input output manipulator
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    ofstream file;
+
+    file.open("data.csv");
+    if(file.is_open()){
+
+        // CSV: comma separated value
+        // file << "id,title,year" << endl;
+        // file << "1,iron man,2008" << endl;
+        // file << "2,Thor,2012" << endl;
+        // file << "3,Spider man,2001" << endl;
+
+        file << "id,title,year\n"
+             << "1,iron man,2008\n"
+             << "2,Thor,2012\n"
+             << "3,Spider man,2001\n" ;
+
+        file.close();
+    }
+
+    return 0;
+}
+```
+
 ### 55. Reading from Text Files<a id="55"></a>
 
+```cpp
+#include <iostream>
+#include <fstream>
+
+
+using namespace std;
+
+int main(){
+
+    ifstream  file;
+
+    file.open("data.csv");
+
+    if(file.is_open()){
+        string str;
+        getline(file, str);
+        while (!file.eof()){
+            getline(file,str);
+            cout << str << endl;
+        }
+        file.close();
+    }
+
+    return 0;
+}
+
+/* output
+1,iron man,2008
+2,Thor,2012
+3,Spider man,2001
+*/
+
+```
+
+---
+
+Extract data from file
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+
+using namespace std;
+
+int main(){
+
+    ifstream  file;
+
+    file.open("data.csv");
+
+    if(file.is_open()){
+        string str;
+        getline(file, str);
+        while (!file.eof()){
+            getline(file,str, ',');
+            cout << str << endl;
+        }
+        file.close();
+    }
+
+    return 0;
+}
+
+/* output
+1
+iron man
+2008
+2
+Thor
+2012
+3
+Spider man
+2001
+*/
+
+```
+
+---
+
+🔴 code not working
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+struct Movie {
+    int id;
+    string title;
+    int year;
+};
+
+int main(){
+
+    ifstream  file;
+
+    file.open("data.csv");
+
+    if(file.is_open()){
+        string str;
+        getline(file, str);
+
+        while (!file.eof()){
+            getline(file,str, ',');
+            if(str.empty()) continue;
+
+            Movie movie;
+            movie.id = stoi(str);
+
+            getline(file,str, ',');
+            movie.title = str;
+
+            getline(file,str , ',');
+            movie.year = stoi(str);
+
+            cout << movie.title << endl;
+        }
+        file.close();
+    }
+
+    return 0;
+}
+```
+
 ### 56. Writing to Binary Files<a id="56"></a>
+
+There are 2 ways to store data on file
+
+- text files
+- binary files (images, audio, pdf, etc), these binary files are for machine they are not human readable.
+
+storing data in text file, check size of file
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+
+int main(){
+
+    int numbers[] = {1'000'000, 2'000'000,3'000'000};
+    ofstream file("numbers.txt");
+    if(file.is_open()){
+        for(auto number:numbers)
+            file << number << endl;
+        file.close();
+    }
+
+    return 0;
+}
+```
+
+---
+
+storing data in binary file, check size of file
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+
+int main(){
+
+    int numbers[] = {1'000'000, 2'000'000,3'000'000};
+
+    // ofstream file("numbers.bin");
+    ofstream file("numbers.dat", ios::binary);
+
+    if(file.is_open()){
+        file.write(reinterpret_cast<char*>(&numbers), sizeof(numbers));
+        file.close();
+    }
+
+    return 0;
+}
+```
 
 ### 57. Reading from Binary Files<a id="57"></a>
 
