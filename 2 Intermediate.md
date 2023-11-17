@@ -1924,3 +1924,34 @@ int main(){
 30
 */
 ```
+
+### 62. Summary<a id="62"></a>
+
+Streams- Terms
+
+- Binary files
+- Buffer
+- File streams
+- Input streams
+- Output streams
+- StreamsString
+- streams
+- Text files
+
+---
+
+##### Summary
+
+- A stream is an abstraction for a data source or destination. Using streams, we can read data or write it to a variety of places (eg terminal, files, network, etc) in the same way.
+
+- In the C++ STL, we have many stream classes for different purposes. All these classes inherit their functionality from ios_base.
+
+- A buffer is a temporary storage in memory used for reading or writing data to streams.
+
+- If an error occurs while reading data from a stream, the invalid data stays in the buffer and will be used for subsequent reads. In such situations, first we have to put the stream into a clean state using the clear() method. Then, we should clear the data in the buffer using the ignore() method.
+
+- In the C++ STL, we have three stream classes for working with files. (ifstream for reading from files, ofstream for writing to files, and fstream for reading and writing to files).
+
+- Binary files store data the same way it is stored in memory. They are more efficient for storing large amount of numeric data but they’re not human readable.
+
+- Using string streams we can convert data to a string or vice versa.
