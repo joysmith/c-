@@ -1806,10 +1806,121 @@ int main(){
 
 ### 57. Reading from Binary Files<a id="57"></a>
 
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+
+int main(){
+
+    int numbers[3];
+
+    // ofstream file("numbers.bin");
+    ifstream file("numbers.dat", ios::binary);
+
+    if(file.is_open()){
+        int number;
+
+        while(file.read(reinterpret_cast<char*>(&number), sizeof(number))){
+            cout << number;
+        }
+
+        file.close();
+    }
+
+    return 0;
+}
+
+/* output
+100000020000003000000
+*/
+```
+
 ### 58. Working with File Streams<a id="58"></a>
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+
+int main(){
+
+    fstream file;
+
+    file.open("file.txt", ios::in | ios::out |ios::app | ios::binary);
+
+    if (file.is_open()){
+        file.close();
+    }
+
+    return 0;
+}
+```
 
 ### 59. String Streams<a id="59"></a>
 
+In c++ std library we have 3 classes to work with string
+
+- istringstream: for reading string
+- ostringstream: for writing string
+- stringstream: for reading/writing string
+
 ### 60. Converting Values to Strings<a id="60"></a>
 
+```cpp
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+
+using namespace std;
+
+
+int main(){
+    double number = 12.34;
+    stringstream stream;
+    stream << fixed << setprecision(2) << number;
+    string str = stream.str();
+    // string str = to_string(number);
+    cout << str;
+
+    return 0;
+}
+
+/* output
+12.34
+*/
+```
+
 ### 61. Parsing Strings<a id="61"></a>
+
+```cpp
+#include <iostream>
+#include <sstream>
+
+using namespace std;
+
+
+int main(){
+    string str = "10 20";
+    stringstream stream;
+    stream.str(str);
+
+    int first;
+    stream >> first;
+
+    int second;
+    stream >> second;
+
+    cout << first + second;
+
+    return 0;
+}
+
+/* output
+30
+*/
+```
