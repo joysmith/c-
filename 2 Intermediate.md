@@ -1626,6 +1626,55 @@ int main(){
 
 ### 41. Comparing Structures<a id="41"></a>
 
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+struct Date {
+    // putting default value
+    short year = 2000;
+    short month = 1;
+    short day = 1;
+};
+
+// How to make nested structure
+struct Movie{
+    string title ;
+    Date releaseDate;
+    bool isPopular;
+};
+
+int main(){
+    // 2 Approach: how to initialize date in 1 steps using initialization list
+    Movie movie1 = {
+            "Batman",
+            {2000,6,1}
+    };
+
+    Movie movie2 = {
+            "Batman",
+            {2000,6,1}
+    };
+
+
+    if(movie1.title == movie2.title &&
+        movie1.releaseDate.year ==  movie2.releaseDate.year &&
+        movie1.releaseDate.month ==  movie2.releaseDate.month &&
+        movie1.releaseDate.day ==  movie2.releaseDate.day
+    ){
+        cout << "equal";
+    }
+
+    return 0;
+}
+
+/* output
+equal
+*/
+```
+
 ### 42. Working with Methods<a id="42"></a>
 
 ### 43. Operator Overloading<a id="43"></a>
