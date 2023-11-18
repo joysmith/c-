@@ -1677,15 +1677,470 @@ equal
 
 ### 42. Working with Methods<a id="42"></a>
 
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+struct Date {
+    // putting default value
+    short year = 2000;
+    short month = 1;
+    short day = 1;
+};
+
+// How to make nested structure
+struct Movie{
+    string title ;
+    Date releaseDate;
+    bool isPopular;
+
+
+    // methods: method is a function that is a part of instance
+    bool equals(const Movie& movie){
+        return (
+                title == movie.title &&
+                releaseDate.year ==  movie.releaseDate.year &&
+                releaseDate.month ==  movie.releaseDate.month &&
+                releaseDate.day ==  movie.releaseDate.day
+        );
+    }
+};
+
+int main(){
+    // 2 Approach: how to initialize date in 1 steps using initialization list
+    Movie movie1 = {
+            "Batman",
+            {2000,6,1}
+    };
+
+    Movie movie2 = {
+            "Batman",
+            {2000,6,1}
+    };
+
+    if(movie1.equals(movie2))
+        cout << "Equal";
+
+
+    return 0;
+}
+
+
+/* output
+equal
+*/
+```
+
 ### 43. Operator Overloading<a id="43"></a>
+
+[C++ operator overloading](https://en.cppreference.com/w/cpp/language/operators)
+
+Approach 1: method inside structure
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+struct Date {
+    // putting default value
+    short year = 2000;
+    short month = 1;
+    short day = 1;
+};
+
+// How to make nested structure
+struct Movie{
+    string title ;
+    Date releaseDate;
+    bool isPopular;
+
+
+    // operator overloading
+    bool operator==(const Movie& movie) const{
+        return (
+                title == movie.title &&
+                releaseDate.year ==  movie.releaseDate.year &&
+                releaseDate.month ==  movie.releaseDate.month &&
+                releaseDate.day ==  movie.releaseDate.day
+        );
+    }
+};
+
+int main(){
+    // 2 Approach: how to initialize date in 1 steps using initialization list
+    Movie movie1 = {
+            "Batman",
+            {2000,6,1}
+    };
+
+    Movie movie2 = {
+            "Batman",
+            {2000,6,1}
+    };
+
+    if(movie1 == movie2)
+        cout << "Equal";
+
+
+    return 0;
+}
+
+
+/* output
+equal
+*/
+```
+
+---
+
+Approach 2: method outside structure
+
+- preferred: because some operator like stream insertion operator can only be implemented outside the structure
+
+- The signature of function is clear, and readability is easy
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+struct Date {
+    // putting default value
+    short year = 2000;
+    short month = 1;
+    short day = 1;
+};
+
+// How to make nested structure
+struct Movie{
+    string title ;
+    Date releaseDate;
+    bool isPopular;
+
+};
+
+// operator overloading
+bool operator==(const Movie& first, const Movie& second) {
+    return (
+            first.title == second.title &&
+            first.releaseDate.year ==  second.releaseDate.year &&
+            first.releaseDate.month ==  second.releaseDate.month &&
+            first.releaseDate.day ==  second.releaseDate.day
+    );
+}
+
+
+int main(){
+    // 2 Approach: how to initialize date in 1 steps using initialization list
+    Movie movie1 = {
+            "Batman",
+            {2000,6,1}
+    };
+
+    Movie movie2 = {
+            "Batman",
+            {2000,6,1}
+    };
+
+    if(movie1 == movie2)
+        cout << "Equal";
+
+
+    return 0;
+}
+
+
+/* output
+equal
+*/
+```
+
+---
+
+Another example with stream insertion operator
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+struct Date {
+    // putting default value
+    short year = 2000;
+    short month = 1;
+    short day = 1;
+};
+
+// How to make nested structure
+struct Movie{
+    string title ;
+    Date releaseDate;
+    bool isPopular;
+
+};
+
+// operator overloading
+bool operator==(const Movie& first, const Movie& second) {
+    return (
+            first.title == second.title &&
+            first.releaseDate.year ==  second.releaseDate.year &&
+            first.releaseDate.month ==  second.releaseDate.month &&
+            first.releaseDate.day ==  second.releaseDate.day
+    );
+}
+
+ostream& operator<<(ostream& stream, const Movie&  movie){
+    stream << movie.title;
+    return stream;
+}
+
+int main(){
+    // 2 Approach: how to initialize date in 1 steps using initialization list
+    Movie movie1 = {
+            "Batman",
+            {2000,6,1}
+    };
+
+    Movie movie2 = {
+            "Batman",
+            {2000,6,1}
+    };
+
+    cout << movie1;
+
+    return 0;
+}
+
+/* output
+Batman
+*/
+```
 
 ### 44. Structures and Functions<a id="44"></a>
 
+```cpp
+#include <iostream>
+
+using namespace std;
+
+struct Date {
+    short year = 2000;
+    short month = 1;
+    short day = 1;
+};
+
+struct Movie{
+    string title ;
+    Date releaseDate;
+    bool isPopular;
+
+};
+
+bool operator==(const Movie& first, const Movie& second) {
+    return (
+            first.title == second.title &&
+            first.releaseDate.year ==  second.releaseDate.year &&
+            first.releaseDate.month ==  second.releaseDate.month &&
+            first.releaseDate.day ==  second.releaseDate.day
+    );
+}
+
+ostream& operator<<(ostream& stream, Movie& movie){
+    stream << movie.title;
+    return stream;
+}
+
+
+//Movie getMovie(){
+//    Movie movie = {"Avenger", 2009};
+//    return movie;
+//}
+Movie getMovie(){
+    return {"Avenger", 2009};
+}
+
+void showMovie(Movie& movie){
+    cout << movie.title;
+}
+
+int main(){
+    Movie movie = getMovie();
+    showMovie(movie);
+
+    return 0;
+}
+
+
+/* output
+Avenger
+*/
+```
+
 ### 45. Pointers to Structures<a id="45"></a>
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+struct Date {
+    short year = 2000;
+    short month = 1;
+    short day = 1;
+};
+
+struct Movie{
+    string title ;
+    Date releaseDate;
+    bool isPopular;
+
+};
+
+bool operator==(const Movie& first, const Movie& second) {
+    return (
+            first.title == second.title &&
+            first.releaseDate.year ==  second.releaseDate.year &&
+            first.releaseDate.month ==  second.releaseDate.month &&
+            first.releaseDate.day ==  second.releaseDate.day
+    );
+}
+
+ostream& operator<<(ostream& stream, Movie& movie){
+    stream << movie.title;
+    return stream;
+}
+
+
+//Movie getMovie(){
+//    Movie movie = {"Avenger", 2009};
+//    return movie;
+//}
+Movie getMovie(){
+    return {"Avenger", 2009};
+}
+
+void showMovie(Movie* movie){
+    // cout << (*movie).title;
+    // using structure pointer operator
+    cout << movie->title;
+
+}
+
+int main(){
+    Movie movie = getMovie();
+    showMovie(&movie);
+
+    return 0;
+}
+
+
+/* output
+Avenger
+*/
+```
 
 ### 46. Defining Enumerations<a id="46"></a>
 
+```cpp
+#include <iostream>
+
+using namespace std;
+
+// how to create enumeration
+// the compiler will automatically initialize numeric value like 0, 1, 2
+//enum Action{
+//    List,
+//    Add,
+//    Update
+//};
+
+// how to explicit assign numeric value to enum
+enum Action{
+    List = 1,
+    Add = 2,
+    Update =3
+};
+
+int main(){
+
+    cout <<
+        "1: List invoices" << endl <<
+        "2: Add invoices" << endl <<
+        "3: Update invoices" << endl <<
+        "Select: ";
+
+    int input;
+    cin >> input;
+
+    if(input == Action::List){
+        cout << "List invoices";
+    }
+
+    return 0;
+}
+
+
+/* output
+1: List invoices
+2: Add invoices
+3: Update invoices
+Select:1
+ List invoices
+*/
+```
+
 ### 47. Strongly Typed Enumerations<a id="47"></a>
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+// how to create strongly type enumeration to prevent name collision
+enum class Action{
+    List = 1,
+    Add = 2,
+    Update =3
+};
+
+enum class Operation{
+    List = 1,
+    Add = 2,
+    Update =3
+};
+
+int main(){
+
+    cout <<
+        "1: List invoices" << endl <<
+        "2: Add invoices" << endl <<
+        "3: Update invoices" << endl <<
+        "Select: ";
+
+    int input;
+    cin >> input;
+
+    if(input == static_cast<int>(Action::List)){
+        cout << "List invoices";
+    }
+
+    return 0;
+}
+
+/* output
+1: List invoices
+2: Add invoices
+3: Update invoices
+Select:1
+ List invoices
+*/
+```
 
 ## Streams and Files
 
