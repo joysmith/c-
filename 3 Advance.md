@@ -1596,6 +1596,13 @@ cout << Rectangle::getObjectsCount() << endl;
 
 ### 18. Introduction<a id="18"></a>
 
+- equality operator
+- comparison operators
+- spaceship operator
+- arithmetic operators
+- subscript operator
+- assignment operator
+
 ### 19. Overloading the Equality Operator<a id="19"></a>
 
 ### 20. Overloading the Comparison Operators<a id="20"></a>
