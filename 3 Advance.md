@@ -2080,7 +2080,22 @@ An object taking many forms
 
 ### 47. Introduction<a id="47"></a>
 
+- what exceptions really are
+- throw exception
+- catch exception
+- custom exception
+- the noexception keyword
+
 ### 48. What are Exceptions<a id="48"></a>
+
+exception: an object to report an error while our program is running
+
+- exception
+- logic_error
+- invalid_argument
+- out_of_range
+- runtime_error
+- overflow_error
 
 ### 49. Throwing an Exception<a id="49"></a>
 
@@ -2098,12 +2113,147 @@ An object taking many forms
 
 ### 55. Introduction<a id="55"></a>
 
+- understanding the problem
+- function template
+- class template
+
 ### 56. Defining a Function Template<a id="56"></a>
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int larger(int first, int second){
+    return (first > second) ? first : second;
+}
+
+double larger(double first, double second){
+    return (first > second) ? first : second;
+}
+
+int main(){
+
+    cout << larger(1.1, 2.2);
+    return 0;
+}
+```
+
+---
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+template<typename T>
+T larger(T first, T second){
+    return (first > second) ? first : second;
+}
+
+int main(){
+    // type int
+    cout << larger(5, 7) << endl;
+
+    // type double
+    cout << larger(1.1, 2.2) << endl;
+
+    // type char
+    cout << larger('a', 'b') << endl;
+    return 0;
+}
+
+```
 
 ### 57. Explicit Type Arguments<a id="57"></a>
 
+```cpp
+#include <iostream>
+
+using namespace std;
+
+template<typename T>
+T larger(T first, T second){
+    return (first > second) ? first : second;
+}
+
+int main(){
+
+    auto result = larger<double>(5, 7.6) ;
+    cout << result;
+    return 0;
+}
+```
+
 ### 58. Templates with Multiple Parameters<a id="58"></a>
 
+```cpp
+#include <iostream>
+
+using namespace std;
+
+template<typename K, typename V>
+void display(K key, V value){
+    cout << key << "=" << value << endl;
+}
+
+int main(){
+    display("a", 1);
+    display(1, 1);
+    return 0;
+}
+```
+
 ### 59. Defining a Class Template<a id="59"></a>
+
+Pair.h
+
+```cpp
+template<typename K, typename V>
+class Pair{
+private:
+    K key;
+    V value;
+public:
+    K getKey() const;
+
+    V getValue() const;
+
+public:
+    Pair(K key, V value);
+
+};
+
+template<typename K, typename V>
+K Pair<K, V>::getKey() const {
+    return key;
+}
+
+template<typename K, typename V>
+V Pair<K, V>::getValue() const {
+    return value;
+}
+
+template<typename K, typename V>
+Pair<K, V>::Pair(K key, V value):key(key), value(value) {}
+
+```
+
+---
+
+main.cpp
+
+```cpp
+#include <iostream>
+#include "Pair.h"
+
+using namespace std;
+
+int main(){
+    Pair pair{"a", 1};
+
+    return 0;
+}
+```
 
 ### 60. A More Complex Class Template<a id="60"></a>
