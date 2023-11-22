@@ -116,6 +116,7 @@ To master C++ you need to master two things
 - [Clion](https://www.jetbrains.com/clion/)
 - [Visual Studio Community edition](https://visualstudio.microsoft.com/vs/community/)
 - [Vs code](https://code.visualstudio.com/download)
+- [Eclipse](https://www.eclipse.org/downloads/)
 
 Compiler for Vs-code
 
