@@ -1605,23 +1605,1087 @@ cout << Rectangle::getObjectsCount() << endl;
 
 ### 19. Overloading the Equality Operator<a id="19"></a>
 
+Length.h
+
+```cpp
+#include <compare>
+#include <iostream>
+
+using namespace std;
+
+class Length {
+public:
+    explicit Length(int value);
+
+    bool operator==(const Length &other_obj) const;
+    bool operator==(const int val) const;
+    bool operator!=(const int val) const;
+
+private:
+    int value;
+
+};
+
+```
+
+---
+
+Length.cpp
+
+```cpp
+#include "Length.h"
+
+Length::Length(int value) : value(value) {}
+
+bool Length::operator==(const Length &other_obj) const {
+    return value == other_obj.value;
+}
+
+bool Length::operator==(const int val) const { return value == val; }
+
+bool Length::operator!=(const int val) const { return !(value == val); }
+
+
+
+```
+
+---
+
+main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Length.h"
+
+using namespace std;
+
+int main() {
+    Length first{10};
+    Length second{10};
+
+    // 1 Approach
+    first.operator==(second);
+
+    // 2 Approach
+    first == second;
+
+    if(first == 10)
+
+
+    return 0;
+}
+
+```
+
 ### 20. Overloading the Comparison Operators<a id="20"></a>
+
+- Length.h
+
+```cpp
+class Length {
+public:
+    explicit Length(int value);
+
+    bool operator==(const Length &other_obj) const;
+    bool operator==(const int val) const;
+    bool operator!=(const int val) const;
+
+    bool operator<(const Length& other) const;
+    bool operator<=(const Length& other) const;
+    bool operator>(const Length& other) const;
+    bool operator>=(const Length& other) const;
+
+private:
+    int value;
+
+};
+
+```
+
+---
+
+- Length.cpp
+
+```cpp
+#include "Length.h"
+
+Length::Length(int value) : value(value) {}
+
+bool Length::operator==(const Length &other_obj) const {
+    return value == other_obj.value;
+}
+
+bool Length::operator==(const int val) const { return value == val; }
+
+bool Length::operator!=(const int val) const { return !(value == val); }
+
+
+
+bool Length::operator<(const Length &other) const {
+    return value < other.value;
+}
+
+bool Length::operator<=(const Length &other) const {
+    return value <= other.value;
+}
+
+bool Length::operator>(const Length &other) const {
+    return value > other.value;
+}
+
+bool Length::operator>=(const Length &other) const {
+    return value >= other.value;
+}
+```
+
+---
+
+main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Length.h"
+
+using namespace std;
+
+int main() {
+    Length first{10};
+    Length second{10};
+
+    if(first < second)
+
+    return 0;
+}
+
+```
 
 ### 21. Overloading the Spaceship Operator<a id="21"></a>
 
+Length.h
+
+```cpp
+#include <compare>
+using namespace std;
+
+class Length {
+public:
+    explicit Length(int value);
+
+    bool operator==(const Length &other_obj) const;
+    bool operator==(const int val) const;
+    bool operator!=(const int val) const;
+
+//    bool operator<(const Length& other) const;
+//    bool operator<=(const Length& other) const;
+//    bool operator>(const Length& other) const;
+//    bool operator>=(const Length& other) const;
+
+    strong_ordering operator<=>(const Length &other) const;
+
+private:
+    int value;
+
+};
+
+```
+
+---
+
+Length.cpp
+
+```cpp
+#include "Length.h"
+
+Length::Length(int value) : value(value) {}
+
+bool Length::operator==(const Length &other_obj) const {
+    return value == other_obj.value;
+}
+
+bool Length::operator==(const int val) const { return value == val; }
+
+bool Length::operator!=(const int val) const { return !(value == val); }
+
+strong_ordering Length::operator<=>(const Length &other) const {
+    return value <=> other.value;
+}
+
+//
+//bool Length::operator<(const Length &other) const {
+//    return value < other.value;
+//}
+//
+//bool Length::operator<=(const Length &other) const {
+//    return value <= other.value;
+//}
+//
+//bool Length::operator>(const Length &other) const {
+//    return value > other.value;
+//}
+//
+//bool Length::operator>=(const Length &other) const {
+//    return value >= other.value;
+//}
+//
+
+
+```
+
+---
+
+main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Length.h"
+
+using namespace std;
+
+int main() {
+//    int x = 10;
+//    int y = 20;
+//
+//    auto result = x <=> y;
+//
+//    if(x < y){}
+//    else if (x > y){}
+//    else {}
+
+    Length first{10};
+    Length second{12};
+
+    if(first < second)
+        cout << "First is smaller";
+
+    return 0;
+}
+
+```
+
 ### 22. Overloading the Stream Insertion Operator<a id="22"></a>
+
+Length.h
+
+```cpp
+#include <compare>
+#include <ostream>
+
+using namespace std;
+
+class Length {
+public:
+    explicit Length(int value);
+
+    bool operator==(const Length &other_obj) const;
+    bool operator==(const int val) const;
+    bool operator!=(const int val) const;
+
+    int getValue() const;
+    void setValue(int value);
+//    bool operator<(const Length& other) const;
+//    bool operator<=(const Length& other) const;
+//    bool operator>(const Length& other) const;
+//    bool operator>=(const Length& other) const;
+
+    strong_ordering operator<=>(const Length &other) const;
+
+private:
+    int value;
+};
+
+ostream &operator<<(ostream &stream, const Length &obj);
+
+```
+
+---
+
+Length.cpp
+
+```cpp
+#include "Length.h"
+
+Length::Length(int value) : value(value) {}
+
+bool Length::operator==(const Length &other_obj) const {
+    return value == other_obj.value;
+}
+
+bool Length::operator==(const int val) const { return value == val; }
+
+bool Length::operator!=(const int val) const { return !(value == val); }
+
+strong_ordering Length::operator<=>(const Length &other) const {
+    return value <=> other.value;
+}
+
+int Length::getValue() const {
+    return value;
+}
+
+void Length::setValue(int value) {
+    Length::value = value;
+}
+
+//
+//bool Length::operator<(const Length &other) const {
+//    return value < other.value;
+//}
+//
+//bool Length::operator<=(const Length &other) const {
+//    return value <= other.value;
+//}
+//
+//bool Length::operator>(const Length &other) const {
+//    return value > other.value;
+//}
+//
+//bool Length::operator>=(const Length &other) const {
+//    return value >= other.value;
+//}
+//
+
+ostream &operator<<(ostream &stream, const Length &obj) {
+    stream << obj.getValue();
+    return stream;
+}
+
+
+
+```
+
+---
+
+main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Length.h"
+
+using namespace std;
+
+int main() {
+Length length{10};
+cout << 1 << 2 << 3 ;
+
+    return 0;
+}
+
+```
 
 ### 23. Overloading the Stream Extraction Operator<a id="23"></a>
 
+Length.h
+
+```cpp
+#include <compare>
+#include <ostream>
+#include <istream>
+
+using namespace std;
+
+class Length {
+public:
+    explicit Length(int value);
+
+    bool operator==(const Length &other_obj) const;
+    bool operator==(const int val) const;
+    bool operator!=(const int val) const;
+
+    int getValue() const;
+    void setValue(int value);
+//    bool operator<(const Length& other) const;
+//    bool operator<=(const Length& other) const;
+//    bool operator>(const Length& other) const;
+//    bool operator>=(const Length& other) const;
+
+    strong_ordering operator<=>(const Length &other) const;
+
+private:
+    int value;
+};
+
+ostream &operator<<(ostream &stream, const Length &obj);
+istream &operator>>(istream &stream, Length &obj);
+
+```
+
+---
+
+Length.cpp
+
+```cpp
+#include "Length.h"
+
+Length::Length(int value) : value(value) {}
+
+bool Length::operator==(const Length &other_obj) const {
+    return value == other_obj.value;
+}
+
+bool Length::operator==(const int val) const { return value == val; }
+
+bool Length::operator!=(const int val) const { return !(value == val); }
+
+strong_ordering Length::operator<=>(const Length &other) const {
+    return value <=> other.value;
+}
+
+int Length::getValue() const {
+    return value;
+}
+
+void Length::setValue(int value) {
+    Length::value = value;
+}
+
+//
+//bool Length::operator<(const Length &other) const {
+//    return value < other.value;
+//}
+//
+//bool Length::operator<=(const Length &other) const {
+//    return value <= other.value;
+//}
+//
+//bool Length::operator>(const Length &other) const {
+//    return value > other.value;
+//}
+//
+//bool Length::operator>=(const Length &other) const {
+//    return value >= other.value;
+//}
+//
+
+ostream &operator<<(ostream &stream, const Length &obj) {
+    stream << obj.getValue();
+    return stream;
+}
+
+istream &operator>>(istream &stream, Length &obj) {
+    int temp;
+    stream >> temp;
+    obj.setValue(temp);
+    return stream;
+}
+
+
+
+```
+
+---
+
+main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Length.h"
+
+using namespace std;
+
+int main() {
+Length length{10};
+cout << "Length: ";
+cin >> length;
+cout << length;
+
+    return 0;
+}
+
+```
+
 ### 24. Friends of Classes<a id="24"></a>
+
+Length.h
+
+```cpp
+#include <compare>
+#include <ostream>
+#include <istream>
+
+using namespace std;
+
+class Length {
+public:
+    explicit Length(int value);
+
+    bool operator==(const Length &other_obj) const;
+    bool operator==(const int val) const;
+    bool operator!=(const int val) const;
+
+    int getValue() const;
+    void setValue(int value);
+
+    strong_ordering operator<=>(const Length &other) const;
+
+private:
+    int value;
+    int x;
+    friend ostream &operator<<(ostream &stream, const Length &obj);
+};
+
+ostream &operator<<(ostream &stream, const Length &obj);
+istream &operator>>(istream &stream, Length &obj);
+
+```
+
+---
+
+Length.cpp
+
+```cpp
+#include "Length.h"
+
+Length::Length(int value) : value(value) {}
+
+bool Length::operator==(const Length &other_obj) const {
+    return value == other_obj.value;
+}
+
+bool Length::operator==(const int val) const { return value == val; }
+
+bool Length::operator!=(const int val) const { return !(value == val); }
+
+strong_ordering Length::operator<=>(const Length &other) const {
+    return value <=> other.value;
+}
+
+int Length::getValue() const {
+    return value;
+}
+
+void Length::setValue(int value) {
+    Length::value = value;
+}
+
+
+ostream &operator<<(ostream &stream, const Length &obj) {
+    stream << obj.getValue();
+
+    // friend class access
+    obj.x;
+    return stream;
+}
+
+istream &operator>>(istream &stream, Length &obj) {
+    int temp;
+    stream >> temp;
+    obj.setValue(temp);
+    return stream;
+}
+
+```
+
+---
+
+main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Length.h"
+
+using namespace std;
+
+int main() {
+Length length{10};
+cout << "Length: ";
+cin >> length;
+cout << length;
+
+    return 0;
+}
+
+```
 
 ### 25. Overloading the Arithmetic Operators<a id="25"></a>
 
+Length.h
+
+```cpp
+#include <compare>
+#include <ostream>
+#include <istream>
+
+using namespace std;
+
+class Length {
+public:
+    explicit Length(int value);
+
+    bool operator==(const Length &other_obj) const;
+    bool operator==(const int val) const;
+    bool operator!=(const int val) const;
+    Length operator+(const Length &other) const;
+
+    int getValue() const;
+    void setValue(int value);
+
+    strong_ordering operator<=>(const Length &other) const;
+
+private:
+    int value;
+    int x;
+    friend ostream &operator<<(ostream &stream, const Length &obj);
+};
+
+ostream &operator<<(ostream &stream, const Length &obj);
+istream &operator>>(istream &stream, Length &obj);
+```
+
+---
+
+Length.cpp
+
+```cpp
+#include "Length.h"
+
+Length::Length(int value) : value(value) {}
+
+bool Length::operator==(const Length &other_obj) const {
+    return value == other_obj.value;
+}
+
+bool Length::operator==(const int val) const { return value == val; }
+
+bool Length::operator!=(const int val) const { return !(value == val); }
+
+strong_ordering Length::operator<=>(const Length &other) const {
+    return value <=> other.value;
+}
+
+int Length::getValue() const {
+    return value;
+}
+
+void Length::setValue(int value) {
+    Length::value = value;
+}
+
+
+ostream &operator<<(ostream &stream, const Length &obj) {
+    stream << obj.getValue();
+
+    // friend class access
+    obj.x;
+    return stream;
+}
+
+Length Length::operator+(const Length &other) const {
+    return Length(value + other.value);
+}
+
+istream &operator>>(istream &stream, Length &obj) {
+    int temp;
+    stream >> temp;
+    obj.setValue(temp);
+    return stream;
+}
+```
+
+---
+
+main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Length.h"
+
+using namespace std;
+
+int main() {
+    Length first(10);
+    Length second(10);
+
+    Length result = first + second;
+    cout << result;
+    return 0;
+}
+```
+
 ### 26. Overloading Compound Assignment Operators<a id="26"></a>
+
+Length.h
+
+```cpp
+#include <compare>
+#include <ostream>
+#include <istream>
+
+using namespace std;
+
+class Length {
+public:
+    explicit Length(int value);
+
+    bool operator==(const Length &other_obj) const;
+    bool operator==(const int val) const;
+    bool operator!=(const int val) const;
+    Length operator+(const Length &other) const;
+    Length &operator+=(const Length &other);
+
+    int getValue() const;
+    void setValue(int value);
+
+    strong_ordering operator<=>(const Length &other) const;
+
+private:
+    int value;
+    int x;
+    friend ostream &operator<<(ostream &stream, const Length &obj);
+};
+
+ostream &operator<<(ostream &stream, const Length &obj);
+istream &operator>>(istream &stream, Length &obj);
+
+```
+
+---
+
+Length.cpp
+
+```cpp
+#include "Length.h"
+
+Length::Length(int value) : value(value) {}
+
+bool Length::operator==(const Length &other_obj) const {
+    return value == other_obj.value;
+}
+
+bool Length::operator==(const int val) const { return value == val; }
+
+bool Length::operator!=(const int val) const { return !(value == val); }
+
+strong_ordering Length::operator<=>(const Length &other) const {
+    return value <=> other.value;
+}
+
+int Length::getValue() const {
+    return value;
+}
+
+void Length::setValue(int value) {
+    Length::value = value;
+}
+
+
+ostream &operator<<(ostream &stream, const Length &obj) {
+    stream << obj.getValue();
+
+    // friend class access
+    obj.x;
+    return stream;
+}
+
+Length Length::operator+(const Length &other) const {
+    return Length(value + other.value);
+}
+
+Length& Length::operator+=(const Length &other) {
+    value += other.value;
+    return *this;
+}
+
+istream &operator>>(istream &stream, Length &obj) {
+    int temp;
+    stream >> temp;
+    obj.setValue(temp);
+    return stream;
+}
+```
+
+---
+
+main.cpp
+
+```cpp
+#include <iostream>
+#include "Length.h"
+
+using namespace std;
+
+int main() {
+    Length first(10);
+    Length second(20);
+
+    first += second;
+    cout << first;
+    return 0;
+}
+```
+
+---
 
 ### 27. Overloading the Assignment Operator<a id="27"></a>
 
+Length.h
+
+```cpp
+#include <compare>
+#include <ostream>
+#include <istream>
+
+using namespace std;
+
+class Length {
+public:
+    explicit Length(int value);
+    Length() = default;
+    Length(const Length& other) = delete;
+
+    bool operator==(const Length &other_obj) const;
+    bool operator==(const int val) const;
+    bool operator!=(const int val) const;
+    Length operator+(const Length &other) const;
+    Length& operator+=(const Length &other);
+    Length& operator=(const Length &other) = delete;
+
+
+    int getValue() const;
+    void setValue(int value);
+
+    strong_ordering operator<=>(const Length &other) const;
+
+private:
+    int value;
+    int x;
+    friend ostream &operator<<(ostream &stream, const Length &obj);
+};
+
+ostream &operator<<(ostream &stream, const Length &obj);
+istream &operator>>(istream &stream, Length &obj);
+
+```
+
+---
+
+Length.cpp
+
+```cpp
+#include <iostream>
+#include "Length.h"
+
+Length::Length(int value) : value(value) {}
+
+bool Length::operator==(const Length &other_obj) const {
+    return value == other_obj.value;
+}
+
+bool Length::operator==(const int val) const { return value == val; }
+
+bool Length::operator!=(const int val) const { return !(value == val); }
+
+strong_ordering Length::operator<=>(const Length &other) const {
+    return value <=> other.value;
+}
+
+int Length::getValue() const {
+    return value;
+}
+
+void Length::setValue(int value) {
+    Length::value = value;
+}
+
+
+ostream &operator<<(ostream &stream, const Length &obj) {
+    stream << obj.getValue();
+
+    // friend class access
+    obj.x;
+    return stream;
+}
+
+Length Length::operator+(const Length &other) const {
+    return Length(value + other.value);
+}
+
+Length& Length::operator+=(const Length &other) {
+    value += other.value;
+    return *this;
+}
+
+//Length& Length::operator=(const Length &other) {
+//    cout << "Object assigned" << endl;
+//    value = other.value;
+//    return *this;
+//}
+
+istream &operator>>(istream &stream, Length &obj) {
+    int temp;
+    stream >> temp;
+    obj.setValue(temp);
+    return stream;
+}
+```
+
+---
+
+main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Length.h"
+
+using namespace std;
+
+int main() {
+    Length first(10);
+    // copy constructor called
+     Length second = first;
+
+    // assignment operator
+     second = first ;
+
+    return 0;
+}
+
+```
+
 ### 28. Overloading Unary Operators<a id="28"></a>
+
+Length.h
+
+```cpp
+#include <compare>
+#include <ostream>
+#include <istream>
+
+using namespace std;
+
+class Length {
+public:
+    explicit Length(int value);
+    Length() = default;
+    // Length(const Length& other) = delete;
+
+    bool operator==(const Length &other_obj) const;
+    bool operator==(const int val) const;
+    bool operator!=(const int val) const;
+    Length operator+(const Length &other) const;
+    Length& operator+=(const Length &other);
+    // Length& operator=(const Length &other) = delete;
+
+    Length& operator++();   // prefix
+    Length operator++(int); // postfix
+
+    int getValue() const;
+    void setValue(int value);
+
+    strong_ordering operator<=>(const Length &other) const;
+
+private:
+    int value;
+    int x;
+    friend ostream &operator<<(ostream &stream, const Length &obj);
+};
+
+ostream &operator<<(ostream &stream, const Length &obj);
+istream &operator>>(istream &stream, Length &obj);
+```
+
+---
+
+Length.cpp
+
+```cpp
+#include <iostream>
+#include "Length.h"
+
+Length::Length(int value) : value(value) {}
+
+bool Length::operator==(const Length &other_obj) const {
+    return value == other_obj.value;
+}
+
+bool Length::operator==(const int val) const { return value == val; }
+
+bool Length::operator!=(const int val) const { return !(value == val); }
+
+strong_ordering Length::operator<=>(const Length &other) const {
+    return value <=> other.value;
+}
+
+int Length::getValue() const {
+    return value;
+}
+
+void Length::setValue(int value) {
+    Length::value = value;
+}
+
+
+ostream &operator<<(ostream &stream, const Length &obj) {
+    stream << obj.getValue();
+
+    // friend class access
+    obj.x;
+    return stream;
+}
+
+Length Length::operator+(const Length &other) const {
+    return Length(value + other.value);
+}
+
+Length& Length::operator+=(const Length &other) {
+    value += other.value;
+    return *this;
+}
+
+Length& Length::operator++() {
+    value++;
+    return *this;
+}
+
+Length Length::operator++(int) {
+    Length copy = *this;
+    operator++();
+    return copy;
+}
+
+//Length& Length::operator=(const Length &other) {
+//    cout << "Object assigned" << endl;
+//    value = other.value;
+//    return *this;
+//}
+
+istream &operator>>(istream &stream, Length &obj) {
+    int temp;
+    stream >> temp;
+    obj.setValue(temp);
+    return stream;
+}
+```
+
+---
+
+main.cpp
+
+```cpp
+
+#include <iostream>
+#include "Length.h"
+
+using namespace std;
+
+int main() {
+    Length first{10};
+    Length second = first++;
+    // Length second = ++first;
+
+
+    cout << "First: " << first << endl;
+    cout << "Second: " << second << endl;
+    return 0;
+}
+```
 
 ### 29. Overloading the Subscript Operator<a id="29"></a>
 
