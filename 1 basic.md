@@ -118,7 +118,7 @@ To master C++ you need to master two things
 - [Vs code](https://code.visualstudio.com/download)
 - [Eclipse](https://www.eclipse.org/downloads/)
 
-Compiler for Vs-code and other IDE
+Compiler for Vs-code
 
 - [Gnu compiler](https://sourceforge.net/projects/mingw/)
 - [Clang compiler](https://releases.llvm.org/download.html)
