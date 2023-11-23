@@ -745,7 +745,7 @@ int main() {
 // brace initialized when empty, default value will be 0
     int number {};
 
-    // brace initialized with value
+// brace initialized with value
     int number2 {7};
 
     cout << "default value: "<< number << endl;
@@ -864,6 +864,8 @@ isNewUser: false
 
 ### 20. Working with Characters and Strings<a id="026"></a>
 
+Example Character
+
 ```cpp
 #include <iostream>
 
@@ -875,10 +877,10 @@ int main() {
 // dispaly character
     cout << ch << endl;
 
-// display ascii character code
+// How to display ascii character code
     cout << +ch << endl;
 
-// BAD practise using ascii code for initialization
+// ❌BAD practise: using ascii code for initialization
     char newch = 98;
     cout << ch;
 
@@ -895,6 +897,8 @@ a
 ```
 
 ---
+
+1. Example String
 
 ```cpp
 #include <iostream>
@@ -923,6 +927,8 @@ Hi Gta
 ```
 
 ---
+
+2. Example String
 
 ```cpp
 #include <iostream>
