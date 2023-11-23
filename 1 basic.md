@@ -2124,7 +2124,7 @@ return 0;
 
 ---
 
-##### For Clion
+#### For Clion
 
 Open CMakeList.txt and edit
 
@@ -2141,7 +2141,7 @@ add_executable(untitled3 main.cpp
 
 ---
 
-##### VS code
+#### VS code
 
 1. because the vs-code run extension does not support linker feature, we have to perform build process manually.
 1. Open project location
