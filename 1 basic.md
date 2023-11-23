@@ -2134,7 +2134,7 @@ project(untitled3)
 
 set(CMAKE_CXX_STANDARD 23)
 
-# remove debug add header files like written below format
+# 👉 remove debug add header files like written below format
 add_executable(untitled3 main.cpp
         utils/greet.cpp)
 ```
