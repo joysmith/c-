@@ -1026,9 +1026,16 @@ int main() {
     return 0;
 }
 
+
+/* output
+false
+*/
+
 ```
 
-Character comparison
+---
+
+Example Character comparison
 
 ```cpp
 #include <iostream>
@@ -1040,11 +1047,16 @@ int main() {
     char first = 'j';
     char second = 'J';
 
-    bool result = first = second;
+    bool result = first == second;
 
     cout << boolalpha << result;
     return 0;
 }
+
+
+/* output
+false
+*/
 
 ```
 
