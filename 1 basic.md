@@ -1235,6 +1235,10 @@ int main() {
     return 0;
 }
 
+
+/* output
+Nice
+*/
 ```
 
 ### 28. Nested If Statements<a id="034"></a>
@@ -1266,6 +1270,8 @@ int main() {
     return 0;
 }
 
+
+
 ```
 
 ### 29. The Conditional Operator<a id="035"></a>
@@ -1279,12 +1285,12 @@ using namespace std;
 
 int main() {
 
-// using conditional operator
+// 1 approach: using conditional operator
     int sales = 11'000;
     double commission = (sales > 10'000)? 0.11 : 0.05 ;
 
 
-// using if statement
+// 2 approach:  using if statement
     if(sales > 10'000)
         commission = 0.11;
     else
@@ -1295,6 +1301,10 @@ int main() {
     return 0;
 }
 
+
+/* output
+0.11
+*/
 ```
 
 ### 30. The Switch Statement<a id="036"></a>
@@ -1327,6 +1337,15 @@ int main() {
     return 0;
 }
 
+
+/* output
+1 - Create account
+2 - Change password
+3 - Quit
+select an option:
+1
+You selected 1
+*/
 ```
 
 ---
@@ -1355,6 +1374,7 @@ int main() {
             break;
         case 2:
             cout << "You selected 2";
+            break;
         default:
             cout << "Goodbye";
     }
@@ -1362,6 +1382,16 @@ int main() {
     return 0;
 }
 
+
+
+/* output
+1 - Create account
+2 - Change password
+3 - Quit
+select an option:
+2
+You selected 2
+*/
 ```
 
 <br>
@@ -1378,6 +1408,8 @@ int main() {
 
 ### 32. The for Loop<a id="038"></a>
 
+Example simple for loop
+
 ```cpp
 #include <iostream>
 
@@ -1392,9 +1424,21 @@ int main() {
     return 0;
 }
 
+
+/* output
+0
+1
+2
+3
+4
+5
+*/
+
 ```
 
 ---
+
+Example for loop with logic
 
 ```cpp
 #include <iostream>
@@ -1411,6 +1455,12 @@ int main() {
     return 0;
 }
 
+
+/* output
+5
+3
+1
+*/
 ```
 
 ### 33. Range-based for Loops<a id="039"></a>
