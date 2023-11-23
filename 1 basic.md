@@ -1083,6 +1083,10 @@ int main() {
     return 0;
 }
 
+
+/* output
+true
+*/
 ```
 
 ---
@@ -1108,6 +1112,11 @@ int main() {
     return 0;
 }
 
+
+
+/* output
+true
+*/
 ```
 
 ### 26. Order of Logical Operators<a id="032"></a>
@@ -1133,9 +1142,15 @@ int main() {
     return 0;
 }
 
+
+/* output
+false
+*/
 ```
 
 ---
+
+2 Example
 
 ```cpp
 #include <iostream>
@@ -1158,6 +1173,10 @@ int main() {
     return 0;
 }
 
+
+/* output
+true
+*/
 ```
 
 ---
@@ -1185,6 +1204,10 @@ int main() {
     return 0;
 }
 
+
+/* output
+false
+*/
 ```
 
 ### 27. If Statements<a id="033"></a>
