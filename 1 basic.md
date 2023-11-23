@@ -160,6 +160,8 @@ which means window, Mac, linux has different executable
 
 ### 6. Changing the Theme<a id="06"></a>
 
+Go to File ->settings -> Appearance & Behavior -> appearance -> Theme -> get more theme => Monokai Pro
+
 ---
 
 # The Basics feature
