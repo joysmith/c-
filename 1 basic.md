@@ -1465,7 +1465,7 @@ int main() {
 
 ### 33. Range-based for Loops<a id="039"></a>
 
-simple for loop
+Example simple for loop on array
 
 ```cpp
 #include <iostream>
@@ -1486,11 +1486,17 @@ int main() {
     return 0;
 }
 
+
+/* output
+1
+2
+3
+*/
 ```
 
 ---
 
-Ranged based for loop
+Example Ranged based for loop on array
 
 ```cpp
 #include <iostream>
@@ -1511,11 +1517,17 @@ int main() {
     return 0;
 }
 
+
+/* output
+1
+2
+3
+*/
 ```
 
 ---
 
-Ranged based for loop
+Example Ranged based for loop on string
 
 ```cpp
 #include <iostream>
@@ -1532,6 +1544,19 @@ int main() {
     return 0;
 }
 
+
+/* output
+j
+o
+y
+
+p
+e
+t
+e
+r
+
+*/
 ```
 
 ### 34. While Loops<a id="040"></a>
