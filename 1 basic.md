@@ -1561,9 +1561,9 @@ r
 
 ### 34. While Loops<a id="040"></a>
 
-simple for loop
+Example simple for loop
 
-- when we know how many times we want to repeat
+- when we know how many times we want to repeat, we use for loop.
 
 ```cpp
 #include <iostream>
@@ -1579,11 +1579,19 @@ int main() {
     return 0;
 }
 
+
+/* output
+1
+2
+3
+4
+5
+*/
 ```
 
 ---
 
-while loop
+Example while loop
 
 - when we don't know how many times we want to repeat ahead of times
   CHECKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK--------------------------------------
@@ -1649,6 +1657,12 @@ int main() {
 
     return 0;
 }
+
+
+
+/* output
+Number:2
+*/
 
 ```
 
@@ -2040,6 +2054,8 @@ Process:
 
 ---
 
+Steps
+
 1. create a folder name it "utils"
 1. In utils-folder create file greet.cpp and write simple function
 1. this file will act as source/implementation file
@@ -2069,7 +2085,7 @@ void greet(std::string name);
 
 or
 
-for adv learner
+for adv learner (optional)
 
 ```cpp
 // if UTILS_GREET constant which is written in uppercase, followed by foldername then function name is not defined
@@ -2107,6 +2123,25 @@ return 0;
 ```
 
 ---
+
+##### For Clion
+
+Open CMakeList.txt and edit
+
+```cpp
+cmake_minimum_required(VERSION 3.26)
+project(untitled3)
+
+set(CMAKE_CXX_STANDARD 23)
+
+# remove debug add header files like written below format
+add_executable(untitled3 main.cpp
+        utils/greet.cpp)
+```
+
+---
+
+##### VS code
 
 1. because the vs-code run extension does not support linker feature, we have to perform build process manually.
 1. Open project location
