@@ -182,6 +182,8 @@ Go to File ->settings -> Appearance & Behavior -> appearance -> Theme -> get mor
 
 ### 1. Introduction<a id="07">
 
+Objectives
+
 - variable and constant
 - naming conventions
 - mathematical expressions
@@ -638,6 +640,8 @@ t
 
 ### 11. Introduction<a id="017"></a>
 
+Objectives
+
 - Built-in type
 - numbers
 - boolean values
@@ -967,6 +971,8 @@ Hi Tony stark
 # Decision Making
 
 ### 23. Introduction<a id="029"></a>
+
+Objectives
 
 - comparison operator
 - logical operator
@@ -1406,6 +1412,8 @@ You selected 2
 
 ### 31. Introduction<a id="037"></a>
 
+Objectives
+
 - for loops
 - ranged based for loop
 - while loop
@@ -1723,6 +1731,8 @@ int main() {
 # Functions
 
 ### 38. Introduction<a id="044"></a>
+
+Objectives
 
 - Define and call function
 - Assign parameters a default value

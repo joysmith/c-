@@ -85,6 +85,8 @@
 
 ### 1. Introduction<a id="1"></a>
 
+Objectives
+
 ### 2. An Introduction to Object-oriented Programming<a id="2"></a>
 
 Programming paradigm or style of programming
@@ -1596,6 +1598,8 @@ cout << Rectangle::getObjectsCount() << endl;
 
 ### 18. Introduction<a id="18"></a>
 
+Objectives
+
 - equality operator
 - comparison operators
 - spaceship operator
@@ -2699,6 +2703,8 @@ int main() {
 
 ### 33. Introduction<a id="33"></a>
 
+Objectives
+
 - protected member
 - virtual method
 - method overriding
@@ -3144,6 +3150,8 @@ An object taking many forms
 
 ### 47. Introduction<a id="47"></a>
 
+Objectives
+
 - what exceptions really are
 - throw exception
 - catch exception
@@ -3176,6 +3184,8 @@ exception: an object to report an error while our program is running
 ## Templates
 
 ### 55. Introduction<a id="55"></a>
+
+Objectives
 
 - understanding the problem
 - function template

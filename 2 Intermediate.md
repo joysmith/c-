@@ -88,6 +88,8 @@
 
 ### 1. Introduction<a id="1"></a>
 
+Objectives
+
 ### 2. Creating and Initializing Arrays<a id="2"></a>
 
 Array- We use array to store sequence of object in the memory like sequence of number and so on.
@@ -336,6 +338,8 @@ int main(){
 ## Pointers
 
 ### 12. Introduction<a id="12"></a>
+
+Objectives
 
 - what are pointer and why we use them
 - Declare and use pointer
@@ -1181,6 +1185,8 @@ return 0;
 
 ### 25. Introduction<a id="25"></a>
 
+Objectives
+
 - C strings
 - C++ strings
 - Modifying strings
@@ -1378,6 +1384,8 @@ smart
 ## Structures and Enumerations
 
 ### 35. Introduction<a id="35"></a>
+
+Objectives
 
 - Define structure
 - use structures
@@ -2145,6 +2153,8 @@ Select:1
 ## Streams and Files
 
 ### 48. Introduction<a id="48"></a>
+
+Objectives
 
 - what streams are
 - standard input/output stream
