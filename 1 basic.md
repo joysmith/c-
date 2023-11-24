@@ -93,7 +93,7 @@
 
 ### 2. Introduction to C++<a id="02"></a>
 
-Application of C++
+Application of C++:
 
 1. High performance applications
 1. Video games
