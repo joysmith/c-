@@ -90,6 +90,13 @@
 
 Objectives
 
+- Creating and initializing arrays
+- Determining the size of arrays
+- Copying and comparing arrays
+- Passing arrays to functions
+- Searching arrays
+- Sorting arrays
+
 ### 2. Creating and Initializing Arrays<a id="2"></a>
 
 Array- We use array to store sequence of object in the memory like sequence of number and so on.

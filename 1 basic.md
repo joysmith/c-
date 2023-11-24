@@ -1078,8 +1078,6 @@ false
 
 We use logical operator for combining two or more boolean expression for condition
 
-- chart
-
 ```cpp
 #include <iostream>
 
@@ -1639,6 +1637,8 @@ int main() {
 
 ---
 
+2 Example
+
 ```cpp
 #include <iostream>
 
@@ -1687,11 +1687,21 @@ int main() {
     do{
         cout << "Number: ";
         cin >> number;
-    }
+    }// enter number 1-5 to terminate program
     while(number < 1 || number > 5);
 
     return 0;
 }
+
+
+
+/* output
+ Number:0
+ Number:9
+ Number:15
+ Number:3
+*/
+
 
 
 
