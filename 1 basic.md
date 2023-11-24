@@ -195,7 +195,7 @@ Objectives
 
 ### 2. Variables<a id="08"></a>
 
-<img src="notes/assignment.jpg" >
+<img src="notes/assignment.jpg" width="800">
 
 We use variable to temporarily store data in computer memory, technically a variable is name of location in the memory where we store some value because some value can change we refer to this location as variable.
 
