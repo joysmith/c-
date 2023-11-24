@@ -1600,7 +1600,6 @@ int main() {
 Example while loop
 
 - when we don't know how many times we want to repeat ahead of times
-  CHECKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK--------------------------------------
 
 ```cpp
 #include <iostream>
@@ -1612,11 +1611,20 @@ int main() {
     int i = 1;
     while(i < 5){
         cout << i << endl;
+        i++;
     }
 
     return 0;
 }
 
+
+
+/* output
+1
+2
+3
+4
+*/
 ```
 
 ---
@@ -1635,13 +1643,24 @@ int main() {
         cin >> number;
 
         if(number < 1 || number > 5){
-            cout << "Enter a number between 1-5" << endl;
+            cout << "Enter a number between 1-5 to get exit from loop" << endl;
         }
     }
 
     return 0;
 }
 
+
+
+/* output
+Number:7
+ Enter a number between 1-5 to get exit from loop
+Number:8
+ Enter a number between 1-5 to get exit from loop
+Number:32
+3
+4
+*/
 ```
 
 ### 35. Do-while Loops<a id="041"></a>
