@@ -972,7 +972,7 @@ Hi Tony stark
 
 ### 24. Comparison Operators<a id="030"></a>
 
-- chart
+<img src="notes/comparisonORrelational.png" width="400">
 
 We use comparison operator for comparing values
 
@@ -1061,6 +1061,8 @@ false
 ```
 
 ### 25. Logical Operators<a id="031"></a>
+
+<img src="notes/logical.jpg" width="400">
 
 We use logical operator for combining two or more boolean expression for condition
 
