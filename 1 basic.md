@@ -1220,7 +1220,107 @@ Hi Tony stark
 
 ### 21. Working with Arrays<a id="027"></a>
 
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int numbers[5];
+    // print address of numbers array
+    cout << numbers << endl;
+
+    // print element exist in index of 0
+    cout << numbers[0] << endl;
+
+    // print element exist in index of 1
+    cout << numbers[1] << endl;
+
+    // how to change value of array
+    numbers[1] = 10;
+    cout << numbers[1] << endl;
+
+    // How to initalize array using braces
+    string  names[5] = {"joy", "smith", "james", "jenny"};
+    cout << names[1] << endl;
+
+    return 0;
+}
+
+/* output
+0x26b63ffb40
+753532928
+32759
+10
+smith
+*/
+
+```
+
 ### 22. Type Conversion<a id="028"></a>
+
+Implicit or automatic conversion of data by compiler
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x = 1;
+    double y = 2.2;
+    // the compiler will automatically convert int into double
+    double z = x + y;
+    cout << z << endl;
+
+    return 0;
+}
+
+/* output
+3.2
+*/
+
+```
+
+---
+
+Explicit/Manually conversion of data by compiler
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x = 1;
+    double y = 2.26987;
+    // 1 Approach C style casting
+    // the compiler will manually convert double into int
+    // explicit/manually conversion
+    int z = x +  (int) y;
+    cout << z << endl;
+
+
+    int p = 1;
+    double q = 5.7854492;
+    // 2 Approach C++ style casting
+    // the compiler will manually convert double into int
+    // explicit/manually conversion
+    int r = p +  static_cast<int>(q);
+    cout << r << endl;
+
+    return 0;
+}
+
+/* output
+3
+6
+*/
+
+```
 
 <br>
 
