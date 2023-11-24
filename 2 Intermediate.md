@@ -128,6 +128,8 @@ int main(){
 
 ---
 
+2 Example: Approaches
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -188,6 +190,10 @@ int main(){
 */
 
 ```
+
+---
+
+For loop based array
 
 ```cpp
 #include<iostream>
@@ -412,6 +418,8 @@ int main(){
 ```
 
 ---
+
+2 Example
 
 ```cpp
 #include<iostream>
@@ -737,7 +745,6 @@ Stack memory:
 
 - variable declared on stack they get automatic clean up.
 - once they got out of scope the memory allocated to them, get released automatically.
--
 
 Heap or free store memory:
 
@@ -849,6 +856,8 @@ return 0;
 
 ---
 
+2 Example
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -917,6 +926,8 @@ return 0;
 ```
 
 ---
+
+3 Example
 
 ```cpp
 #include <iostream>

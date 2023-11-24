@@ -840,9 +840,263 @@ number: 16960
 
 ### 16. Generating Random Numbers<a id="022"></a>
 
+```cpp
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    long elapsedSeconds = time(0);
+    srand(elapsedSeconds);
+    // 10 is set as upper-limit
+    // you can change to 100 to get value from 1-99
+    int number = rand() % 10;
+    cout << number;
+
+    return 0;
+}
+
+
+/* output
+9
+*/
+```
+
 ### 17. Formatting Output<a id="023"></a>
 
+```cpp
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    cout << "Spring" << "Nice" << endl
+         << "Summer" << "Hot"  << endl;
+
+    // How to organize data in form of column and right align(default)
+    cout << setw(10) << "Spring" << setw(10) << "Nice" << endl
+         << setw(10) << "Summer" << setw(10) << "Hot" << endl;
+
+    // 1 Approach: How to organize data in form of column and left align
+    cout << left << setw(10) << "Spring" << setw(10) << "Nice" << endl
+                 << setw(10) << "Summer" << setw(10) << "Hot" << endl;
+
+    // 2 Approach: How to organize data in form of column and left align
+    cout << left;
+    cout << setw(10) << "Spring" << setw(10) << "Nice" << endl
+         << setw(10) << "Summer" << setw(10) << "Hot" << endl;
+
+
+    // How to print number in fixed point notation
+    cout << fixed << 12.34567 << endl;
+
+    // How to print number in fixed point notation with 2 digit precision
+    cout << fixed << setprecision(2)<< 12.34567 << endl;
+
+    // trailing zeroes
+    cout << fixed << setprecision(10)<< 12.34567 << endl;
+
+    //
+
+    return 0;
+}
+
+
+/* output
+SpringNice
+SummerHot
+    Spring      Nice
+    Summer       Hot
+Spring    Nice
+Summer    Hot
+Spring    Nice
+Summer    Hot
+12.345670
+12.35
+12.3456700000
+*/
+
+```
+
 ### 18. Data Types Size and Limits<a id="024"></a>
+
+Data type size in bytes on your machine
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    // size in bytes of data type in this machine
+    cout << "short " << sizeof(short) << endl;
+    cout << "int " << sizeof(int) << endl;
+    cout << "long " << sizeof(long) << endl;
+
+    cout << "float " << sizeof(float) << endl;
+    cout << "double " << sizeof(double) << endl;
+
+    cout << "char " << sizeof(char) << endl;
+    cout << "bool " << sizeof(bool) << endl;
+
+    cout << "unsigned short " << sizeof(unsigned short) << endl;
+    cout << "unsigned int " << sizeof(unsigned int) << endl;
+    cout << "unsigned long " << sizeof(unsigned long) << endl;
+    cout << "unsigned char " << sizeof(unsigned char) << endl;
+    return 0;
+}
+
+
+/* output
+short 2
+int 4
+long 4
+float 4
+double 8
+char 1
+bool 1
+unsigned short 2
+unsigned int 4
+unsigned long 4
+unsigned char 1
+*/
+
+```
+
+---
+
+How to get maximum and minimum limit a data type can store
+
+```cpp
+#include <iostream>
+#include <limits>
+
+using namespace std;
+
+int main()
+{
+    cout << "short lowest: " << numeric_limits<short>::lowest() << endl
+         << "short min: " << numeric_limits<short>::min() << endl
+         << "short max: " << numeric_limits<short>::max() << endl;
+
+    cout << "int lowest: " << numeric_limits<int>::lowest() << endl
+         << "int min: " << numeric_limits<int>::min() << endl
+         << "int max: " << numeric_limits<int>::max() << endl;
+
+    cout << "long lowest: " << numeric_limits<long>::lowest() << endl
+         << "long min: " << numeric_limits<long>::min() << endl
+         << "long max: " << numeric_limits<long>::max() << endl;
+
+    cout << "float lowest: " << numeric_limits<float>::lowest() << endl
+         << "float min: " << numeric_limits<float>::min() << endl
+         << "float max: " << numeric_limits<float>::max() << endl;
+
+    cout << "double lowest: " << numeric_limits<double>::lowest() << endl
+         << "double min: " << numeric_limits<double>::min() << endl
+         << "double max: " << numeric_limits<double>::max() << endl;
+
+    cout << "bool lowest: " << numeric_limits<bool>::lowest() << endl
+         << "bool min: " << numeric_limits<bool>::min() << endl
+         << "bool max: " << numeric_limits<bool>::max() << endl;
+
+    cout << "char lowest: " << numeric_limits<char>::lowest() << endl
+         << "char min: " << numeric_limits<char>::min() << endl
+         << "char max: " << numeric_limits<char>::max() << endl;
+
+    cout << "unsigned char lowest: " << numeric_limits<unsigned char>::lowest() << endl
+         << "unsigned char min: " << numeric_limits<unsigned char>::min() << endl
+         << "unsigned char max: " << numeric_limits<unsigned char>::max() << endl;
+
+}
+
+/* output
+short lowest: -32768
+short min: -32768
+short max: 32767
+int lowest: -2147483648
+int min: -2147483648
+int max: 2147483647
+long lowest: -2147483648
+long min: -2147483648
+long max: 2147483647
+float lowest: -3.40282e+38
+float min: 1.17549e-38
+float max: 3.40282e+38
+double lowest: -1.79769e+308
+double min: 2.22507e-308
+double max: 1.79769e+308
+bool lowest: 0
+bool min: 0
+bool max: 1
+char lowest: Ç
+char min: Ç
+char max: ⌂
+unsigned char lowest:
+unsigned char min:
+unsigned char max:  
+*/
+```
+
+---
+
+Overflowing: if a value do not store in a type and too large for the type then the value will wrap around its minimum type this is called overflowing
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+#include <limits>
+
+int main()
+{
+    // storing maximum number, integer can hold
+    int number = numeric_limits<int>::max();
+    // increasing number by one, which will cause integer overflowing
+    number++;
+    cout << number;
+}
+
+/* output
+-2147483648
+*/
+
+```
+
+---
+
+Integer overflow Vs Integer underflow
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+#include <limits>
+
+int main()
+{
+    // integer overflow
+    int numberMax = numeric_limits<int>::max();
+    numberMax++;
+    cout << "Integer overflow " << numberMax << endl;
+
+    // integer underflow
+    int numberMin = numeric_limits<int>::min();
+    numberMin--;
+    cout << "Integer underflow " << numberMin << endl;
+}
+
+/* output
+Integer overflow -2147483648
+Integer underflow 2147483647
+*/
+
+```
 
 ### 19. Working with Booleans<a id="025"></a>
 
