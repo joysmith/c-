@@ -102,11 +102,13 @@ Application of C++
 1. Servers
 1. Operating Systems
 
+General info:
+
 - Every 3 year new version comes up the latest version this time is 2023
 
 - Other language influenced by C++ : C#, Java, JS, TS, Dart
 
-To master C++ you need to master two things
+To master C++ you need to master two things:
 
 - C++ language: means syntax the grammar of this language.
 - C++ standard library: collection of pre-written code.
