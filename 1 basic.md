@@ -191,6 +191,8 @@ Go to File ->settings -> Appearance & Behavior -> appearance -> Theme -> get mor
 
 ### 2. Variables<a id="08"></a>
 
+<img src="notes/assignment.jpg" width="400">
+
 We use variable to temporarily store data in computer memory, technically a variable is name of location in the memory where we store some value because some value can change we refer to this location as variable.
 
 information: store, access, modify
@@ -251,6 +253,8 @@ int main() {
 ```
 
 ### 5. Mathematical Expressions<a id="011"></a>
+
+<img src="notes/arthimetic.jpg" width="400">
 
 Example 1:
 
