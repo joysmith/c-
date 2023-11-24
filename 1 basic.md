@@ -1724,6 +1724,13 @@ int main() {
 
 ### 38. Introduction<a id="044"></a>
 
+- Define and call function
+- Assign parameters a default value
+- Overload functions
+- Pass arguments by value or reference
+- Local vs global variables
+- Organize functions in different files
+
 ### 39. Defining and Calling Functions<a id="045"></a>
 
 1. Function without input
