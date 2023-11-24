@@ -1328,7 +1328,7 @@ false
 
 ### 25. Logical Operators<a id="031"></a>
 
-<img src="notes/logical.jpg" width="400">
+<img src="notes/logical.jpg" width="700">
 
 We use logical operator for combining two or more boolean expression for condition
 
