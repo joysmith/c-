@@ -389,19 +389,20 @@ int main(){
   // every variable has an address
   int number = 10;
 
-  // how to print memory address of number variable using '&'
+  // how to print memory address of number variable using '&' i.e address of operator
   cout << &number;
 
-  // how to initialize null pointer
+  // how to initialize null-pointer
+  // a null-pointer is a pointer that doesn't point to anything
   // int* ptr = nullptr;
 
-  // how to declare integer pointer
+  // how to declare integer pointer and store address
   int* ptr = &number;
 
-  // how to access data at target memory location
+  // how to access data at target memory location, using indirection/de-reference operator
   cout << *ptr << endl;
 
-  // how to change data at target memory location
+  // how to change data at target memory location, using indirection/d-reference operator
   *ptr = 20;
 
   cout << number;
@@ -454,7 +455,7 @@ int number = 10;
 ✅ preferable
 int* ptr = &number;
 
-// confusing with dereference operator
+// confusing with indirection/de-reference operator
 int *ptr = &number;
 ```
 
