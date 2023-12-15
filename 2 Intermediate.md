@@ -386,39 +386,41 @@ using namespace std;
 
 int main(){
 
-  // every variable has an address
-  int number = 10;
+    // every variable has an address
+    int number = 10;
+    cout << number << endl;
 
-  // how to print memory address of number variable using '&' i.e address of operator
-  cout << &number;
+    // how to print memory address of number variable using '&' i.e address of operator
+    cout << &number << endl;
 
-  // how to initialize null-pointer
-  // a null-pointer is a pointer that doesn't point to anything
-  // int* ptr = nullptr;
+    // how to initialize null-pointer
+    // a null-pointer is a pointer that doesn't point to anything
+    // int* ptr = nullptr;
 
-  // how to declare integer pointer and store address
-  int* ptr = &number;
+    // how to declare integer pointer and store address
+    int* ptr = &number;
 
+    // how to access data at target memory location, using indirection/de-reference operator
+    cout << *ptr << endl;
 
-  // how to access data at target memory location, using indirection/de-reference operator
-  cout << *ptr << endl;
+    // how to print address of pointed variable
+    cout << ptr << endl;
 
-  // how to print address of pointed variable
-  cout << ptr << endl;
+    // how to change data at target memory location, using indirection/d-reference operator
+    *ptr = 20;
 
-  // how to change data at target memory location, using indirection/d-reference operator
-  *ptr = 20;
+    cout << number;
 
-  cout << number;
-
-  return 0;
+    return 0;
 }
 
 
 
 /* output
-0x116a1ffe140x116a1ffe14
 10
+0xd9eabffbb4
+10
+0xd9eabffbb4
 20
 */
 ```
