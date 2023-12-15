@@ -689,7 +689,7 @@ int main(){
 
 
 /* output
-10
+0
 */
 ```
 
@@ -741,6 +741,10 @@ int main(){
 
     return 0;
 }
+
+
+//  output
+//  same
 ```
 
 ### 20. Dynamic Memory Allocation<a id="20"></a>
