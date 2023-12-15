@@ -399,6 +399,9 @@ int main(){
   // how to declare integer pointer and store address
   int* ptr = &number;
 
+  // how to print address of pointed variable
+  cout << ptr << endl;
+
   // how to access data at target memory location, using indirection/de-reference operator
   cout << *ptr << endl;
 
