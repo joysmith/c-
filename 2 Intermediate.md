@@ -399,11 +399,12 @@ int main(){
   // how to declare integer pointer and store address
   int* ptr = &number;
 
-  // how to print address of pointed variable
-  cout << ptr << endl;
 
   // how to access data at target memory location, using indirection/de-reference operator
   cout << *ptr << endl;
+
+  // how to print address of pointed variable
+  cout << ptr << endl;
 
   // how to change data at target memory location, using indirection/d-reference operator
   *ptr = 20;
@@ -416,7 +417,8 @@ int main(){
 
 
 /* output
-0x61ff0810
+0x116a1ffe140x116a1ffe14
+10
 20
 */
 ```
