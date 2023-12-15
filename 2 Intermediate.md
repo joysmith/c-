@@ -835,15 +835,18 @@ int* numbers = new int[5];
 // declaring variable on stack
 int entries =0;
 
+// Dynamic memory allocation
 while(true){
     cout << "Number: ";
     cin >> numbers[entries];
 
+    // cin.fail() return true that means that user entered something like string, letter etc that cant be converted into number, then break out of this loop
     if(cin.fail()) break;
     entries++;
 
 }
 
+// print all numbers get from user stored in array
 for(int i=0; i<entries; i++)
     cout << numbers[i] << endl;
 
