@@ -400,6 +400,7 @@ int main(){
     // int* ptr = nullptr;  // modern way
 
     // how to declare integer pointer and store address
+    // read: give me the address of number variable
     int* ptr = &number;
 
     // how to access data at target memory location, using indirection/de-reference operator
