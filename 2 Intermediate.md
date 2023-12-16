@@ -393,8 +393,10 @@ int main(){
     // how to print memory address of number variable using '&' i.e address of operator
     cout << &number << endl;
 
-    // how to initialize null-pointer
     // a null-pointer is a pointer that doesn't point to anything
+    // 3 approaches : How to initialize null-pointer
+    // int* ptr = 0;
+    // int* ptr = NULL;
     // int* ptr = nullptr;
 
     // how to declare integer pointer and store address
