@@ -717,7 +717,8 @@ using namespace std;
 int main(){
     int numbers[] = {10,20,30};
     int* ptr = numbers;
-    // dereference the pointer, means access value(increment pointer by one)
+
+    // increment the pointer by 1, then dereference the pointer to get the content/value of it
     cout << *(ptr + 1);
 
     // same as above line but using bracket notation
