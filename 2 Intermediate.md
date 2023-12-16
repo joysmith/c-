@@ -570,7 +570,8 @@ int main(){
 
 ---
 
-1. approach/pattern: new way
+1. approach/pattern: modern way
+   pass by reference
 
 ```cpp
 #include <iostream>
@@ -599,6 +600,7 @@ int main(){
 ---
 
 2 approach/pattern: old way
+pass by ref using pointer
 
 ```cpp
 #include <iostream>
@@ -606,7 +608,7 @@ using namespace std;
 
 // 1.declare parameter as pointer
 void increasePrice(double* price){
-    //2. indirection operator
+    //2. indirection/dereference operator to access , for multiplication
     *price *= 1.2;
 }
 
@@ -630,19 +632,27 @@ int main(){
 #include <iostream>
 using namespace std;
 
+
 void printNumbers(int numbers[]){
+    // modify first element of array
     numbers[0] = 0;
 }
 
 int main(){
+    // the numbers-array technically is a pointer that points to 1 element of array
     int numbers[] = {10,20,30};
+    // passing integer array
     printNumbers(numbers);
-    cout << numbers[0];
+
+    // Approach: how to access element of array
+    cout << *numbers << endl;
+    cout << numbers[0] ;
 
     return 0;
 }
 
 /* output
+0
 0
 */
 ```
