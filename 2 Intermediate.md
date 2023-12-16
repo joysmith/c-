@@ -397,7 +397,7 @@ int main(){
     // 3 approaches : How to initialize null-pointer
     // int* ptr = 0;
     // int* ptr = NULL;
-    // int* ptr = nullptr;
+    // int* ptr = nullptr;  // modern way
 
     // how to declare integer pointer and store address
     int* ptr = &number;
