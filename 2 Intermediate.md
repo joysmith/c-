@@ -789,11 +789,11 @@ Allocating array on heap
 using namespace std;
 
 int main(){
-    // Stack memory
+    // Stack memory(Automatic clean uo)
     // int numbers[1000];
 
 
-    // Heap memory(free store)
+    // Heap memory(free store)(Manual clean uo)
     // allocating array on heap
     int* numbers = new int[10];
 
@@ -826,7 +826,7 @@ int main(){
     int* number = new int;
 
     // de allocating single integer from memory
-    delete[] number;
+    delete number;
 
     // convention: reset pointer
     number = nullptr;
